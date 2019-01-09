@@ -3,10 +3,7 @@ import shutil
 import tempfile
 import os
 
-try:
-    import urllib.request as download
-except ImportError:
-    import urllib2.urlopen as download
+from six.moves import urllib
 
 
 import omf
@@ -24,7 +21,7 @@ class TestWrapper(unittest.TestCase):
     def setUp(self):
         self.test_dir = tempfile.mkdtemp()
         self.fname = os.path.join(self.test_dir, 'test_file.omf')
-        download.urlretrieve(DATA_URL, self.fname)
+        urllib.request.urlretrieve(DATA_URL, self.fname)
 
     def tearDown(self):
         # Remove the test data directory after the test
