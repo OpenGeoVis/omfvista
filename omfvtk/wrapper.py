@@ -10,7 +10,27 @@ import omfvtk
 
 
 def wrap(data):
-    """Wraps the OMF data object/project as a VTK data object"""
+    """Wraps the OMF data object/project as a VTK data object. This is the
+    primary function that an end user will harness.
+
+    Args:
+        data: any OMF data object
+
+    Example:
+        import omf
+        import omfvtk
+
+        # Read all elements
+        reader = omf.OMFReader('test_file.omf')
+        project = reader.get_project()
+
+        # Iterate over the elements and add converted VTK objects to dictionary:
+        data = dict()
+        for e in project.elements:
+            d = omfvtk.wrap(e)
+            data[e.name] = d
+
+    """
     wrappers = {
         'LineSetElement': omfvtk.line_set_to_vtk,
         'PointSetElement': omfvtk.point_set_to_vtk,

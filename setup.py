@@ -12,12 +12,13 @@ __version__ = '0.0.0'
 with open("README.rst", "r") as f:
     long_description = f.read()
 
-
-install_requires=[
+# Manage requirements
+install_requires = [
     'omf>=0.9.3',
+    'vectormath>=0.2.0',
     'vtki>=0.14.1',
     'numpy',
-],
+]
 
 # add vtk if not windows and (not Python 3.x or not x64)
 if os.name == 'nt' and (int(sys.version[0]) < 3 or '64' not in platform.architecture()[0]):
@@ -25,7 +26,7 @@ if os.name == 'nt' and (int(sys.version[0]) < 3 or '64' not in platform.architec
                   '  Try using Anaconda.  See:\n'
                   + 'https://anaconda.org/anaconda/vtk')
 else:
-    install_requires.append(['vtk>=8.1'])
+    install_requires.append('vtk>=8.1')
 
 setuptools.setup(
     name="omfvtk",
