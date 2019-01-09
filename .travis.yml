@@ -1,0 +1,19 @@
+language: python
+os:
+- linux
+python:
+- 2.7
+- 3.6
+sudo: false
+install:
+- pip install -r docs/requirements.txt
+script:
+- cd docs
+- make html
+- cd ..
+notifications:
+  email:
+    recipients:
+    - info@pvgeo.org
+    on_success: never
+    on_failure: never
