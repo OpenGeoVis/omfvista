@@ -15,3 +15,12 @@ notifications:
     - info@pvgeo.org
     on_success: never
     on_failure: never
+deploy:
+  provider: pypi
+  user: $PYPI_USERNAME
+  password: $PYPI_PASSWORD
+  on:
+    repo: OpenGeoVis/omfvtk
+    branch: master
+    tags: true
+    python: 2.7
