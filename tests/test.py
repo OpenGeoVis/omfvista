@@ -24,7 +24,7 @@ class TestWrapper(unittest.TestCase):
     def setUp(self):
         self.test_dir = tempfile.mkdtemp()
         self.fname = os.path.join(self.test_dir, 'test_file.omf')
-        urllib.request.urlretrieve(DATA_URL, self.fname)
+        download.urlretrieve(DATA_URL, self.fname)
 
     def tearDown(self):
         # Remove the test data directory after the test
