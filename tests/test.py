@@ -3,7 +3,10 @@ import shutil
 import tempfile
 import os
 
-import urllib.request
+try:
+    import urllib.request as download
+except ImportError:
+    import urllib2.urlopen as download
 
 
 import omf
