@@ -2,11 +2,30 @@
 """
 
 import setuptools
+import os
+import sys
+import platform
+import warnings
 
 __version__ = '0.0.0'
 
 with open("README.rst", "r") as f:
     long_description = f.read()
+
+
+install_requires=[
+    'omf>=0.9.3',
+    'vtki>=0.14.1',
+    'numpy',
+],
+
+# add vtk if not windows and (not Python 3.x or not x64)
+if os.name == 'nt' and (int(sys.version[0]) < 3 or '64' not in platform.architecture()[0]):
+    warnings.warn('\nYou will need to install VTK manually.' +
+                  '  Try using Anaconda.  See:\n'
+                  + 'https://anaconda.org/anaconda/vtk')
+else:
+    install_requires.append(['vtk>=8.1'])
 
 setuptools.setup(
     name="omfvtk",
@@ -18,11 +37,7 @@ setuptools.setup(
     long_description_content_type="text/x-rst",
     url="https://github.com/OpenGeoVis/omfvtk",
     packages=setuptools.find_packages(),
-    install_requires=[
-        'omf>=0.9.3',
-        'vtki>=0.14.1',
-        'numpy',
-    ],
+    install_requires=install_requires,
     classifiers=(
         "Programming Language :: Python",
         "License :: OSI Approved :: BSD License",
