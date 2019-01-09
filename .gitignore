@@ -1,0 +1,11 @@
+**/.DS_Store
+**/*.pyc
+**/__pycache__/
+.coverage
+coverage.xml
+build/
+dist/
+omfvtk.egg-info/
+docs/build/
+docs/source/content
+docs/source/index.rst
