@@ -1,16 +1,14 @@
 language: python
 os:
-- linux
+  - linux
 python:
-- 2.7
-- 3.6
+  - 2.7
+  - 3.6
 sudo: false
 install:
-- pip install -r docs/requirements.txt
+  - python setup.py install
 script:
-- cd docs
-- make html
-- cd ..
+  - python tests/test.py
 notifications:
   email:
     recipients:
