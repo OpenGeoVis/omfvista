@@ -60,6 +60,13 @@ Or better yet, just use the project loader:
     import omfvtk
     data = omfvtk.load_project('test_file.omf')
 
+See ``omfvtk`` in Action
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Be sure to check out the `Example Notebook`_ that demos ``omfvtk``!
+
+.. _Example Notebook: https://github.com/OpenGeoVis/omfvtk/blob/master/Example.ipynb
+
 
 Credits
 -------
