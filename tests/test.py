@@ -5,8 +5,6 @@ import os
 
 from six.moves import urllib
 
-
-import omf
 import omfvtk
 
 
@@ -28,15 +26,9 @@ class TestWrapper(unittest.TestCase):
         shutil.rmtree(self.test_dir)
 
     def test_wrap(self):
-        reader = omf.OMFReader(self.fname)
-        project = reader.get_project()
-        # Iterate over the elements and add converted VTK object to dictionary:
-        data = dict()
-        for e in project.elements:
-            print('wrapping {} ...'.format(e.__class__.__name__))
-            d = omfvtk.wrap(e)
-            data[e.name] = d
-            self.assertIsNotNone(d)
+        data = omfvtk.load_project(self.fname)
+        self.assertIsNotNone(data)
+        self.assertEqual(data.n_blocks, 9)
 
 
 

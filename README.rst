@@ -53,6 +53,13 @@ Here's an example using the sample data hosted in the `OMF repository`_.
         d = omfvtk.wrap(e)
         data[e.name] = d
 
+Or better yet, just use the project loader:
+
+.. code-block:: python
+
+    import omfvtk
+    data = omfvtk.load_project('test_file.omf')
+
 
 Credits
 -------
