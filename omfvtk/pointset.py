@@ -30,7 +30,7 @@ def point_set_to_vtk(pse):
                        np.arange(npoints).reshape(-1, 1)))
     cells = np.ascontiguousarray(cells, dtype=np.int64)
     vtkcells = vtk.vtkCellArray()
-    vtkcells.SetCells(npoints, nps.numpy_to_vtkIdTypeArray(cells, deep=True))
+    vtkcells.SetCells(npoints, nps.numpy_to_vtk(cells, deep=True, array_type=vtk.VTK_ID_TYPE))
 
     # Convert points to vtk object
     pts = vtk.vtkPoints()

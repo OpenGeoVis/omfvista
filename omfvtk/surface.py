@@ -33,7 +33,7 @@ def surface_geom_to_vtk(surfgeom):
     cellsMat = np.concatenate((np.ones((cellConn.shape[0], 1), dtype=np.int64)*cellConn.shape[1], cellConn), axis=1).ravel()
     cells = vtk.vtkCellArray()
     cells.SetNumberOfCells(cellConn.shape[0])
-    cells.SetCells(cellConn.shape[0], nps.numpy_to_vtkIdTypeArray(cellsMat, deep=True))
+    cells.SetCells(cellConn.shape[0], nps.numpy_to_vtk(cellsMat, deep=True, array_type=vtk.VTK_ID_TYPE))
 
     # Add to output
     output.SetPoints(pts)
