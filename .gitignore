@@ -9,3 +9,4 @@ omfvtk.egg-info/
 docs/build/
 docs/source/content
 docs/source/index.rst
+.ipynb_checkpoints
