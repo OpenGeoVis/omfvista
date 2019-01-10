@@ -4,9 +4,12 @@
 
 __all__ = [
     'wrap',
+    'load_project',
 ]
 
+import omf
 import omfvtk
+import vtki
 
 
 def wrap(data):
@@ -17,18 +20,18 @@ def wrap(data):
         data: any OMF data object
 
     Example:
-        import omf
-        import omfvtk
+        >>> import omf
+        >>> import omfvtk
 
-        # Read all elements
-        reader = omf.OMFReader('test_file.omf')
-        project = reader.get_project()
+        >>> # Read all elements
+        >>> reader = omf.OMFReader('test_file.omf')
+        >>> project = reader.get_project()
 
-        # Iterate over the elements and add converted VTK objects to dictionary:
-        data = dict()
-        for e in project.elements:
-            d = omfvtk.wrap(e)
-            data[e.name] = d
+        >>> # Iterate over the elements and add converted VTK objects to dictionary:
+        >>> data = dict()
+        >>> for e in project.elements:
+        >>>     d = omfvtk.wrap(e)
+        >>>     data[e.name] = d
 
     """
     wrappers = {
@@ -48,3 +51,19 @@ def wrap(data):
         return wrappers[key](data)
     except KeyError:
         raise RuntimeError('Data of type ({}) is not supported currently.'.format(key))
+
+
+def load_project(filename):
+    """Loads an OMF project file into a vtki.MultiBlock dataset"""
+
+    # Read all elements
+    reader = omf.OMFReader(filename)
+    project = reader.get_project()
+
+    # Iterate over the elements and add converted VTK objects a MultiBlock
+    data = vtki.MultiBlock()
+    for i, e in enumerate(project.elements):
+        d = omfvtk.wrap(e)
+        data[i, e.name] = d
+
+    return data

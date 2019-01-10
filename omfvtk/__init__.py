@@ -1,6 +1,6 @@
 """``omfvtk``: A VTK interface for the Open Mining Format package"""
 
-from omfvtk.wrapper import wrap
+from omfvtk.wrapper import wrap, load_project
 from omfvtk.lineset import line_set_to_vtk
 from omfvtk.pointset import point_set_to_vtk
 from omfvtk.surface import surface_geom_to_vtk, surface_grid_geom_to_vtk, surface_to_vtk
