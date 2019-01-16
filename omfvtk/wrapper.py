@@ -1,5 +1,44 @@
 """This module provides a wrapper that will work for any OMF data object or
 project files.
+
+Example Use
+-----------
+
+Use the wrapper provided in ``omfvtk`` to wrap any ``omf`` data object:
+
+.. code-block:: python
+
+    import omfvtk
+
+    omfvtk.wrap(data)
+
+
+Here's an example using the sample data hosted in the `OMF repository`_.
+
+.. _OMF repository: https://github.com/gmggroup/omf/tree/master/assets
+
+.. code-block:: python
+
+    import omf
+    import omfvtk
+
+    # Read all elements
+    reader = omf.OMFReader('test_file.omf')
+    project = reader.get_project()
+
+    # Iterate over the elements and add converted VTK objects to dictionary:
+    data = dict()
+    for e in project.elements:
+        d = omfvtk.wrap(e)
+        data[e.name] = d
+
+Or better yet, just use the project loader:
+
+.. code-block:: python
+
+    import omfvtk
+    data = omfvtk.load_project('test_file.omf')
+
 """
 
 
