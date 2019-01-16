@@ -22,6 +22,15 @@ A VTK interface for the `Open Mining Format package`_ (``omf``).
 
 .. _Open Mining Format package: https://omf.readthedocs.io/en/latest/
 
+
+Installation
+------------
+
+Installation is simply::
+
+    pip install omfvtk
+
+
 Example Use
 -----------
 
