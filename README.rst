@@ -1,7 +1,7 @@
 OMF-VTK
 =======
 
-.. image:: https://readthedocs.org/projects/omfvtk/badge/?version=latest
+.. image:: https://img.shields.io/readthedocs/omfvtk.svg?logo=read%20the%20docs&logoColor=white
    :target: https://omfvtk.readthedocs.io/en/latest/
    :alt: Documentation Status
 
@@ -67,7 +67,7 @@ Here's an example using the sample data hosted in the `OMF repository`_.
     </embed>
 
 
-Once the data is loaded as a `vtki.MultiBlock` dataset from ``omfvtk``, then
+Once the data is loaded as a ``vtki.MultiBlock`` dataset from ``omfvtk``, then
 that object can be directly used for interactive 3D visualization from ``vtki``:
 
 .. code-block:: python
@@ -85,7 +85,7 @@ figure directly in a Jupyter notebook. First, grab the elements from the project
     >>> topo = project['Topography']
     >>> dacite = project['Dacite']
 
-Then apply a filtering tool from `vtki` to the volumetric data:
+Then apply a filtering tool from ``vtki`` to the volumetric data:
 
 .. code-block:: python
 
@@ -97,7 +97,7 @@ Then you can put it all in one environment!
 
 .. code-block:: python
 
-    >>> p = vtki.BackgroundPlotter()#Plotter(notebook=False)
+    >>> p = vtki.BackgroundPlotter()
 
 
     >>> p.add_mesh(topo, colormap='gist_earth', showedges=False, opacity=0.5)
@@ -105,7 +105,7 @@ Then you can put it all in one environment!
     >>> p.add_mesh(thresher.output_dataset, showedges=False, rng=vol.get_data_range(), colormap='jet')
     >>> p.add_mesh(dacite, showedges=False, color='yellow', opacity=0.6)
 
-    >>> p.add_bounds_axes(topo)
+    >>> p.add_bounds_axes()
 
 And once you like what the render view displays, you can save a screenshot:
 
