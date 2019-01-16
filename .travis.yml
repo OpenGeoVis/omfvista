@@ -1,20 +1,54 @@
 language: python
+
 os:
   - linux
+
 python:
   - 2.7
   - 3.6
+
 sudo: false
+
+addons:
+  apt:
+    packages:
+      - xvfb
+
+before_script: # configure a headless display to test plot generation
+  - export DISPLAY=:99.0
+  - which Xvfb
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  # - ls -l /etc/init.d/
+  # - sh -e /etc/init.d/xvfb start
+  - sleep 3 # give xvfb some time to start
+
 install:
-  - python setup.py install
+  - pip install pytest-cov
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
+      pip install PyQt5 pytest-qt;
+      pip install nbval; # For testing the notebooks
+    fi
+  - pip install -e .
+  - python -c "import imageio; imageio.plugins.ffmpeg.download()"
+  - which python
+  - python -c "import vtk; print(vtk.VTK_VERSION)"
+
 script:
   - python tests/test.py
+  # Now make sure notebooks are running
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
+      pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb;
+    fi
+
 notifications:
   email:
     recipients:
     - info@pvgeo.org
     on_success: never
     on_failure: never
+
 deploy:
   provider: pypi
   user: $PYPI_USERNAME
