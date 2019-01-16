@@ -113,13 +113,16 @@ Then you can put it all in one environment!
 
     >>> p = vtki.BackgroundPlotter()
 
-
     >>> p.add_mesh(topo, colormap='gist_earth', showedges=False, opacity=0.5)
     >>> p.add_mesh(assay, color='blue', linethick=3)
     >>> p.add_mesh(thresher.output_dataset, showedges=False, rng=vol.get_data_range(), colormap='jet')
     >>> p.add_mesh(dacite, showedges=False, color='yellow', opacity=0.6)
 
     >>> p.add_bounds_axes()
+
+
+.. figure:: https://github.com/OpenGeoVis/omfvtk/blob/master/interactive.gif
+
 
 And once you like what the render view displays, you can save a screenshot:
 
