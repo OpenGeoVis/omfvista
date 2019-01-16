@@ -80,7 +80,7 @@ figure directly in a Jupyter notebook. First, grab the elements from the project
 .. code-block:: python
 
     # Grab a few elements of interest and plot em up!
-    >>> vol = proj['Block Model']
+    >>> vol = project['Block Model']
     >>> assay = project['wolfpass_WP_assay']
     >>> topo = project['Topography']
     >>> dacite = project['Dacite']
