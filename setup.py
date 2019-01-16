@@ -18,6 +18,7 @@ install_requires = [
     'vectormath>=0.2.0',
     'vtki>=0.15.0',
     'numpy',
+    'matplotlib',
 ]
 
 # add vtk if not windows and (not Python 3.x or not x64)

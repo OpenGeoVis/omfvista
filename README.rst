@@ -30,6 +30,11 @@ Installation is simply::
 
     pip install omfvtk
 
+All necessary dependencies will be installed alongside ``omfvtk``. Please
+note that this package heavily leverages the vtkInterface_ package.
+
+.. _vtkInterface: https://github.com/akaszynski/vtki
+
 
 Example Use
 -----------
