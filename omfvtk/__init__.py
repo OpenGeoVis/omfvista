@@ -11,6 +11,6 @@ from omfvtk.volume import volume_grid_geom_to_vtk, volume_to_vtk
 __author__ = 'Bane Sullivan'
 __license__ = 'BSD-3-Clause'
 __copyright__ = '2019, Bane Sullivan'
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 __displayname__ = 'OMF-VTK'
 __name__ = 'omfvtk'
