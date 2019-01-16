@@ -25,17 +25,10 @@ A VTK interface for the `Open Mining Format package`_ (``omf``).
 Example Use
 -----------
 
-Use the wrapper provided in ``omfvtk`` to wrap any ``omf`` data object:
-
-.. code-block:: python
-
-    import omfvtk
-
-    omfvtk.wrap(data)
-
-
+Be sure to check out the `Example Notebook`_ that demos ``omfvtk``!
 Here's an example using the sample data hosted in the `OMF repository`_.
 
+.. _Example Notebook: https://github.com/OpenGeoVis/omfvtk/blob/master/Example.ipynb
 .. _OMF repository: https://github.com/gmggroup/omf/tree/master/assets
 
 .. code-block:: python
@@ -120,11 +113,3 @@ And once you like what the render view displays, you can save a screenshot:
     >>> p.screenshot('wolfpass.png')
 
 .. image:: https://github.com/OpenGeoVis/omfvtk/blob/master/wolfpass.png
-
-
-See ``omfvtk`` in Action
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Be sure to check out the `Example Notebook`_ that demos ``omfvtk``!
-
-.. _Example Notebook: https://github.com/OpenGeoVis/omfvtk/blob/master/Example.ipynb
