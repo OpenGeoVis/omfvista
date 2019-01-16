@@ -16,7 +16,7 @@ with open("README.rst", "r") as f:
 install_requires = [
     'omf>=0.9.3',
     'vectormath>=0.2.0',
-    'vtki>=0.14.1',
+    'vtki>=0.15.0',
     'numpy',
 ]
 
