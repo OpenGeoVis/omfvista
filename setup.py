@@ -1,4 +1,4 @@
-"""``omfvtk``: A VTK interface for the Open Mining Format package
+"""``omfvtk``: 3D visualization for the Open Mining Format Python package (omf)
 """
 
 import setuptools
@@ -34,7 +34,7 @@ setuptools.setup(
     version=__version__,
     author="Bane Sullivan",
     author_email="info@pvgeo.org",
-    description="A VTK interface for the Open Mining Format package",
+    description="3D visualization for the Open Mining Format Python package (omf)",
     long_description=long_description,
     long_description_content_type="text/x-rst",
     url="https://github.com/OpenGeoVis/omfvtk",

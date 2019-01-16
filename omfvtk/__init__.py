@@ -1,4 +1,5 @@
-"""``omfvtk``: A VTK interface for the Open Mining Format package"""
+"""``omfvtk``: 3D visualization for the Open Mining Format Python package (omf)
+"""
 
 from omfvtk.wrapper import wrap, project_to_vtk, load_project
 from omfvtk.lineset import line_set_to_vtk

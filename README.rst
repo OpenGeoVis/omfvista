@@ -18,7 +18,8 @@ OMF-VTK
    :alt: GitHub
 
 
-A VTK interface for the `Open Mining Format package`_ (``omf``).
+A VTK interface for the `Open Mining Format package`_ (``omf``) providing
+Python 3D visualization.
 
 .. _Open Mining Format package: https://omf.readthedocs.io/en/latest/
 
