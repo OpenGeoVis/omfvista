@@ -184,7 +184,10 @@ texinfo_documents = [
 # -- Options for intersphinx extension ---------------------------------------
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+intersphinx_mapping = {'https://docs.python.org/': None,
+                       'https://vtkinterface.readthedocs.io/en/latest/': None,
+                       'https://omf.readthedocs.io/en/latest/': None,
+                      }
 
 # -- Options for todo extension ----------------------------------------------
 

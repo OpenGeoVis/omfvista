@@ -1,11 +1,15 @@
-"""This module provides a wrapper that will work for any OMF data object
+"""This module provides a wrapper that will work for any OMF data object or
+project files.
 """
 
 
 __all__ = [
     'wrap',
+    'project_to_vtk',
     'load_project',
 ]
+
+__displayname__ = 'Wrapper'
 
 import omf
 import omfvtk
@@ -44,6 +48,7 @@ def wrap(data):
         # Volumes
         'VolumeGridGeometry': omfvtk.volume_grid_geom_to_vtk,
         'VolumeElement': omfvtk.volume_to_vtk,
+        'Project': omfvtk.project_to_vtk,
     }
     # get the class name
     key = data.__class__.__name__
@@ -53,17 +58,26 @@ def wrap(data):
         raise RuntimeError('Data of type ({}) is not supported currently.'.format(key))
 
 
-def load_project(filename):
-    """Loads an OMF project file into a vtki.MultiBlock dataset"""
-
-    # Read all elements
-    reader = omf.OMFReader(filename)
-    project = reader.get_project()
-
+def project_to_vtk(project):
+    """Converts an OMF project (:class:`omf.base.Project`) to a
+    :class:`vtki.MultiBlock` data boject
+    """
     # Iterate over the elements and add converted VTK objects a MultiBlock
     data = vtki.MultiBlock()
     for i, e in enumerate(project.elements):
         d = omfvtk.wrap(e)
         data[i, e.name] = d
-
     return data
+
+
+def load_project(filename):
+    """Loads an OMF project file into a :class:`vtki.MultiBlock` dataset"""
+    reader = omf.OMFReader(filename)
+    project = reader.get_project()
+    return project_to_vtk(project)
+
+
+# Now set up the display names for the docs
+load_project.__displayname__ = 'Load Project File'
+project_to_vtk.__displayname__ = 'Project to VTK'
+wrap.__displayname__ = 'The Wrapper'

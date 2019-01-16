@@ -5,6 +5,8 @@ __all__ = [
     'point_set_to_vtk',
 ]
 
+__displayname__ = 'Point Set'
+
 import vtk
 from vtk.util import numpy_support as nps
 import vtki
@@ -13,13 +15,13 @@ import numpy as np
 
 
 def point_set_to_vtk(pse):
-    """Convert the point set to a ``vtkPloyData`` data object.
+    """Convert the point set to a :class:`vtki.PolyData` data object.
 
     Args:
-        pse (PointSetElement): The point set to convert
+        pse (:class:`omf.pointset.PointSetElement`): The point set to convert
 
     Return:
-        vtki.PolyData
+        :class:`vtki.PolyData`
     """
 
     points = pse.geometry.vertices
@@ -52,3 +54,6 @@ def point_set_to_vtk(pse):
         output.GetPointData().AddArray(c)
 
     return vtki.wrap(output)
+
+
+point_set_to_vtk.__displayname__ = 'Point Set to VTK'

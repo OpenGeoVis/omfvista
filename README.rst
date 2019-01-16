@@ -1,5 +1,5 @@
-omfvtk
-======
+OMF-VTK
+=======
 
 .. image:: https://readthedocs.org/projects/omfvtk/badge/?version=latest
    :target: https://omfvtk.readthedocs.io/en/latest/?badge=latest
@@ -25,7 +25,7 @@ A VTK interface for the `Open Mining Format package`_ (``omf``).
 Example Use
 -----------
 
-Use the wraper provided in ``omfvtk`` to wrap any ``omf`` data object:
+Use the wrapper provided in ``omfvtk`` to wrap any ``omf`` data object:
 
 .. code-block:: python
 

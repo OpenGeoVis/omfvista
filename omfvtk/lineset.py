@@ -5,6 +5,8 @@ __all__ = [
     'line_set_to_vtk',
 ]
 
+__displayname__ = 'Line Set'
+
 import vtk
 from vtk.util import numpy_support as nps
 import vtki
@@ -12,13 +14,13 @@ import vtki
 import numpy as np
 
 def line_set_to_vtk(lse):
-    """Convert the line set to a ``vtkPloyData`` data object.
+    """Convert the line set to a :class:`vtki.PolyData` data object.
 
     Args:
-        lse (LineSetElement): The line set to convert
+        lse (:class:`omf.lineset.LineSetElement`): The line set to convert
 
     Return:
-        vtki.PolyData
+        :class:`vtki.PolyData`
     """
 
     output = vtk.vtkPolyData()
@@ -64,3 +66,6 @@ def line_set_to_vtk(lse):
     # TODO: if subtype is borehole make a tube
 
     return vtki.wrap(output)
+
+
+line_set_to_vtk.__displayname__ = 'Line Set to VTK'

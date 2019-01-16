@@ -6,6 +6,8 @@ __all__ = [
     'volume_to_vtk',
 ]
 
+__displayname__ = 'Volume'
+
 import vtk
 from vtk.util import numpy_support as nps
 import vtki
@@ -14,16 +16,18 @@ import numpy as np
 
 
 def get_volume_shape(vol):
+    """Returns the shape of a gridded volume"""
     return ( len(vol.tensor_u), len(vol.tensor_v), len(vol.tensor_w))
 
 
 def volume_grid_geom_to_vtk(volgridgeom):
-    """Convert the 3D gridded volume to a ``vtkStructuredGrid``
-    (or a ``vtkRectilinearGrid`` when apprropriate) object contatining the
-    2D surface.
+    """Convert the 3D gridded volume to a :class:`vtki.StructuredGrid`
+    (or a :class:`vtki.RectilinearGrid` when apprropriate) object contatining
+    the 2D surface.
 
     Args:
-        volgridgeom (VolumeGridGeometry): the grid geom to convert
+        volgridgeom (:class:`omf.volume.VolumeGridGeometry`): the grid geometry
+            to convert
     """
     volgridgeom._validate_mesh()
 
@@ -81,7 +85,10 @@ def volume_to_vtk(volelement):
     """Convert the volume element to a VTK data object.
 
     Args:
-        volelement (VolumeElement): The volume ele"""
+        volelement (:class:`omf.volume.VolumeElement`): The volume element to
+            convert
+
+    """
     output = volume_grid_geom_to_vtk(volelement.geometry)
     shp = get_volume_shape(volelement.geometry)
     # Add data to output
@@ -92,3 +99,9 @@ def volume_to_vtk(volelement):
         c.SetName(data.name)
         output.GetCellData().AddArray(c)
     return vtki.wrap(output)
+
+
+# Now set up the display names for the docs
+volume_to_vtk.__displayname__ = 'Volume to VTK'
+volume_grid_geom_to_vtk.__displayname__ = 'Volume Grid Geometry to VTK'
+get_volume_shape.__displayname__ = 'Volume Shape'
