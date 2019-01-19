@@ -48,11 +48,11 @@ Here's an example using the sample data hosted in the `OMF repository`_.
 
 .. code-block:: python
 
-    >>> import vtki
-    >>> import omfvtk
+    import vtki
+    import omfvtk
 
-    >>> project = omfvtk.load_project('test_file.omf')
-    >>> project
+    project = omfvtk.load_project('test_file.omf')
+    project
 
 .. raw:: html
 
@@ -87,7 +87,7 @@ that object can be directly used for interactive 3D visualization from ``vtki``:
 
 .. code-block:: python
 
-    >>> project.plot(notebook=False)
+    project.plot(notebook=False)
 
 Or an interactive scene can be created and manipulated to create a compelling
 figure directly in a Jupyter notebook. First, grab the elements from the project:
@@ -95,16 +95,16 @@ figure directly in a Jupyter notebook. First, grab the elements from the project
 .. code-block:: python
 
     # Grab a few elements of interest and plot em up!
-    >>> vol = project['Block Model']
-    >>> assay = project['wolfpass_WP_assay']
-    >>> topo = project['Topography']
-    >>> dacite = project['Dacite']
+    vol = project['Block Model']
+    assay = project['wolfpass_WP_assay']
+    topo = project['Topography']
+    dacite = project['Dacite']
 
 Then apply a filtering tool from ``vtki`` to the volumetric data:
 
 .. code-block:: python
 
-    >>> thresher = vtki.Threshold(vol)
+    thresher = vtki.Threshold(vol, display_params={'show_edges':False})
 
 .. figure:: https://github.com/OpenGeoVis/omfvtk/blob/master/threshold.gif
 
@@ -112,14 +112,15 @@ Then you can put it all in one environment!
 
 .. code-block:: python
 
-    >>> p = vtki.BackgroundPlotter()
-
-    >>> p.add_mesh(topo, colormap='gist_earth', showedges=False, opacity=0.5)
-    >>> p.add_mesh(assay, color='blue', linethick=3)
-    >>> p.add_mesh(thresher.output_dataset, showedges=False, rng=vol.get_data_range(), colormap='jet')
-    >>> p.add_mesh(dacite, showedges=False, color='yellow', opacity=0.6)
-
-    >>> p.add_bounds_axes()
+    # Grab the active plotting window
+    #  from the thresher tool
+    p = thresher.plotter
+    # Add our datasets
+    p.add_mesh(topo, cmap='gist_earth', show_edges=False, opacity=0.5)
+    p.add_mesh(assay, color='blue', line_width=3)
+    p.add_mesh(dacite, show_edges=False, color='yellow', opacity=0.6)
+    # Add the bounds axis
+    p.add_bounds_axes()
 
 
 .. figure:: https://github.com/OpenGeoVis/omfvtk/blob/master/interactive.gif
@@ -129,6 +130,6 @@ And once you like what the render view displays, you can save a screenshot:
 
 .. code-block:: python
 
-    >>> p.screenshot('wolfpass.png')
+    p.screenshot('wolfpass.png')
 
 .. image:: https://github.com/OpenGeoVis/omfvtk/blob/master/wolfpass.png
