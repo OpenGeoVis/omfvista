@@ -1,4 +1,4 @@
-"""``omfvtk``: 3D visualization for the Open Mining Format Python package (omf)
+"""``omfvtk``: 3D visualization for the Open Mining Format (omf)
 """
 
 from omfvtk.wrapper import wrap, project_to_vtk, load_project
