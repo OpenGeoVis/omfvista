@@ -32,9 +32,9 @@ Installation is simply::
     pip install omfvtk
 
 All necessary dependencies will be installed alongside ``omfvtk``. Please
-note that this package heavily leverages the vtkInterface_ package.
+note that this package heavily leverages the vtki_ package.
 
-.. _vtkInterface: https://github.com/akaszynski/vtki
+.. _vtki: https://github.com/akaszynski/vtki
 
 
 Example Use
@@ -54,32 +54,8 @@ Here's an example using the sample data hosted in the `OMF repository`_.
     project = omfvtk.load_project('test_file.omf')
     project
 
-.. raw:: html
-
-    <embed>
-    <table><tr><th>Information</th><th>Blocks</th></tr><tr><td>
-    <table>
-    <tr><th>vtkMultiBlockDataSet</th><th>Values</th></tr>
-    <tr><td>N Blocks</td><td>9</td></tr>
-    <tr><td>X Bounds</td><td>443941.105, 447059.611</td></tr>
-    <tr><td>Y Bounds</td><td>491941.536, 495059.859</td></tr>
-    <tr><td>Z Bounds</td><td>2330.000, 3555.942</td></tr>
-    </table>
-    </td><td>
-    <table>
-    <tr><th>Index</th><th>Name</th><th>Type</th></tr>
-    <tr><th>0</th><th>collar</th><th>vtkPolyData</th></tr>
-    <tr><th>1</th><th>wolfpass_WP_assay</th><th>vtkPolyData</th></tr>
-    <tr><th>2</th><th>Topography</th><th>vtkUnstructuredGrid</th></tr>
-    <tr><th>3</th><th>Basement</th><th>vtkUnstructuredGrid</th></tr>
-    <tr><th>4</th><th>Early Diorite</th><th>vtkUnstructuredGrid</th></tr>
-    <tr><th>5</th><th>Intermineral diorite</th><th>vtkUnstructuredGrid</th></tr>
-    <tr><th>6</th><th>Dacite</th><th>vtkUnstructuredGrid</th></tr>
-    <tr><th>7</th><th>Cover</th><th>vtkUnstructuredGrid</th></tr>
-    <tr><th>8</th><th>Block Model</th><th>vtkRectilinearGrid</th></tr>
-    </table>
-    </td></tr> </table>
-    </embed>
+.. image:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/table-repr.png
+   :alt: Table Representation
 
 
 Once the data is loaded as a ``vtki.MultiBlock`` dataset from ``omfvtk``, then
@@ -106,7 +82,7 @@ Then apply a filtering tool from ``vtki`` to the volumetric data:
 
     thresher = vtki.Threshold(vol, display_params={'show_edges':False})
 
-.. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/threshold.gif
+.. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/threshold.gif
    :alt: IPython Thresholding Tool
 
 Then you can put it all in one environment!
@@ -124,7 +100,7 @@ Then you can put it all in one environment!
     p.add_bounds_axes()
 
 
-.. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/interactive.gif
+.. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/interactive.gif
    :alt: Interactive Rendering
 
 
@@ -134,5 +110,5 @@ And once you like what the render view displays, you can save a screenshot:
 
     p.screenshot('wolfpass.png')
 
-.. image:: https://github.com/OpenGeoVis/omfvtk/raw/master/wolfpass.png
+.. image:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/wolfpass.png
    :alt: Wolf Pass Screenshot

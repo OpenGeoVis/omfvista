@@ -23,6 +23,7 @@ before_script: # configure a headless display to test plot generation
   - sleep 3 # give xvfb some time to start
 
 install:
+  - pip install --upgrade pip
   - pip install pytest-cov
   - |
     if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
