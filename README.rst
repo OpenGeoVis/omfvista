@@ -106,7 +106,8 @@ Then apply a filtering tool from ``vtki`` to the volumetric data:
 
     thresher = vtki.Threshold(vol, display_params={'show_edges':False})
 
-.. figure:: https://github.com/OpenGeoVis/omfvtk/blob/master/threshold.gif
+.. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/threshold.gif
+   :alt: IPython Thresholding Tool
 
 Then you can put it all in one environment!
 
@@ -123,7 +124,8 @@ Then you can put it all in one environment!
     p.add_bounds_axes()
 
 
-.. figure:: https://github.com/OpenGeoVis/omfvtk/blob/master/interactive.gif
+.. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/interactive.gif
+   :alt: Interactive Rendering
 
 
 And once you like what the render view displays, you can save a screenshot:
@@ -132,4 +134,5 @@ And once you like what the render view displays, you can save a screenshot:
 
     p.screenshot('wolfpass.png')
 
-.. image:: https://github.com/OpenGeoVis/omfvtk/blob/master/wolfpass.png
+.. image:: https://github.com/OpenGeoVis/omfvtk/raw/master/wolfpass.png
+   :alt: Wolf Pass Screenshot
