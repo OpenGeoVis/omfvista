@@ -13,6 +13,7 @@ import vtk
 from vtk.util import numpy_support as nps
 import vtki
 
+import imageio
 import numpy as np
 
 def surface_geom_to_vtk(surfgeom):
@@ -76,8 +77,6 @@ def surface_to_vtk(surfel):
 
     output = surface_geom_to_vtk(surfel.geometry)
 
-    # TODO: handle textures
-
     # Now add point data:
     for data in surfel.data:
         arr = data.array.array
@@ -85,7 +84,32 @@ def surface_to_vtk(surfel):
         c.SetName(data.name)
         output.GetPointData().AddArray(c)
 
-    return vtki.wrap(output)
+    output = vtki.wrap(output)
+    for i, tex in enumerate(surfel.textures):
+        # Now map the coordinates for the texture
+        m = vtk.vtkTextureMapToPlane()
+        m.SetInputDataObject(output)
+        m.SetOrigin(tex.origin)
+        m.SetPoint1(tex.origin + tex.axis_u)
+        m.SetPoint2(tex.origin + tex.axis_v)
+        m.Update()
+        # Grab the texture coordinates
+        tmp = vtki.wrap(m.GetOutputDataObject(0))
+        tcoord = tmp.GetPointData().GetTCoords()
+        name = tex.name
+        if name is None or name == '':
+            name = '{}-texture-{}'.format(surfel.name, i)
+        tcoord.SetName(name)
+        # Add these coordinates to the PointData of the output
+        output.GetPointData().AddArray(tcoord)
+        output.GetPointData().SetTCoords(tcoord)
+        # Add the vtkTexture to the output
+        img = imageio.imread(tex.image)
+        tex.image.seek(0) # Reset the image bytes in case it is accessed again
+        vtexture = vtki.numpy_to_texture(img)
+        output.textures[name] = vtexture
+
+    return output
 
 
 surface_to_vtk.__displayname__ = 'Surface to VTK'
