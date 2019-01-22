@@ -77,6 +77,14 @@ def wrap(data):
         >>>     data[e.name] = d
 
     """
+    # Allow recursion
+    if isinstance(data, (list, tuple)):
+        multi = vtki.MultiBlock()
+        for i, item in enumerate(data):
+            multi.append(wrap(item))
+            multi.set_block_name(i, item.name)
+        return multi
+    # Define wrappers
     wrappers = {
         'LineSetElement': omfvtk.line_set_to_vtk,
         'PointSetElement': omfvtk.point_set_to_vtk,
