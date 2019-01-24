@@ -106,6 +106,8 @@ def surface_to_vtk(surfel):
         # Add the vtkTexture to the output
         img = imageio.imread(tex.image)
         tex.image.seek(0) # Reset the image bytes in case it is accessed again
+        if img.shape[2] > 3:
+            img = img[:, :, 0:3]
         vtexture = vtki.numpy_to_texture(img)
         output.textures[name] = vtexture
 
