@@ -15,3 +15,13 @@ __copyright__ = '2019, Bane Sullivan'
 __version__ = '0.0.5'
 __displayname__ = 'OMF-VTK'
 __name__ = 'omfvtk'
+
+
+def ignore_warnings():
+    """Sets a warning filter for pillow's annoying ``DecompressionBombWarning``
+    """
+    import warnings
+    from PIL import Image
+    warnings.simplefilter(action='ignore', category=Image.DecompressionBombWarning)
+
+ignore_warnings()
