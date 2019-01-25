@@ -101,8 +101,9 @@ def surface_to_vtk(surfel):
             name = '{}-texture-{}'.format(surfel.name, i)
         tcoord.SetName(name)
         # Add these coordinates to the PointData of the output
+        # NOTE: Let vtki handle setting the TCoords because of how VTK cleans
+        #       up old TCoords
         output.GetPointData().AddArray(tcoord)
-        output.GetPointData().SetTCoords(tcoord)
         # Add the vtkTexture to the output
         img = np.array(Image.open(tex.image))
         tex.image.seek(0) # Reset the image bytes in case it is accessed again
