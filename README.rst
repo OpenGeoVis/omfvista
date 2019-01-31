@@ -110,5 +110,5 @@ And once you like what the render view displays, you can save a screenshot:
 
     p.screenshot('wolfpass.png')
 
-.. image:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/wolfpass.png
+.. image:: https://github.com/OpenGeoVis/omfvtk/raw/master/wolfpass.png
    :alt: Wolf Pass Screenshot
