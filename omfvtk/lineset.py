@@ -61,7 +61,11 @@ def line_set_to_vtk(lse):
         arr = data.array.array
         c = nps.numpy_to_vtk(num_array=arr)
         c.SetName(data.name)
-        output.GetCellData().AddArray(c)
+        loc = data.location
+        if loc == 'vertices':
+            output.GetPointData().AddArray(c)
+        else:
+            output.GetCellData().AddArray(c)
 
     # TODO: if subtype is borehole make a tube
 

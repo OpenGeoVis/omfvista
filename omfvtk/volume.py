@@ -97,7 +97,11 @@ def volume_to_vtk(volelement):
         arr = np.reshape(arr, shp).flatten(order='F')
         c = nps.numpy_to_vtk(num_array=arr, deep=True)
         c.SetName(data.name)
-        output.GetCellData().AddArray(c)
+        loc = data.location
+        if loc == 'vertices':
+            output.GetPointData().AddArray(c)
+        else:
+            output.GetCellData().AddArray(c)
     return vtki.wrap(output)
 
 

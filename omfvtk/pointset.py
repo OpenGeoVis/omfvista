@@ -51,6 +51,8 @@ def point_set_to_vtk(pse):
         arr = data.array.array
         c = nps.numpy_to_vtk(num_array=arr)
         c.SetName(data.name)
+        # NOTE: we assume data must be on vertices
+        #       Should we check the data.location property?
         output.GetPointData().AddArray(c)
 
     return vtki.wrap(output)
