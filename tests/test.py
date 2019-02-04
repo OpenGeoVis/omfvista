@@ -116,7 +116,56 @@ class TestDummyProjct(unittest.TestCase):
             ],
             color=[100, 200, 200]
         )
-        self.proj.elements = [self.pts, self.line, self.surf]
+        self.grid = omf.SurfaceElement(
+            name='gridsurf',
+            geometry=omf.SurfaceGridGeometry(
+                tensor_u=np.ones(10).astype(float),
+                tensor_v=np.ones(15).astype(float),
+                origin=[50., 50., 50.],
+                axis_u=[1., 0, 0],
+                axis_v=[0, 0, 1.],
+                offset_w=np.random.rand(11, 16).flatten()
+            ),
+            data=[
+                omf.ScalarData(
+                    name='rand vert data',
+                    array=np.random.rand(11, 16).flatten(),
+                    location='vertices'
+                ),
+                omf.ScalarData(
+                    name='rand face data',
+                    array=np.random.rand(10, 15).flatten(order='f'),
+                    location='faces'
+                )
+            ],
+            # textures=[
+            #     omf.ImageTexture(
+            #         name='test image',
+            #         image='test_image.png',
+            #         origin=[2., 2., 2.],
+            #         axis_u=[5., 0, 0],
+            #         axis_v=[0, 2., 5.]
+            #     )
+            # ]
+        )
+
+        self.vol = omf.VolumeElement(
+            name='vol',
+            geometry=omf.VolumeGridGeometry(
+                tensor_u=np.ones(10).astype(float),
+                tensor_v=np.ones(15).astype(float),
+                tensor_w=np.ones(20).astype(float),
+                origin=[10., 10., -10]
+            ),
+            data=[
+                omf.ScalarData(
+                    name='Random Data',
+                    location='cells',
+                    array=np.random.rand(10, 15, 20).flatten()
+                )
+            ]
+        )
+        self.proj.elements = [self.pts, self.line, self.surf, self.grid, self.vol]
         self.assertTrue(self.proj.validate())
 
 
@@ -129,17 +178,22 @@ class TestDummyProjct(unittest.TestCase):
         omf.OMFWriter(self.proj, self.project_filename)
         # Read it back in using OMFVTK
         proj = omfvtk.load_project(self.project_filename)
-        self.assertEqual(proj.n_blocks, 3)
+        self.assertEqual(proj.n_blocks, 5)
         self.assertEqual(proj.get_block_name(0), 'Random Points')
         self.assertEqual(proj.get_block_name(1), 'Random Line')
         self.assertEqual(proj.get_block_name(2), 'trisurf')
+        self.assertEqual(proj.get_block_name(3), 'gridsurf')
+        self.assertEqual(proj.get_block_name(4), 'vol')
 
     def test_wrap_project(self):
         proj = omfvtk.wrap(self.proj)
-        self.assertEqual(proj.n_blocks, 3)
+        self.assertEqual(proj.n_blocks, 5)
         self.assertEqual(proj.get_block_name(0), 'Random Points')
         self.assertEqual(proj.get_block_name(1), 'Random Line')
         self.assertEqual(proj.get_block_name(2), 'trisurf')
+        self.assertEqual(proj.get_block_name(3), 'gridsurf')
+        self.assertEqual(proj.get_block_name(4), 'vol')
+        # proj.save(os.path.join(self.test_dir, 'projectvtk.vtm'))
 
     def test_wrap_elements(self):
         line = omfvtk.wrap(self.line)
@@ -151,6 +205,12 @@ class TestDummyProjct(unittest.TestCase):
         surf = omfvtk.wrap(self.surf)
         self.assertEqual(surf.n_scalars, 2)
         self.assertTrue(isinstance(surf, vtki.UnstructuredGrid))
+        grid = omfvtk.wrap(self.grid)
+        self.assertEqual(surf.n_scalars, 2)
+        self.assertTrue(isinstance(grid, vtki.StructuredGrid))
+        vol = omfvtk.wrap(self.vol)
+        self.assertEqual(vol.n_scalars, 1)
+        self.assertTrue(isinstance(grid, vtki.StructuredGrid))
 
 
 
