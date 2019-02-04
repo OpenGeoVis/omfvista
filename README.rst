@@ -11,7 +11,11 @@ OMF-VTK
 
 .. image:: https://img.shields.io/travis/OpenGeoVis/omfvtk/master.svg?label=build&logo=travis
    :target: https://travis-ci.org/OpenGeoVis/omfvtk
-   :alt: Build Status
+   :alt: Build Status Linux
+
+.. image:: https://ci.appveyor.com/api/projects/status/y1sbh707jpl8375u?svg=true
+   :target: https://ci.appveyor.com/project/banesullivan/omfvtk
+   :alt: Build Status Windows
 
 .. image:: https://img.shields.io/github/stars/OpenGeoVis/omfvtk.svg?style=social&label=Stars
    :target: https://github.com/OpenGeoVis/omfvtk
