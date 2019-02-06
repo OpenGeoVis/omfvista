@@ -84,8 +84,8 @@ def surface_grid_geom_to_vtk(surfgridgeom):
     output.SetDimensions(len(x), len(y), len(z))
 
     # Build out all nodes in the mesh
-    xx, yy, zz = np.meshgrid(x, y, z)
-    xx, yy, zz, = xx.flatten(), yy.flatten(), zz.flatten()
+    xx, yy, zz = np.meshgrid(x, y, z, indexing='ij')
+    xx, yy, zz, = xx.ravel('F'), yy.ravel('F'), zz.ravel('F')
     zz += surfgridgeom.offset_w
     points = np.c_[xx, yy, zz]
 

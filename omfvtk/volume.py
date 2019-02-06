@@ -58,7 +58,7 @@ def volume_grid_geom_to_vtk(volgridgeom):
 
     # Build out all nodes in the mesh
     xx, yy, zz = np.meshgrid(x, y, z, indexing='ij')
-    points = np.stack((xx.flatten(), yy.flatten(), zz.flatten())).T
+    points = np.c_[xx.ravel('F'), yy.ravel('F'), zz.ravel('F')]
 
     # Rotate the points based on the axis orientations
     rotation_mtx = np.array([volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w])
