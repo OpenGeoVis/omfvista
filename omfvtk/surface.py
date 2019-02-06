@@ -12,9 +12,13 @@ __displayname__ = 'Surface'
 import vtk
 from vtk.util import numpy_support as nps
 import vtki
+import omf
 
-from PIL import Image
+
 import numpy as np
+
+from omfvtk.utilities import check_orientation, check_orthogonal
+from omfvtk.utilities import add_data, add_textures
 
 def surface_geom_to_vtk(surfgeom):
     """Convert the triangulated surface to a :class:`vtki.UnstructuredGrid`
@@ -57,13 +61,43 @@ def surface_grid_geom_to_vtk(surfgridgeom):
             grid geometry to convert
 
     """
+    surfgridgeom._validate_mesh()
 
     output = vtk.vtkStructuredGrid()
 
-    # TODO: build!
-    # Build out all nodes in the mesh
+    axis_u = np.array(surfgridgeom.axis_u)
+    axis_v = np.array(surfgridgeom.axis_v)
+    axis_w = np.cross(axis_u, axis_v)
+    if not check_orthogonal(axis_u, axis_v, axis_w):
+        raise ValueError('axis_u, axis_v, and axis_w must be orthogonal')
+    rotation_mtx = np.array([axis_u, axis_v, axis_w])
+    ox, oy, oz = surfgridgeom.origin
 
-    # Add to output
+    # Make coordinates along each axis
+    x = ox + np.cumsum(surfgridgeom.tensor_u)
+    x = np.insert(x, 0, ox)
+    y = oy + np.cumsum(surfgridgeom.tensor_v)
+    y = np.insert(y, 0, oy)
+
+    z = np.array([oz])
+
+    output.SetDimensions(len(x), len(y), len(z))
+
+    # Build out all nodes in the mesh
+    xx, yy, zz = np.meshgrid(x, y, z, indexing='ij')
+    xx, yy, zz, = xx.ravel('F'), yy.ravel('F'), zz.ravel('F')
+    zz += surfgridgeom.offset_w
+    points = np.c_[xx, yy, zz]
+
+    # Rotate the points based on the axis orientations
+    points = points.dot(rotation_mtx)
+
+    # Convert points to vtk object
+    pts = vtk.vtkPoints()
+    pts.SetNumberOfPoints(len(points))
+    pts.SetData(nps.numpy_to_vtk(points))
+    # Now build the output
+    output.SetPoints(pts)
 
     return vtki.wrap(output)
 
@@ -75,42 +109,19 @@ def surface_to_vtk(surfel):
             convert
     """
 
-    output = surface_geom_to_vtk(surfel.geometry)
+    geom = surfel.geometry
+
+    if isinstance(geom, omf.surface.SurfaceGeometry):
+        builder = surface_geom_to_vtk
+    elif isinstance(geom, omf.surface.SurfaceGridGeometry):
+        builder = surface_grid_geom_to_vtk
+
+    output = builder(geom)
 
     # Now add point data:
-    for data in surfel.data:
-        arr = data.array.array
-        c = nps.numpy_to_vtk(num_array=arr)
-        c.SetName(data.name)
-        output.GetPointData().AddArray(c)
+    add_data(output, surfel.data)
 
-    output = vtki.wrap(output)
-    for i, tex in enumerate(surfel.textures):
-        # Now map the coordinates for the texture
-        m = vtk.vtkTextureMapToPlane()
-        m.SetInputDataObject(output)
-        m.SetOrigin(tex.origin)
-        m.SetPoint1(tex.origin + tex.axis_u)
-        m.SetPoint2(tex.origin + tex.axis_v)
-        m.Update()
-        # Grab the texture coordinates
-        tmp = m.GetOutputDataObject(0)
-        tcoord = tmp.GetPointData().GetTCoords()
-        name = tex.name
-        if name is None or name == '':
-            name = '{}-texture-{}'.format(surfel.name, i)
-        tcoord.SetName(name)
-        # Add these coordinates to the PointData of the output
-        # NOTE: Let vtki handle setting the TCoords because of how VTK cleans
-        #       up old TCoords
-        output.GetPointData().AddArray(tcoord)
-        # Add the vtkTexture to the output
-        img = np.array(Image.open(tex.image))
-        tex.image.seek(0) # Reset the image bytes in case it is accessed again
-        if img.shape[2] > 3:
-            img = img[:, :, 0:3]
-        vtexture = vtki.numpy_to_texture(img)
-        output.textures[name] = vtexture
+    add_textures(output, surfel.textures, surfel.name)
 
     return output
 
