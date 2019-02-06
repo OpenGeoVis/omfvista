@@ -38,7 +38,7 @@ install:
 
 script:
   - coverage run tests/__main__.py
-  - python -m tests
+  - python tests/__main__.py
   # Now make sure notebooks are running
   - |
     if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
