@@ -181,29 +181,29 @@ class TestElements(unittest.TestCase):
         # Remove the test data directory after the test
         shutil.rmtree(self.test_dir)
 
+    def _check_multi_block(self, proj):
+        self.assertEqual(proj.n_blocks, len(PROJECT.elements))
+        self.assertEqual(proj.get_block_name(0), 'Random Points')
+        self.assertEqual(proj.get_block_name(1), 'Random Line')
+        self.assertEqual(proj.get_block_name(2), 'trisurf')
+        self.assertEqual(proj.get_block_name(3), 'gridsurf')
+        self.assertEqual(proj.get_block_name(4), 'vol')
+        self.assertEqual(proj.get_block_name(5), 'vol_ir')
+
     def test_file_io(self):
         # Write out the project using omf
         omf.OMFWriter(PROJECT, self.project_filename)
         # Read it back in using OMFVTK
         proj = omfvtk.load_project(self.project_filename)
-        self.assertEqual(proj.n_blocks, len(PROJECT.elements))
-        self.assertEqual(proj.get_block_name(0), 'Random Points')
-        self.assertEqual(proj.get_block_name(1), 'Random Line')
-        self.assertEqual(proj.get_block_name(2), 'trisurf')
-        self.assertEqual(proj.get_block_name(3), 'gridsurf')
-        self.assertEqual(proj.get_block_name(4), 'vol')
-        self.assertEqual(proj.get_block_name(5), 'vol_ir')
+        self._check_multi_block(proj)
 
     def test_wrap_project(self):
         proj = omfvtk.wrap(PROJECT)
-        self.assertEqual(proj.n_blocks, len(PROJECT.elements))
-        self.assertEqual(proj.get_block_name(0), 'Random Points')
-        self.assertEqual(proj.get_block_name(1), 'Random Line')
-        self.assertEqual(proj.get_block_name(2), 'trisurf')
-        self.assertEqual(proj.get_block_name(3), 'gridsurf')
-        self.assertEqual(proj.get_block_name(4), 'vol')
-        self.assertEqual(proj.get_block_name(5), 'vol_ir')
+        self._check_multi_block(proj)
 
+    def test_wrap_list_of_elements(self):
+        proj = omfvtk.wrap(PROJECT.elements)
+        self._check_multi_block(proj)
 
     def test_wrap_lineset(self):
         line = omfvtk.wrap(LINESET)
@@ -212,7 +212,6 @@ class TestElements(unittest.TestCase):
         self.assertEqual(line.n_scalars, len(LINESET.data) + 1)
         self.assertEqual(line.n_cells, LINESET.geometry.num_cells)
         self.assertEqual(line.n_points, LINESET.geometry.num_nodes)
-
 
     def test_wrap_pointset(self):
         pts = omfvtk.wrap(POINTSET)
