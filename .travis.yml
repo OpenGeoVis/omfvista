@@ -24,6 +24,7 @@ before_script: # configure a headless display to test plot generation
 
 install:
   - pip install --upgrade pip
+  - pip install codecov
   - pip install pytest-cov
   - pip install -e .
   - |
@@ -43,6 +44,7 @@ script:
     if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
       pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb;
     fi
+  - codecov --token=1dc88395-9612-4ef9-9574-62c035d25908
 
 notifications:
   email:
