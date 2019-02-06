@@ -25,12 +25,17 @@ before_script: # configure a headless display to test plot generation
 install:
   - pip install --upgrade pip
   - pip install pytest-cov
+  - pip install -e .
   - |
     if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
       pip install PyQt5 pytest-qt matplotlib;
       pip install nbval ipython ipywidgets; # For testing the notebooks
+      pip install imageio-ffmpeg
     fi
-  - pip install -e .
+   - |
+    if [[ $TRAVIS_PYTHON_VERSION == 2.7 ]]; then
+      python -c "import imageio; imageio.plugins.ffmpeg.download()"
+    fi
   - pip install imageio-ffmpeg
   - which python
   - python -c "import vtk; print(vtk.VTK_VERSION)"
