@@ -36,7 +36,8 @@ install:
   - python -c "import vtk; print(vtk.VTK_VERSION)"
 
 script:
-  - python tests/test.py
+  - coverage run tests/__main__.py
+  - python -m tests
   # Now make sure notebooks are running
   - |
     if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
