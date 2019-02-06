@@ -13,6 +13,8 @@ import vtki
 
 import numpy as np
 
+from omfvtk.utilities import add_data
+
 def line_set_to_vtk(lse):
     """Convert the line set to a :class:`vtki.PolyData` data object.
 
@@ -57,15 +59,7 @@ def line_set_to_vtk(lse):
     output.GetCellData().AddArray(indexArr)
 
     # Now add data to lines:
-    for data in lse.data:
-        arr = data.array.array
-        c = nps.numpy_to_vtk(num_array=arr)
-        c.SetName(data.name)
-        loc = data.location
-        if loc == 'vertices':
-            output.GetPointData().AddArray(c)
-        else:
-            output.GetCellData().AddArray(c)
+    add_data(output, lse.data)
 
     # TODO: if subtype is borehole make a tube
 

@@ -13,6 +13,8 @@ import vtki
 
 import numpy as np
 
+from omfvtk.utilities import add_data, add_textures
+
 
 def point_set_to_vtk(pse):
     """Convert the point set to a :class:`vtki.PolyData` data object.
@@ -44,16 +46,10 @@ def point_set_to_vtk(pse):
     output.SetPoints(pts)
     output.SetVerts(vtkcells)
 
-    # TODO: handle textures
-
     # Now add point data:
-    for data in pse.data:
-        arr = data.array.array
-        c = nps.numpy_to_vtk(num_array=arr)
-        c.SetName(data.name)
-        # NOTE: we assume data must be on vertices
-        #       Should we check the data.location property?
-        output.GetPointData().AddArray(c)
+    add_data(output, pse.data)
+
+    add_textures(output, pse.textures, pse.name)
 
     return vtki.wrap(output)
 

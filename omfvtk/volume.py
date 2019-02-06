@@ -12,6 +12,8 @@ import vtk
 from vtk.util import numpy_support as nps
 import vtki
 
+from omfvtk.utilities import check_orientation, check_orthogonal
+
 import numpy as np
 
 
@@ -33,15 +35,6 @@ def volume_grid_geom_to_vtk(volgridgeom):
 
     ox, oy, oz = volgridgeom.origin
 
-    def checkOrientation():
-        if np.allclose(volgridgeom.axis_u, (1, 0, 0)) and np.allclose(volgridgeom.axis_v, (0, 1, 0)) and np.allclose(volgridgeom.axis_w, (0, 0, 1)):
-            return True
-        return False
-
-    def rotationMatrix():
-        # TODO: is this correct?
-        return np.array([volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w])
-
     # Make coordinates along each axis
     x = ox + np.cumsum(volgridgeom.tensor_u)
     x = np.insert(x, 0, ox)
@@ -51,7 +44,7 @@ def volume_grid_geom_to_vtk(volgridgeom):
     z = np.insert(z, 0, oz)
 
     # If axis orientations are standard then use a vtkRectilinearGrid
-    if checkOrientation():
+    if check_orientation(volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w):
         output = vtk.vtkRectilinearGrid()
         output.SetDimensions(len(x), len(y), len(z)) # note this subtracts 1
         output.SetXCoordinates(nps.numpy_to_vtk(num_array=x))
@@ -68,8 +61,8 @@ def volume_grid_geom_to_vtk(volgridgeom):
     points = np.stack((xx.flatten(), yy.flatten(), zz.flatten())).T
 
     # Rotate the points based on the axis orientations
-    rmtx = rotationMatrix()
-    points = points.dot(rmtx)
+    rotation_mtx = np.array([volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w])
+    points = points.dot(rotation_mtx)
 
     # Convert points to vtk object
     pts = vtk.vtkPoints()
