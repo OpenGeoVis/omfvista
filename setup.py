@@ -7,7 +7,7 @@ import sys
 import platform
 import warnings
 
-__version__ = '0.0.6'
+__version__ = '0.0.7'
 
 with open("README.rst", "r") as f:
     long_description = f.read()

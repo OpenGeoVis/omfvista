@@ -13,7 +13,7 @@ from omfvtk.utilities import *
 __author__ = 'Bane Sullivan'
 __license__ = 'BSD-3-Clause'
 __copyright__ = '2019, Bane Sullivan'
-__version__ = '0.0.6'
+__version__ = '0.0.7'
 __displayname__ = 'OMF-VTK'
 __name__ = 'omfvtk'
 
