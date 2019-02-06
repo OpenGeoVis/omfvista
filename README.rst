@@ -17,6 +17,9 @@ OMF-VTK
    :target: https://ci.appveyor.com/project/banesullivan/omfvtk
    :alt: Build Status Windows
 
+.. image:: https://codecov.io/gh/OpenGeoVis/omfvtk/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/OpenGeoVis/omfvtk
+
 .. image:: https://img.shields.io/github/stars/OpenGeoVis/omfvtk.svg?style=social&label=Stars
    :target: https://github.com/OpenGeoVis/omfvtk
    :alt: GitHub
