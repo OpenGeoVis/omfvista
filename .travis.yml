@@ -32,7 +32,7 @@ install:
       pip install nbval ipython ipywidgets; # For testing the notebooks
       pip install imageio-ffmpeg
     fi
-   - |
+  - |
     if [[ $TRAVIS_PYTHON_VERSION == 2.7 ]]; then
       python -c "import imageio; imageio.plugins.ffmpeg.download()"
     fi
