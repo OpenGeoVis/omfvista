@@ -41,4 +41,4 @@ test_script:
   - python -c "import vtk; print(vtk.VTK_VERSION)"
   - python -c "import vtki; print(vtki.__version__)"
   - python -c "import omfvtk; print('OMFVTK Version ', omfvtk.__version__)"
-  - python tests/test.py
+  - python tests/__main__.py
