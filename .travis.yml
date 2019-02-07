@@ -24,6 +24,7 @@ before_script: # configure a headless display to test plot generation
 
 install:
   - pip install --upgrade pip
+  - pip install codecov
   - pip install pytest-cov
   - pip install -e .
   - |
@@ -36,12 +37,14 @@ install:
   - python -c "import vtk; print(vtk.VTK_VERSION)"
 
 script:
-  - python tests/test.py
+  - coverage run tests/__main__.py
+  - python tests/__main__.py
   # Now make sure notebooks are running
   - |
     if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
       pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb;
     fi
+  - codecov --token=1dc88395-9612-4ef9-9574-62c035d25908
 
 notifications:
   email:
