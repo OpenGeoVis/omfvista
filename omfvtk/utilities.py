@@ -79,5 +79,6 @@ def add_textures(output, textures, elname):
             img = img[:, :, 0:3]
         vtexture = vtki.numpy_to_texture(img)
         output.textures[name] = vtexture
+        output._activate_texture(name)
 
     return output
