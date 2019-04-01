@@ -87,7 +87,7 @@ Then apply a filtering tool from ``vtki`` to the volumetric data:
 
 .. code-block:: python
 
-    thresher = vtki.Threshold(vol, display_params={'show_edges':False})
+    thresher = vtki.Threshold(vol)
 
 .. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/threshold.gif
    :alt: IPython Thresholding Tool
@@ -100,11 +100,11 @@ Then you can put it all in one environment!
     #  from the thresher tool
     p = thresher.plotter
     # Add our datasets
-    p.add_mesh(topo, cmap='gist_earth', show_edges=False, opacity=0.5)
+    p.add_mesh(topo, cmap='gist_earth', opacity=0.5)
     p.add_mesh(assay, color='blue', line_width=3)
-    p.add_mesh(dacite, show_edges=False, color='yellow', opacity=0.6)
+    p.add_mesh(dacite, color='yellow', opacity=0.6)
     # Add the bounds axis
-    p.add_bounds_axes()
+    p.show_bounds()
 
 
 .. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/interactive.gif
