@@ -41,8 +41,19 @@ Installation is simply::
 All necessary dependencies will be installed alongside ``omfvtk``. Please
 note that this package heavily leverages the vtki_ package.
 
-.. _vtki: https://github.com/akaszynski/vtki
+.. _vtki: https://github.com/vtkiorg/vtki
 
+
+Questions & Support
+-------------------
+
+For general use questions, please join `@OpenGeoVis`_ on our `Slack workspace`_
+under the ``#omfvtk`` channel. To inquire with the creators of ``omfvtk``,
+please email `info@opengeovis.org`_.
+
+.. _@OpenGeoVis: https://github.com/OpenGeoVis
+.. _Slack workspace: http://slack.opengeovis.org
+.. _info@opengeovis.org: mailto:info@opengeovis.org
 
 Example Use
 -----------
