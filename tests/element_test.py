@@ -6,7 +6,7 @@ import tempfile
 import numpy as np
 import omf
 import omfvtk
-import vtki
+import vista
 
 PROJECT = omf.Project(name='Test project',
                         description='Just some assorted elements')
@@ -207,7 +207,7 @@ class TestElements(unittest.TestCase):
 
     def test_wrap_lineset(self):
         line = omfvtk.wrap(LINESET)
-        self.assertTrue(isinstance(line, vtki.PolyData))
+        self.assertTrue(isinstance(line, vista.PolyData))
         # Note that omfvtk adds a `Line Index` array
         self.assertEqual(line.n_scalars, len(LINESET.data) + 1)
         self.assertEqual(line.n_cells, LINESET.geometry.num_cells)
@@ -215,19 +215,19 @@ class TestElements(unittest.TestCase):
 
     def test_wrap_pointset(self):
         pts = omfvtk.wrap(POINTSET)
-        self.assertTrue(isinstance(pts, vtki.PolyData))
+        self.assertTrue(isinstance(pts, vista.PolyData))
         self.assertEqual(pts.n_scalars, len(POINTSET.data))
         self.assertEqual(pts.n_cells, POINTSET.geometry.num_cells)
         self.assertEqual(pts.n_points, POINTSET.geometry.num_nodes)
 
     def test_wrap_surface(self):
         surf = omfvtk.wrap(SURFACE)
-        self.assertTrue(isinstance(surf, vtki.UnstructuredGrid))
+        self.assertTrue(isinstance(surf, vista.UnstructuredGrid))
         self.assertEqual(surf.n_scalars, len(SURFACE.data))
         self.assertEqual(surf.n_cells, SURFACE.geometry.num_cells)
         self.assertEqual(surf.n_points, SURFACE.geometry.num_nodes)
         grid = omfvtk.wrap(GRID)
-        self.assertTrue(isinstance(grid, vtki.StructuredGrid))
+        self.assertTrue(isinstance(grid, vista.StructuredGrid))
         self.assertEqual(grid.n_scalars, len(GRID.data))
         self.assertEqual(grid.n_cells, GRID.geometry.num_cells)
         self.assertEqual(grid.n_points, GRID.geometry.num_nodes)
@@ -235,13 +235,13 @@ class TestElements(unittest.TestCase):
     def test_wrap_volume(self):
         vol = omfvtk.wrap(VOLUME)
         self.assertEqual(vol.n_scalars, 1)
-        self.assertTrue(isinstance(vol, vtki.RectilinearGrid))
+        self.assertTrue(isinstance(vol, vista.RectilinearGrid))
         self.assertEqual(vol.n_scalars, len(VOLUME.data))
         self.assertEqual(vol.n_cells, VOLUME.geometry.num_cells)
         self.assertEqual(vol.n_points, VOLUME.geometry.num_nodes)
         vol_ir = omfvtk.wrap(VOLUME_IR)
         self.assertEqual(vol_ir.n_scalars, 1)
-        self.assertTrue(isinstance(vol_ir, vtki.StructuredGrid))
+        self.assertTrue(isinstance(vol_ir, vista.StructuredGrid))
         self.assertEqual(vol_ir.n_scalars, len(VOLUME_IR.data))
         self.assertEqual(vol_ir.n_cells, VOLUME_IR.geometry.num_cells)
         self.assertEqual(vol_ir.n_points, VOLUME_IR.geometry.num_nodes)

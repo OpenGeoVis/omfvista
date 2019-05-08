@@ -9,20 +9,20 @@ __displayname__ = 'Line Set'
 
 import vtk
 from vtk.util import numpy_support as nps
-import vtki
+import vista
 
 import numpy as np
 
 from omfvtk.utilities import add_data
 
 def line_set_to_vtk(lse):
-    """Convert the line set to a :class:`vtki.PolyData` data object.
+    """Convert the line set to a :class:`vista.PolyData` data object.
 
     Args:
         lse (:class:`omf.lineset.LineSetElement`): The line set to convert
 
     Return:
-        :class:`vtki.PolyData`
+        :class:`vista.PolyData`
     """
 
     output = vtk.vtkPolyData()
@@ -30,7 +30,7 @@ def line_set_to_vtk(lse):
     pts = vtk.vtkPoints()
 
     # Make a data array for grouping the line segments
-    indexArr = vtk.vtkIntArray()
+    indexArr = vtk.vistantArray()
     indexArr.SetNumberOfValues(lse.geometry.num_cells)
     indexArr.SetName('Line Index')
 
@@ -63,7 +63,7 @@ def line_set_to_vtk(lse):
 
     # TODO: if subtype is borehole make a tube
 
-    return vtki.wrap(output)
+    return vista.wrap(output)
 
 
 line_set_to_vtk.__displayname__ = 'Line Set to VTK'

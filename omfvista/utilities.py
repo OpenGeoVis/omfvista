@@ -9,7 +9,7 @@ __all__ = [
 import numpy as np
 import vtk
 from vtk.util import numpy_support as nps
-import vtki
+import vista
 from PIL import Image
 
 
@@ -49,9 +49,9 @@ def add_data(output, data):
 
 
 def add_textures(output, textures, elname):
-    """Add textures to a vtki data object"""
-    if not vtki.is_vtki_obj(output):
-        output = vtki.wrap(output)
+    """Add textures to a vista data object"""
+    if not vista.is_vista_obj(output):
+        output = vista.wrap(output)
 
     for i, tex in enumerate(textures):
         # Now map the coordinates for the texture
@@ -69,7 +69,7 @@ def add_textures(output, textures, elname):
             name = '{}-texture-{}'.format(elname, i)
         tcoord.SetName(name)
         # Add these coordinates to the PointData of the output
-        # NOTE: Let vtki handle setting the TCoords because of how VTK cleans
+        # NOTE: Let vista handle setting the TCoords because of how VTK cleans
         #       up old TCoords
         output.GetPointData().AddArray(tcoord)
         # Add the vtkTexture to the output
@@ -77,7 +77,7 @@ def add_textures(output, textures, elname):
         tex.image.seek(0) # Reset the image bytes in case it is accessed again
         if img.shape[2] > 3:
             img = img[:, :, 0:3]
-        vtexture = vtki.numpy_to_texture(img)
+        vtexture = vista.numpy_to_texture(img)
         output.textures[name] = vtexture
         output._activate_texture(name)
 

@@ -6,7 +6,7 @@ import tempfile
 import numpy as np
 import omf
 import omfvtk
-import vtki
+import vista
 
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), '../assets/test_file.omf')
@@ -14,7 +14,7 @@ DATA_FILE = os.path.join(os.path.dirname(__file__), '../assets/test_file.omf')
 class TestProjectIO(unittest.TestCase):
     """
     Test the wrapper for a project file which will iterate over all data types.
-    This will then save out a ``vtki.MultiBlockDataSet`` and reload it
+    This will then save out a ``vista.MultiBlockDataSet`` and reload it
     """
     def setUp(self):
         self.test_dir = tempfile.mkdtemp()
@@ -28,7 +28,7 @@ class TestProjectIO(unittest.TestCase):
         """Test loading a sample project file"""
         data = omfvtk.load_project(DATA_FILE)
         self.assertIsNotNone(data)
-        self.assertTrue(isinstance(data, vtki.MultiBlock))
+        self.assertTrue(isinstance(data, vista.MultiBlock))
         self.assertEqual(data.n_blocks, 9)
 
     # def test_save_project(self):
@@ -36,8 +36,8 @@ class TestProjectIO(unittest.TestCase):
     #     data = omfvtk.load_project(DATA_FILE)
     #     data.save(self.project_filename)
     #     # And reload that project
-    #     data = vtki.read(self.project_filename)
-    #     self.assertTrue(isinstance(data, vtki.MultiBlock))
+    #     data = vista.read(self.project_filename)
+    #     self.assertTrue(isinstance(data, vista.MultiBlock))
     #     self.assertEqual(data.n_blocks, 9)
 
 
