@@ -1,4 +1,4 @@
-"""``omfvtk``: 3D visualization for the Open Mining Format (omf)
+"""``omfvista``: 3D visualization for the Open Mining Format (omf)
 """
 
 import setuptools
@@ -30,14 +30,14 @@ else:
     install_requires.append('vtk>=8.1.0')
 
 setuptools.setup(
-    name="omfvtk",
+    name="omfvista",
     version=__version__,
     author="Bane Sullivan",
     author_email="info@pvgeo.org",
     description="3D visualization for the Open Mining Format (omf)",
     long_description=long_description,
     long_description_content_type="text/x-rst",
-    url="https://github.com/OpenGeoVis/omfvtk",
+    url="https://github.com/OpenGeoVis/omfvista",
     packages=setuptools.find_packages(),
     install_requires=install_requires,
     classifiers=(

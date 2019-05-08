@@ -1,27 +1,27 @@
 OMF-VTK
 =======
 
-.. image:: https://img.shields.io/readthedocs/omfvtk.svg?logo=read%20the%20docs&logoColor=white
-   :target: https://omfvtk.readthedocs.io/en/latest/
+.. image:: https://img.shields.io/readthedocs/omfvista.svg?logo=read%20the%20docs&logoColor=white
+   :target: https://omfvista.readthedocs.io/en/latest/
    :alt: Documentation Status
 
-.. image:: https://img.shields.io/pypi/v/omfvtk.svg?logo=python&logoColor=white
-   :target: https://pypi.org/project/omfvtk/
+.. image:: https://img.shields.io/pypi/v/omfvista.svg?logo=python&logoColor=white
+   :target: https://pypi.org/project/omfvista/
    :alt: PyPI
 
-.. image:: https://img.shields.io/travis/OpenGeoVis/omfvtk/master.svg?label=build&logo=travis
-   :target: https://travis-ci.org/OpenGeoVis/omfvtk
+.. image:: https://img.shields.io/travis/OpenGeoVis/omfvista/master.svg?label=build&logo=travis
+   :target: https://travis-ci.org/OpenGeoVis/omfvista
    :alt: Build Status Linux
 
 .. image:: https://ci.appveyor.com/api/projects/status/y1sbh707jpl8375u?svg=true
-   :target: https://ci.appveyor.com/project/banesullivan/omfvtk
+   :target: https://ci.appveyor.com/project/banesullivan/omfvista
    :alt: Build Status Windows
 
-.. image:: https://codecov.io/gh/OpenGeoVis/omfvtk/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/OpenGeoVis/omfvtk
+.. image:: https://codecov.io/gh/OpenGeoVis/omfvista/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/OpenGeoVis/omfvista
 
-.. image:: https://img.shields.io/github/stars/OpenGeoVis/omfvtk.svg?style=social&label=Stars
-   :target: https://github.com/OpenGeoVis/omfvtk
+.. image:: https://img.shields.io/github/stars/OpenGeoVis/omfvista.svg?style=social&label=Stars
+   :target: https://github.com/OpenGeoVis/omfvista
    :alt: GitHub
 
 
@@ -36,9 +36,9 @@ Installation
 
 Installation is simply::
 
-    pip install omfvtk
+    pip install omfvista
 
-All necessary dependencies will be installed alongside ``omfvtk``. Please
+All necessary dependencies will be installed alongside ``omfvista``. Please
 note that this package heavily leverages the vista_ package.
 
 .. _vista: https://github.com/pyvista/vista
@@ -48,7 +48,7 @@ Questions & Support
 -------------------
 
 For general use questions, please join `@OpenGeoVis`_ on our `Slack workspace`_
-under the ``#omfvtk`` channel. To inquire with the creators of ``omfvtk``,
+under the ``#omfvista`` channel. To inquire with the creators of ``omfvista``,
 please email `info@opengeovis.org`_.
 
 .. _@OpenGeoVis: https://github.com/OpenGeoVis
@@ -58,25 +58,25 @@ please email `info@opengeovis.org`_.
 Example Use
 -----------
 
-Be sure to check out the `Example Notebook`_ that demos ``omfvtk``!
+Be sure to check out the `Example Notebook`_ that demos ``omfvista``!
 Here's an example using the sample data hosted in the `OMF repository`_.
 
-.. _Example Notebook: https://github.com/OpenGeoVis/omfvtk/blob/master/Example.ipynb
+.. _Example Notebook: https://github.com/OpenGeoVis/omfvista/blob/master/Example.ipynb
 .. _OMF repository: https://github.com/gmggroup/omf/tree/master/assets
 
 .. code-block:: python
 
     import vista
-    import omfvtk
+    import omfvista
 
-    project = omfvtk.load_project('test_file.omf')
+    project = omfvista.load_project('test_file.omf')
     project
 
-.. image:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/table-repr.png
+.. image:: https://github.com/OpenGeoVis/omfvista/raw/master/assets/table-repr.png
    :alt: Table Representation
 
 
-Once the data is loaded as a ``vista.MultiBlock`` dataset from ``omfvtk``, then
+Once the data is loaded as a ``vista.MultiBlock`` dataset from ``omfvista``, then
 that object can be directly used for interactive 3D visualization from ``vista``:
 
 .. code-block:: python
@@ -100,7 +100,7 @@ Then apply a filtering tool from ``vista`` to the volumetric data:
 
     thresher = vista.Threshold(vol)
 
-.. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/threshold.gif
+.. figure:: https://github.com/OpenGeoVis/omfvista/raw/master/assets/threshold.gif
    :alt: IPython Thresholding Tool
 
 Then you can put it all in one environment!
@@ -118,7 +118,7 @@ Then you can put it all in one environment!
     p.show_bounds()
 
 
-.. figure:: https://github.com/OpenGeoVis/omfvtk/raw/master/assets/interactive.gif
+.. figure:: https://github.com/OpenGeoVis/omfvista/raw/master/assets/interactive.gif
    :alt: Interactive Rendering
 
 
@@ -128,5 +128,5 @@ And once you like what the render view displays, you can save a screenshot:
 
     p.screenshot('wolfpass.png')
 
-.. image:: https://github.com/OpenGeoVis/omfvtk/raw/master/wolfpass.png
+.. image:: https://github.com/OpenGeoVis/omfvista/raw/master/wolfpass.png
    :alt: Wolf Pass Screenshot

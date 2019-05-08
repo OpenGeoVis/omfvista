@@ -13,7 +13,7 @@ import vista
 
 import numpy as np
 
-from omfvtk.utilities import add_data, add_textures
+from omfvista.utilities import add_data, add_textures
 
 
 def point_set_to_vtk(pse):

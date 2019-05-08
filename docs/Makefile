@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = omfvtk
+SPHINXPROJ    = omfvista
 SOURCEDIR     = source
 BUILDDIR      = build
 

@@ -13,7 +13,7 @@ import vista
 
 import numpy as np
 
-from omfvtk.utilities import add_data
+from omfvista.utilities import add_data
 
 def line_set_to_vtk(lse):
     """Convert the line set to a :class:`vista.PolyData` data object.
@@ -30,7 +30,7 @@ def line_set_to_vtk(lse):
     pts = vtk.vtkPoints()
 
     # Make a data array for grouping the line segments
-    indexArr = vtk.vistantArray()
+    indexArr = vtk.vtkIntArray()
     indexArr.SetNumberOfValues(lse.geometry.num_cells)
     indexArr.SetName('Line Index')
 

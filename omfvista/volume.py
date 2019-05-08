@@ -12,7 +12,7 @@ import vtk
 from vtk.util import numpy_support as nps
 import vista
 
-from omfvtk.utilities import check_orientation, check_orthogonal
+from omfvista.utilities import check_orientation, check_orthogonal
 
 import numpy as np
 

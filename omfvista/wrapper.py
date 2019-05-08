@@ -4,13 +4,13 @@ project files.
 Example Use
 -----------
 
-Use the wrapper provided in ``omfvtk`` to wrap any ``omf`` data object:
+Use the wrapper provided in ``omfvista`` to wrap any ``omf`` data object:
 
 .. code-block:: python
 
-    import omfvtk
+    import omfvista
 
-    omfvtk.wrap(data)
+    omfvista.wrap(data)
 
 
 Here's an example using the sample data hosted in the `OMF repository`_.
@@ -20,7 +20,7 @@ Here's an example using the sample data hosted in the `OMF repository`_.
 .. code-block:: python
 
     import omf
-    import omfvtk
+    import omfvista
 
     # Read all elements
     reader = omf.OMFReader('test_file.omf')
@@ -29,15 +29,15 @@ Here's an example using the sample data hosted in the `OMF repository`_.
     # Iterate over the elements and add converted VTK objects to dictionary:
     data = dict()
     for e in project.elements:
-        d = omfvtk.wrap(e)
+        d = omfvista.wrap(e)
         data[e.name] = d
 
 Or better yet, just use the project loader:
 
 .. code-block:: python
 
-    import omfvtk
-    data = omfvtk.load_project('test_file.omf')
+    import omfvista
+    data = omfvista.load_project('test_file.omf')
 
 """
 
@@ -51,7 +51,7 @@ __all__ = [
 __displayname__ = 'Wrapper'
 
 import omf
-import omfvtk
+import omfvista
 import vista
 
 
@@ -64,7 +64,7 @@ def wrap(data):
 
     Example:
         >>> import omf
-        >>> import omfvtk
+        >>> import omfvista
 
         >>> # Read all elements
         >>> reader = omf.OMFReader('test_file.omf')
@@ -73,7 +73,7 @@ def wrap(data):
         >>> # Iterate over the elements and add converted VTK objects to dictionary:
         >>> data = dict()
         >>> for e in project.elements:
-        >>>     d = omfvtk.wrap(e)
+        >>>     d = omfvista.wrap(e)
         >>>     data[e.name] = d
 
     """
@@ -86,16 +86,16 @@ def wrap(data):
         return multi
     # Define wrappers
     wrappers = {
-        'LineSetElement': omfvtk.line_set_to_vtk,
-        'PointSetElement': omfvtk.point_set_to_vtk,
+        'LineSetElement': omfvista.line_set_to_vtk,
+        'PointSetElement': omfvista.point_set_to_vtk,
         # Surfaces
-        'SurfaceGeometry': omfvtk.surface_geom_to_vtk,
-        'SurfaceGridGeometry': omfvtk.surface_grid_geom_to_vtk,
-        'SurfaceElement': omfvtk.surface_to_vtk,
+        'SurfaceGeometry': omfvista.surface_geom_to_vtk,
+        'SurfaceGridGeometry': omfvista.surface_grid_geom_to_vtk,
+        'SurfaceElement': omfvista.surface_to_vtk,
         # Volumes
-        'VolumeGridGeometry': omfvtk.volume_grid_geom_to_vtk,
-        'VolumeElement': omfvtk.volume_to_vtk,
-        'Project': omfvtk.project_to_vtk,
+        'VolumeGridGeometry': omfvista.volume_grid_geom_to_vtk,
+        'VolumeElement': omfvista.volume_to_vtk,
+        'Project': omfvista.project_to_vtk,
     }
     # get the class name
     key = data.__class__.__name__
@@ -112,7 +112,7 @@ def project_to_vtk(project):
     # Iterate over the elements and add converted VTK objects a MultiBlock
     data = vista.MultiBlock()
     for i, e in enumerate(project.elements):
-        d = omfvtk.wrap(e)
+        d = omfvista.wrap(e)
         data[i, e.name] = d
     return data
 

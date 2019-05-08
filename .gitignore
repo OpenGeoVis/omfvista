@@ -5,7 +5,7 @@
 coverage.xml
 build/
 dist/
-omfvtk.egg-info/
+omfvista.egg-info/
 docs/build/
 docs/source/content
 docs/source/index.rst

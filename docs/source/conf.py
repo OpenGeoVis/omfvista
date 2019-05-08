@@ -20,11 +20,11 @@ sys.path.insert(0, path)
 # -- Automatic Doc Pages Generation ------------------------------------------
 
 
-import omfvtk # for documenting
+import omfvista # for documenting
 from gendocs import Generator
 
 # Automatically generate documentaion pages
-Generator().DocumentPackages([omfvtk],
+Generator().DocumentPackages([omfvista],
                              '../../README.rst',
                              showprivate=True,
                              notify=False,
@@ -33,7 +33,7 @@ Generator().DocumentPackages([omfvtk],
 
 # -- Project information -----------------------------------------------------
 
-project = 'omfvtk'
+project = 'omfvista'
 copyright = '2019, Bane Sullivan'
 author = 'Bane Sullivan'
 
@@ -152,7 +152,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'omfvtk.tex', 'omfvtk Documentation',
+    (master_doc, 'omfvista.tex', 'omfvista Documentation',
      'Bane Sullivan', 'manual'),
 ]
 
@@ -162,7 +162,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'omfvtk', 'omfvtk Documentation',
+    (master_doc, 'omfvista', 'omfvista Documentation',
      [author], 1)
 ]
 
@@ -173,8 +173,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'omfvtk', 'omfvtk Documentation',
-     author, 'omfvtk', 'One line description of project.',
+    (master_doc, 'omfvista', 'omfvista Documentation',
+     author, 'omfvista', 'One line description of project.',
      'Miscellaneous'),
 ]
 

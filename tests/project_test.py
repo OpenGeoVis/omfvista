@@ -5,7 +5,7 @@ import tempfile
 
 import numpy as np
 import omf
-import omfvtk
+import omfvista
 import vista
 
 
@@ -26,14 +26,14 @@ class TestProjectIO(unittest.TestCase):
 
     def test_load_project(self):
         """Test loading a sample project file"""
-        data = omfvtk.load_project(DATA_FILE)
+        data = omfvista.load_project(DATA_FILE)
         self.assertIsNotNone(data)
         self.assertTrue(isinstance(data, vista.MultiBlock))
         self.assertEqual(data.n_blocks, 9)
 
     # def test_save_project(self):
     #     """Test saving a sample project file in the VTK format"""
-    #     data = omfvtk.load_project(DATA_FILE)
+    #     data = omfvista.load_project(DATA_FILE)
     #     data.save(self.project_filename)
     #     # And reload that project
     #     data = vista.read(self.project_filename)

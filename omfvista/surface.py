@@ -17,8 +17,8 @@ import omf
 
 import numpy as np
 
-from omfvtk.utilities import check_orientation, check_orthogonal
-from omfvtk.utilities import add_data, add_textures
+from omfvista.utilities import check_orientation, check_orthogonal
+from omfvista.utilities import add_data, add_textures
 
 def surface_geom_to_vtk(surfgeom):
     """Convert the triangulated surface to a :class:`vista.UnstructuredGrid`

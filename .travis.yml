@@ -58,7 +58,7 @@ deploy:
   user: $PYPI_USERNAME
   password: $PYPI_PASSWORD
   on:
-    repo: OpenGeoVis/omfvtk
+    repo: OpenGeoVis/omfvista
     branch: master
     tags: true
     python: 2.7

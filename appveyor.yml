@@ -34,11 +34,11 @@ install:
   - python -m pip install --upgrade pip
   # Handle VTK if archetecture requires conda, else let setup.py install via pip
   - cmd: if "%PLATFORM%" == "x86" (conda install vtk) else (echo "setup.py should install VTK")
-  # Install omfvtk
+  # Install omfvista
   - python setup.py install
 
 test_script:
   - python -c "import vtk; print(vtk.VTK_VERSION)"
   - python -c "import vista; print(vista.__version__)"
-  - python -c "import omfvtk; print('OMFVTK Version ', omfvtk.__version__)"
+  - python -c "import omfvista; print('omfvista Version ', omfvista.__version__)"
   - python tests/__main__.py

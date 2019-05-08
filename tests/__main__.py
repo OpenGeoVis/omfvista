@@ -1,5 +1,5 @@
 """This module provideas a convienance method to run all of the tests for
-``omfvtk``.
+``omfvista``.
 """
 
 __all__ = [
@@ -13,7 +13,7 @@ import sys
 
 
 def test(close=False):
-    """This is a convienance method to run all of the tests in ``omfvtk`` while
+    """This is a convienance method to run all of the tests in ``omfvista`` while
     in an active python environment.
 
     Args:
