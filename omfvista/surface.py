@@ -11,7 +11,7 @@ __displayname__ = 'Surface'
 
 import vtk
 from vtk.util import numpy_support as nps
-import vista
+import pyvista
 import omf
 
 
@@ -21,7 +21,7 @@ from omfvista.utilities import check_orientation, check_orthogonal
 from omfvista.utilities import add_data, add_textures
 
 def surface_geom_to_vtk(surfgeom):
-    """Convert the triangulated surface to a :class:`vista.UnstructuredGrid`
+    """Convert the triangulated surface to a :class:`pyvista.UnstructuredGrid`
     object
 
     Args:
@@ -50,11 +50,11 @@ def surface_geom_to_vtk(surfgeom):
     # Add to output
     output.SetPoints(pts)
     output.SetCells(vtk.VTK_TRIANGLE, cells)
-    return vista.wrap(output)
+    return pyvista.wrap(output)
 
 
 def surface_grid_geom_to_vtk(surfgridgeom):
-    """Convert the 2D grid to a :class:`vista.StructuredGrid` object.
+    """Convert the 2D grid to a :class:`pyvista.StructuredGrid` object.
 
     Args:
         surfgridgeom (:class:`omf.surface.SurfaceGridGeometry`): the surface
@@ -99,7 +99,7 @@ def surface_grid_geom_to_vtk(surfgridgeom):
     # Now build the output
     output.SetPoints(pts)
 
-    return vista.wrap(output)
+    return pyvista.wrap(output)
 
 def surface_to_vtk(surfel):
     """Convert the surface to a its appropriate VTK data object type.

@@ -39,6 +39,6 @@ install:
 
 test_script:
   - python -c "import vtk; print(vtk.VTK_VERSION)"
-  - python -c "import vista; print(vista.__version__)"
+  - python -c "import pyvista; print(pyvista.__version__)"
   - python -c "import omfvista; print('omfvista Version ', omfvista.__version__)"
   - python tests/__main__.py

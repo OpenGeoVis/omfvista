@@ -9,7 +9,7 @@ __displayname__ = 'Point Set'
 
 import vtk
 from vtk.util import numpy_support as nps
-import vista
+import pyvista
 
 import numpy as np
 
@@ -17,13 +17,13 @@ from omfvista.utilities import add_data, add_textures
 
 
 def point_set_to_vtk(pse):
-    """Convert the point set to a :class:`vista.PolyData` data object.
+    """Convert the point set to a :class:`pyvista.PolyData` data object.
 
     Args:
         pse (:class:`omf.pointset.PointSetElement`): The point set to convert
 
     Return:
-        :class:`vista.PolyData`
+        :class:`pyvista.PolyData`
     """
 
     points = pse.geometry.vertices
@@ -52,7 +52,7 @@ def point_set_to_vtk(pse):
 
     add_textures(output, pse.textures, pse.name)
 
-    return vista.wrap(output)
+    return pyvista.wrap(output)
 
 
 point_set_to_vtk.__displayname__ = 'Point Set to VTK'

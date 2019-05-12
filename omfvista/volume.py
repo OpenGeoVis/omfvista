@@ -10,7 +10,7 @@ __displayname__ = 'Volume'
 
 import vtk
 from vtk.util import numpy_support as nps
-import vista
+import pyvista
 
 from omfvista.utilities import check_orientation, check_orthogonal
 
@@ -23,8 +23,8 @@ def get_volume_shape(vol):
 
 
 def volume_grid_geom_to_vtk(volgridgeom):
-    """Convert the 3D gridded volume to a :class:`vista.StructuredGrid`
-    (or a :class:`vista.RectilinearGrid` when apprropriate) object contatining
+    """Convert the 3D gridded volume to a :class:`pyvista.StructuredGrid`
+    (or a :class:`pyvista.RectilinearGrid` when apprropriate) object contatining
     the 2D surface.
 
     Args:
@@ -50,7 +50,7 @@ def volume_grid_geom_to_vtk(volgridgeom):
         output.SetXCoordinates(nps.numpy_to_vtk(num_array=x))
         output.SetYCoordinates(nps.numpy_to_vtk(num_array=y))
         output.SetZCoordinates(nps.numpy_to_vtk(num_array=z))
-        return vista.wrap(output)
+        return pyvista.wrap(output)
 
     # Otherwise use a vtkStructuredGrid
     output = vtk.vtkStructuredGrid()
@@ -71,7 +71,7 @@ def volume_grid_geom_to_vtk(volgridgeom):
     # Now build the output
     output.SetPoints(pts)
 
-    return vista.wrap(output)
+    return pyvista.wrap(output)
 
 
 def volume_to_vtk(volelement):
@@ -95,7 +95,7 @@ def volume_to_vtk(volelement):
             output.GetPointData().AddArray(c)
         else:
             output.GetCellData().AddArray(c)
-    return vista.wrap(output)
+    return pyvista.wrap(output)
 
 
 # Now set up the display names for the docs

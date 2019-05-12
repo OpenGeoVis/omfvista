@@ -52,7 +52,7 @@ __displayname__ = 'Wrapper'
 
 import omf
 import omfvista
-import vista
+import pyvista
 
 
 def wrap(data):
@@ -79,7 +79,7 @@ def wrap(data):
     """
     # Allow recursion
     if isinstance(data, (list, tuple)):
-        multi = vista.MultiBlock()
+        multi = pyvista.MultiBlock()
         for i, item in enumerate(data):
             multi.append(wrap(item))
             multi.set_block_name(i, item.name)
@@ -107,10 +107,10 @@ def wrap(data):
 
 def project_to_vtk(project):
     """Converts an OMF project (:class:`omf.base.Project`) to a
-    :class:`vista.MultiBlock` data boject
+    :class:`pyvista.MultiBlock` data boject
     """
     # Iterate over the elements and add converted VTK objects a MultiBlock
-    data = vista.MultiBlock()
+    data = pyvista.MultiBlock()
     for i, e in enumerate(project.elements):
         d = omfvista.wrap(e)
         data[i, e.name] = d
@@ -118,7 +118,7 @@ def project_to_vtk(project):
 
 
 def load_project(filename):
-    """Loads an OMF project file into a :class:`vista.MultiBlock` dataset"""
+    """Loads an OMF project file into a :class:`pyvista.MultiBlock` dataset"""
     reader = omf.OMFReader(filename)
     project = reader.get_project()
     return project_to_vtk(project)

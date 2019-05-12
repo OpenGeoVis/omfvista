@@ -39,9 +39,9 @@ Installation is simply::
     pip install omfvista
 
 All necessary dependencies will be installed alongside ``omfvista``. Please
-note that this package heavily leverages the vista_ package.
+note that this package heavily leverages the pyvista_ package.
 
-.. _vista: https://github.com/pyvista/vista
+.. _pyvista: https://github.com/pyvista/pyvista
 
 
 Questions & Support
@@ -66,7 +66,7 @@ Here's an example using the sample data hosted in the `OMF repository`_.
 
 .. code-block:: python
 
-    import vista
+    import pyvista
     import omfvista
 
     project = omfvista.load_project('test_file.omf')
@@ -76,8 +76,8 @@ Here's an example using the sample data hosted in the `OMF repository`_.
    :alt: Table Representation
 
 
-Once the data is loaded as a ``vista.MultiBlock`` dataset from ``omfvista``, then
-that object can be directly used for interactive 3D visualization from ``vista``:
+Once the data is loaded as a ``pyvista.MultiBlock`` dataset from ``omfvista``, then
+that object can be directly used for interactive 3D visualization from ``pyvista``:
 
 .. code-block:: python
 
@@ -94,11 +94,11 @@ figure directly in a Jupyter notebook. First, grab the elements from the project
     topo = project['Topography']
     dacite = project['Dacite']
 
-Then apply a filtering tool from ``vista`` to the volumetric data:
+Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
 .. code-block:: python
 
-    thresher = vista.Threshold(vol)
+    thresher = pyvista.Threshold(vol)
 
 .. figure:: https://github.com/OpenGeoVis/omfvista/raw/master/assets/threshold.gif
    :alt: IPython Thresholding Tool

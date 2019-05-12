@@ -9,20 +9,20 @@ __displayname__ = 'Line Set'
 
 import vtk
 from vtk.util import numpy_support as nps
-import vista
+import pyvista
 
 import numpy as np
 
 from omfvista.utilities import add_data
 
 def line_set_to_vtk(lse):
-    """Convert the line set to a :class:`vista.PolyData` data object.
+    """Convert the line set to a :class:`pyvista.PolyData` data object.
 
     Args:
         lse (:class:`omf.lineset.LineSetElement`): The line set to convert
 
     Return:
-        :class:`vista.PolyData`
+        :class:`pyvista.PolyData`
     """
 
     output = vtk.vtkPolyData()
@@ -63,7 +63,7 @@ def line_set_to_vtk(lse):
 
     # TODO: if subtype is borehole make a tube
 
-    return vista.wrap(output)
+    return pyvista.wrap(output)
 
 
 line_set_to_vtk.__displayname__ = 'Line Set to VTK'
