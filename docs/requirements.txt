@@ -8,4 +8,4 @@ vtk>=8.1.0
 doctr
 sphinx-copybutton
 sphinx-gallery
-doctr
+git+git://github.com/rtfd/sphinx-notfound-page@master
