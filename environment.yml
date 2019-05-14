@@ -1,0 +1,13 @@
+name: pyvista-environment
+channels:
+  - bokeh/label/dev
+dependencies:
+  - python
+  - bokeh
+  - pip
+  - pyviz_comms
+  - pip:
+    - git+git://github.com/pyvista/pyvista@master
+    - matplotlib
+    - git+git://github.com/OpenGeoVis/omfvista@master
+    - pyct
