@@ -8,3 +8,4 @@ vtk>=8.1.0
 doctr
 sphinx-copybutton
 sphinx-gallery
+doctr
