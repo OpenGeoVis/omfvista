@@ -16,7 +16,7 @@ with open("README.rst", "r") as f:
 install_requires = [
     'omf>=1.0.0',
     'vectormath>=0.2.0',
-    'pyvista>=0.20.0',
+    'pyvista>=0.20.1',
     'numpy',
     'matplotlib',
 ]
