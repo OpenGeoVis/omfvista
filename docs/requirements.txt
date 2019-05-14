@@ -9,3 +9,4 @@ doctr
 sphinx-copybutton
 sphinx-gallery
 git+git://github.com/rtfd/sphinx-notfound-page@master
+pandas
