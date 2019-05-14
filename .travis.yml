@@ -51,15 +51,15 @@ script:
       pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb;
     fi
   - codecov --token=1dc88395-9612-4ef9-9574-62c035d25908
-   - |
-     if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
-       cd ./docs;
-       make html;
-       set -e;
-       make html;
-       cd ..;
-       doctr deploy --built-docs ./docs/_build/html/ .;
-     fi
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
+      cd ./docs;
+      make html;
+      set -e;
+      make html;
+      cd ..;
+      doctr deploy --built-docs ./docs/_build/html/ .;
+    fi
 
 notifications:
   email:
