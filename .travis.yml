@@ -3,6 +3,8 @@ language: python
 os:
   - linux
 
+dist: xenial
+
 python:
   - 2.7
   - 3.6
@@ -26,6 +28,11 @@ before_script: # configure a headless display to test plot generation
   # - ls -l /etc/init.d/
   # - sh -e /etc/init.d/xvfb start
   - sleep 3 # give xvfb some time to start
+
+before_install:
+  # configure a headless display
+  - git clone --depth 1 git://github.com/pyvista/gl-ci-helpers.git
+  - source ./gl-ci-helpers/travis/setup_headless_display.sh
 
 install:
   - pip install --upgrade pip
