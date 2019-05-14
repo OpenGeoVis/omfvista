@@ -1,0 +1,15 @@
+
+
+Point Set
+=========
+
+.. automodule:: omfvista.pointset
+    :private-members:
+
+
+
+Point Set to VTK
+----------------
+
+.. autofunction:: omfvista.pointset.point_set_to_vtk
+

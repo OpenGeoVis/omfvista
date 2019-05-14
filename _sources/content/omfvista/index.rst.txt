@@ -1,0 +1,21 @@
+About OMF-VTK
+=============
+
+* Author: Bane Sullivan
+* License: BSD-3-Clause
+* Copyright: 2019, Bane Sullivan
+* Version: 0.2.0
+
+``omfvista``: 3D visualization for the Open Mining Format (omf)
+
+
+.. toctree::
+   :maxdepth: 5
+   :caption: OMF-VTK:
+
+   lineset.rst
+   pointset.rst
+   surface.rst
+   utilities.rst
+   volume.rst
+   wrapper.rst

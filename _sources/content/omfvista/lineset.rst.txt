@@ -1,0 +1,15 @@
+
+
+Line Set
+========
+
+.. automodule:: omfvista.lineset
+    :private-members:
+
+
+
+Line Set to VTK
+---------------
+
+.. autofunction:: omfvista.lineset.line_set_to_vtk
+

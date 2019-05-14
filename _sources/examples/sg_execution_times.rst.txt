@@ -1,0 +1,11 @@
+
+:orphan:
+
+.. _sphx_glr_examples_sg_execution_times:
+
+Computation times
+=================
+**00:33.378** total execution time for **examples** files:
+
+- **00:18.111**: :ref:`sphx_glr_examples_load-surface.py` (``load-surface.py``)
+- **00:15.267**: :ref:`sphx_glr_examples_load-project.py` (``load-project.py``)

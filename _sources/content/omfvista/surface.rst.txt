@@ -1,0 +1,29 @@
+
+
+Surface
+=======
+
+.. automodule:: omfvista.surface
+    :private-members:
+
+
+
+Surface Geometry to VTK
+-----------------------
+
+.. autofunction:: omfvista.surface.surface_geom_to_vtk
+
+
+
+Surface Grid Geometry to VTK
+----------------------------
+
+.. autofunction:: omfvista.surface.surface_grid_geom_to_vtk
+
+
+
+Surface to VTK
+--------------
+
+.. autofunction:: omfvista.surface.surface_to_vtk
+

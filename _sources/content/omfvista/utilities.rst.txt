@@ -1,0 +1,36 @@
+
+
+utilities
+=========
+
+.. automodule:: omfvista.utilities
+    :private-members:
+
+
+
+add_data
+--------
+
+.. autofunction:: omfvista.utilities.add_data
+
+
+
+add_textures
+------------
+
+.. autofunction:: omfvista.utilities.add_textures
+
+
+
+check_orientation
+-----------------
+
+.. autofunction:: omfvista.utilities.check_orientation
+
+
+
+check_orthogonal
+----------------
+
+.. autofunction:: omfvista.utilities.check_orthogonal
+

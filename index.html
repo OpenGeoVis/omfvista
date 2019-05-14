@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OMF-VTK &mdash; omfvista 0.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> omfvista
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OMF-VTK</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Index:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/omfvista/index.html">About OMF-VTK</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">omfvista</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>OMF-VTK</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="omf-vtk">
+<h1>OMF-VTK<a class="headerlink" href="#omf-vtk" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://pypi.org/project/omfvista/"><img alt="PyPI" src="https://img.shields.io/pypi/v/omfvista.svg?logo=python&amp;logoColor=white" /></a>
+<a class="reference external image-reference" href="https://travis-ci.org/OpenGeoVis/omfvista"><img alt="Build Status Linux" src="https://img.shields.io/travis/OpenGeoVis/omfvista/master.svg?label=build&amp;logo=travis" /></a>
+<a class="reference external image-reference" href="https://ci.appveyor.com/project/banesullivan/omfvista"><img alt="Build Status Windows" src="https://ci.appveyor.com/api/projects/status/y1sbh707jpl8375u?svg=true" /></a>
+<a class="reference external image-reference" href="https://codecov.io/gh/OpenGeoVis/omfvista"><img alt="https://codecov.io/gh/OpenGeoVis/omfvista/branch/master/graph/badge.svg" src="https://codecov.io/gh/OpenGeoVis/omfvista/branch/master/graph/badge.svg" /></a>
+<a class="reference external image-reference" href="https://github.com/OpenGeoVis/omfvista"><img alt="GitHub" src="https://img.shields.io/github/stars/OpenGeoVis/omfvista.svg?style=social&amp;label=Stars" /></a>
+<p>A VTK interface for the <a class="reference external" href="https://omf.readthedocs.io/en/latest/">Open Mining Format package</a> (<code class="docutils literal notranslate"><span class="pre">omf</span></code>) providing
+Python 3D visualization.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Installation is simply:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">omfvista</span>
+</pre></div>
+</div>
+<p>All necessary dependencies will be installed alongside <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>. Please
+note that this package heavily leverages the <a class="reference external" href="https://github.com/pyvista/pyvista">pyvista</a> package.</p>
+</div>
+<div class="section" id="questions-support">
+<h2>Questions &amp; Support<a class="headerlink" href="#questions-support" title="Permalink to this headline">¶</a></h2>
+<p>For general use questions, please join <a class="reference external" href="https://github.com/OpenGeoVis">&#64;OpenGeoVis</a> on our <a class="reference external" href="http://slack.opengeovis.org">Slack workspace</a>
+under the <code class="docutils literal notranslate"><span class="pre">#omfvista</span></code> channel. To inquire with the creators of <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>,
+please email <a class="reference external" href="mailto:info&#37;&#52;&#48;opengeovis&#46;org">info<span>&#64;</span>opengeovis<span>&#46;</span>org</a>.</p>
+</div>
+<div class="section" id="example-use">
+<h2>Example Use<a class="headerlink" href="#example-use" title="Permalink to this headline">¶</a></h2>
+<p>Be sure to check out the <a class="reference external" href="https://github.com/OpenGeoVis/omfvista/blob/master/Example.ipynb">Example Notebook</a> that demos <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>!
+Here’s an example using the sample data hosted in the <a class="reference external" href="https://github.com/gmggroup/omf/tree/master/assets">OMF repository</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="kn">import</span> <span class="nn">omfvista</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">load_project</span><span class="p">(</span><span class="s1">&#39;test_file.omf&#39;</span><span class="p">)</span>
+<span class="n">project</span>
+</pre></div>
+</div>
+<img alt="Table Representation" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/table-repr.png" />
+<p>Once the data is loaded as a <code class="docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code> dataset from <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>, then
+that object can be directly used for interactive 3D visualization from <code class="docutils literal notranslate"><span class="pre">pyvista</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or an interactive scene can be created and manipulated to create a compelling
+figure directly in a Jupyter notebook. First, grab the elements from the project:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab a few elements of interest and plot em up!</span>
+<span class="n">vol</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s1">&#39;Block Model&#39;</span><span class="p">]</span>
+<span class="n">assay</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s1">&#39;wolfpass_WP_assay&#39;</span><span class="p">]</span>
+<span class="n">topo</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s1">&#39;Topography&#39;</span><span class="p">]</span>
+<span class="n">dacite</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s1">&#39;Dacite&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then apply a filtering tool from <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> to the volumetric data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">thresher</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Threshold</span><span class="p">(</span><span class="n">vol</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center">
+<img alt="IPython Thresholding Tool" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/threshold.gif" />
+</div>
+<p>Then you can put it all in one environment!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab the active plotting window</span>
+<span class="c1">#  from the thresher tool</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">thresher</span><span class="o">.</span><span class="n">plotter</span>
+<span class="c1"># Add our datasets</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gist_earth&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">assay</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">dacite</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="c1"># Add the bounds axis</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show_bounds</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-center">
+<img alt="Interactive Rendering" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/interactive.gif" />
+</div>
+<p>And once you like what the render view displays, you can save a screenshot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s1">&#39;wolfpass.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="Wolf Pass Screenshot" src="https://github.com/OpenGeoVis/omfvista/raw/master/wolfpass.png" />
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples/index.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Bane Sullivan
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+ 
+
+    <div role="contentinfo">
+        <br>
+        This documentation was automatically generated by
+        <a href="https://gendocs.readthedocs.io/en/latest/">gendocs</a><br />
+    </div>
+
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
