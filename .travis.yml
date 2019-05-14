@@ -14,6 +14,11 @@ addons:
     packages:
       - xvfb
 
+env:
+  global:
+    # Doctr deploy key for OpenGeoVis/omfvista
+    - secure: "k1J+bTbiLXFCzFJ7AVsFtEtnk+DlEl6J61WK5Ez0fN3gI5i/ZtF6MDLl5sM43igWCs4OVF6jUnmGLZXqHBg9BItvOztWk4BwNu0cawT7c8miv5jn7nIcT1mP5xG+14mLVsWKsp5aADUjSel2QXINHRp9VW+0npsaY7QVLpa9qtfnADPoitdFO3H90/wE+4ZEvXObIUuj7bXul/bz1Rr46Wmif5li/RpMTWLzp5EYDrHnNjHdMP6pdI+x+jfg+1Tw7Cstjsswe2NMRe4gTICyQ+tVJxHp4gQvcRBLoQfdGgsC7orBGNdyhAzSaDJ1d80ul4e30+DDYDMiQ8lSL9b7U/w9AbCMmyEeaNm++nbSFbNtHOLJIAiHJ2MrkheLLYwMo0ELOwiXC/dE23d4VTPKg9fuAR5yRBjKbcWJiGSLOcbToaMdfku4ZhJvJVbvftPNyjqDjEPFaLUw+LEAHCuIesWpV1muezW6MSgf06zispfQP+swJof2M4uaI98/EBZ960uuBN6iNxapgTvz17EkkPnGR8FzmDZ5eYqnLR8R++skSjCP3S3Vnkt27kUisM//UEPAcXWzHrSTd3277HxykQoRGXTmGm9kR01IsGSFcZKnwSCe/ecPjXgIevK5M17sDipFQry3MVFrhdSsypseY5S+s7jl29wH2qsoVHXhzSQ="
+
 before_script: # configure a headless display to test plot generation
   - export DISPLAY=:99.0
   - which Xvfb
@@ -32,6 +37,7 @@ install:
       pip install PyQt5 pytest-qt matplotlib;
       pip install nbval ipython ipywidgets; # For testing the notebooks
       pip install imageio-ffmpeg
+      pip install doctr
     fi
   - which python
   - python -c "import vtk; print(vtk.VTK_VERSION)"
@@ -45,11 +51,20 @@ script:
       pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb;
     fi
   - codecov --token=1dc88395-9612-4ef9-9574-62c035d25908
+   - |
+     if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
+       cd ./docs;
+       make html;
+       set -e;
+       make html;
+       cd ..;
+       doctr deploy --built-docs ./docs/_build/html/ .;
+     fi
 
 notifications:
   email:
     recipients:
-    - info@pvgeo.org
+    - info@opengeovis.org
     on_success: never
     on_failure: never
 

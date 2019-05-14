@@ -17,17 +17,43 @@ import sys
 path = os.path.abspath('../..')
 sys.path.insert(0, path)
 
+
+# -- pyvista configuration ---------------------------------------------------
+import pyvista
+import numpy as np
+# Manage errors
+pyvista.set_error_output_file('errors.txt')
+# Ensure that offscreen rendering is used for docs generation
+pyvista.OFF_SCREEN = True # Not necessary - simply an insurance policy
+# Preferred plotting style for documentation
+pyvista.set_plot_theme('document')
+pyvista.rcParams['window_size'] = np.array([1024, 768]) * 2
+
 # -- Automatic Doc Pages Generation ------------------------------------------
 
 
 import omfvista # for documenting
+sys.path.insert(0, '/Users/bane/Documents/OpenGeoVis/Software/gendocs/')
 from gendocs import Generator
+
+
+append_material = """
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Examples
+   :hidden:
+
+   examples/index
+
+"""
 
 # Automatically generate documentaion pages
 Generator().DocumentPackages([omfvista],
                              '../../README.rst',
                              showprivate=True,
                              notify=False,
+                             append_material=append_material,
                             )
 
 
@@ -38,9 +64,9 @@ copyright = '2019, Bane Sullivan'
 author = 'Bane Sullivan'
 
 # The short X.Y version
-version = ''
+version = omfvista.__version__
 # The full version, including alpha/beta/rc tags
-release = '0.0.0'
+release = omfvista.__version__
 
 
 # -- General configuration ---------------------------------------------------
@@ -62,6 +88,10 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinxcontrib.napoleon',
+    'sphinx_copybutton',
+    'notfound.extension',
+    'sphinx_gallery.gen_gallery',
+    'sphinx.ext.extlinks',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -185,7 +215,7 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None,
-                       'https://pyvistanterface.readthedocs.io/en/latest/': None,
+                       'https://docs.pyvista.org': None,
                        'https://omf.readthedocs.io/en/latest/': None,
                       }
 
@@ -193,3 +223,28 @@ intersphinx_mapping = {'https://docs.python.org/': None,
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+
+# -- Sphinx Gallery Options
+from sphinx_gallery.sorting import FileNameSortKey
+
+sphinx_gallery_conf = {
+    # path to your examples scripts
+    "examples_dirs": [
+        "../../examples/",
+    ],
+    # path where to save gallery generated examples
+    "gallery_dirs": ["examples"],
+    # Patter to search for example files
+    "filename_pattern": r"\.py",
+    # Remove the "Download all examples" button from the top level gallery
+    "download_all_examples": False,
+    # Sort gallery example by file name instead of number of lines (default)
+    "within_subsection_order": FileNameSortKey,
+    # directory where function granular galleries are stored
+    "backreferences_dir": False,
+    # Modules for which function level galleries are created.  In
+    "doc_module": "omfvista",
+    "image_scrapers": (pyvista.Scraper(), 'matplotlib'),
+    "thumbnail_size": (350, 350),
+}

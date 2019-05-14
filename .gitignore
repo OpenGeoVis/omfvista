@@ -7,6 +7,8 @@ build/
 dist/
 omfvista.egg-info/
 docs/build/
+docs/_build/
 docs/source/content
+docs/source/examples
 docs/source/index.rst
 .ipynb_checkpoints

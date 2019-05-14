@@ -1,10 +1,6 @@
 OMF-VTK
 =======
 
-.. image:: https://img.shields.io/readthedocs/omfvista.svg?logo=read%20the%20docs&logoColor=white
-   :target: https://omfvista.readthedocs.io/en/latest/
-   :alt: Documentation Status
-
 .. image:: https://img.shields.io/pypi/v/omfvista.svg?logo=python&logoColor=white
    :target: https://pypi.org/project/omfvista/
    :alt: PyPI
