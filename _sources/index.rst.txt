@@ -54,10 +54,13 @@ please email `info@opengeovis.org`_.
 Example Use
 -----------
 
+.. image:: https://mybinder.org/badge_logo.svg
+   :target: https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb
+
 Be sure to check out the `Example Notebook`_ that demos ``omfvista``!
 Here's an example using the sample data hosted in the `OMF repository`_.
 
-.. _Example Notebook: https://github.com/OpenGeoVis/omfvista/blob/master/Example.ipynb
+.. _Example Notebook: https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb
 .. _OMF repository: https://github.com/gmggroup/omf/tree/master/assets
 
 .. code-block:: python
