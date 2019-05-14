@@ -9,7 +9,7 @@ OMF-VTK
    :target: https://travis-ci.org/OpenGeoVis/omfvista
    :alt: Build Status Linux
 
-.. image:: https://ci.appveyor.com/api/projects/status/y1sbh707jpl8375u?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/49tewkw60mykh1nb?svg=true
    :target: https://ci.appveyor.com/project/banesullivan/omfvista
    :alt: Build Status Windows
 
