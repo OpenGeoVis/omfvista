@@ -161,8 +161,10 @@
 <a class="reference external image-reference" href="https://ci.appveyor.com/project/banesullivan/omfvista"><img alt="Build Status Windows" src="https://ci.appveyor.com/api/projects/status/49tewkw60mykh1nb?svg=true" /></a>
 <a class="reference external image-reference" href="https://codecov.io/gh/OpenGeoVis/omfvista"><img alt="https://codecov.io/gh/OpenGeoVis/omfvista/branch/master/graph/badge.svg" src="https://codecov.io/gh/OpenGeoVis/omfvista/branch/master/graph/badge.svg" /></a>
 <a class="reference external image-reference" href="https://github.com/OpenGeoVis/omfvista"><img alt="GitHub" src="https://img.shields.io/github/stars/OpenGeoVis/omfvista.svg?style=social&amp;label=Stars" /></a>
-<p>A VTK interface for the <a class="reference external" href="https://omf.readthedocs.io/en/latest/">Open Mining Format package</a> (<code class="docutils literal notranslate"><span class="pre">omf</span></code>) providing
-Python 3D visualization.</p>
+<p>A PyVista (and VTK) interface for the <a class="reference external" href="https://omf.readthedocs.io/en/latest/">Open Mining Format package</a> (<code class="docutils literal notranslate"><span class="pre">omf</span></code>)
+providing Python 3D visualization and useable mesh data structures for
+processing datasets in the OMF specification.</p>
+<p>Documentation is hosted at <a class="reference external" href="https://opengeovis.github.io/omfvista/">https://opengeovis.github.io/omfvista/</a></p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Installation is simply:</p>
@@ -170,20 +172,25 @@ Python 3D visualization.</p>
 </pre></div>
 </div>
 <p>All necessary dependencies will be installed alongside <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>. Please
-note that this package heavily leverages the <a class="reference external" href="https://github.com/pyvista/pyvista">pyvista</a> package.</p>
+note that this package heavily leverages the <a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a> package.</p>
 </div>
 <div class="section" id="questions-support">
 <h2>Questions &amp; Support<a class="headerlink" href="#questions-support" title="Permalink to this headline">¶</a></h2>
-<p>For general use questions, please join <a class="reference external" href="https://github.com/OpenGeoVis">&#64;OpenGeoVis</a> on our <a class="reference external" href="http://slack.opengeovis.org">Slack workspace</a>
-under the <code class="docutils literal notranslate"><span class="pre">#omfvista</span></code> channel. To inquire with the creators of <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>,
-please email <a class="reference external" href="mailto:info&#37;&#52;&#48;opengeovis&#46;org">info<span>&#64;</span>opengeovis<span>&#46;</span>org</a>.</p>
+<p>For general questions about the project, its applications, or about software
+usage, please create an issue in the <a class="reference external" href="https://github.com/pyvista/pyvista-support">pyvista/pyvista-support</a> repository
+where the  PyVista community can collectively address your questions.
+You are also welcome to join us on join <a class="reference external" href="https://github.com/OpenGeoVis">&#64;OpenGeoVis</a> on our
+<a class="reference external" href="http://slack.opengeovis.org">Slack workspace</a> under the <code class="docutils literal notranslate"><span class="pre">#omfvista</span></code> channel or send one of the
+developers an email. The project support team can be reached at
+<a class="reference external" href="mailto:info&#37;&#52;&#48;opengeovis&#46;org">info<span>&#64;</span>opengeovis<span>&#46;</span>org</a>.</p>
 </div>
 <div class="section" id="example-use">
 <h2>Example Use<a class="headerlink" href="#example-use" title="Permalink to this headline">¶</a></h2>
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb"><img alt="https://mybinder.org/badge_logo.svg" src="https://mybinder.org/badge_logo.svg" /></a>
-<p>Be sure to check out the <a class="reference external" href="https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb">Example Notebook</a> that demos <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>!
+<p>Be sure to check out the <a class="reference external" href="https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb">Example Notebook</a> that demos <code class="docutils literal notranslate"><span class="pre">omfvista</span></code> or our
+<a class="reference external" href="https://opengeovis.github.io/omfvista/examples/index.html">Example Gallery</a> in the documentation!
 Here’s an example using the sample data hosted in the <a class="reference external" href="https://github.com/gmggroup/omf/tree/master/assets">OMF repository</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="kn">as</span> <span class="nn">pv</span>
 <span class="kn">import</span> <span class="nn">omfvista</span>
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">load_project</span><span class="p">(</span><span class="s1">&#39;test_file.omf&#39;</span><span class="p">)</span>
@@ -192,7 +199,7 @@ Here’s an example using the sample data hosted in the <a class="reference exte
 </div>
 <img alt="Table Representation" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/table-repr.png" />
 <p>Once the data is loaded as a <code class="docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code> dataset from <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>, then
-that object can be directly used for interactive 3D visualization from <code class="docutils literal notranslate"><span class="pre">pyvista</span></code>:</p>
+that object can be directly used for interactive 3D visualization from <a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -205,8 +212,8 @@ figure directly in a Jupyter notebook. First, grab the elements from the project
 <span class="n">dacite</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s1">&#39;Dacite&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Then apply a filtering tool from <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> to the volumetric data:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">thresher</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Threshold</span><span class="p">(</span><span class="n">vol</span><span class="p">)</span>
+<p>Then apply a filtering tool from <a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a> to the volumetric data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">thresher</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Threshold</span><span class="p">(</span><span class="n">vol</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-center">
