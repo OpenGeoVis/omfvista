@@ -21,10 +21,14 @@ OMF-VTK
    :alt: GitHub
 
 
-A VTK interface for the `Open Mining Format package`_ (``omf``) providing
-Python 3D visualization.
+A PyVista (and VTK) interface for the `Open Mining Format package`_ (``omf``)
+providing Python 3D visualization and useable mesh data structures for
+processing datasets in the OMF specification.
+
 
 .. _Open Mining Format package: https://omf.readthedocs.io/en/latest/
+
+Documentation is hosted at https://opengeovis.github.io/omfvista/
 
 
 Installation
@@ -35,18 +39,23 @@ Installation is simply::
     pip install omfvista
 
 All necessary dependencies will be installed alongside ``omfvista``. Please
-note that this package heavily leverages the pyvista_ package.
+note that this package heavily leverages the PyVista_ package.
 
-.. _pyvista: https://github.com/pyvista/pyvista
+.. _PyVista: https://github.com/pyvista/pyvista
 
 
 Questions & Support
 -------------------
 
-For general use questions, please join `@OpenGeoVis`_ on our `Slack workspace`_
-under the ``#omfvista`` channel. To inquire with the creators of ``omfvista``,
-please email `info@opengeovis.org`_.
+For general questions about the project, its applications, or about software
+usage, please create an issue in the `pyvista/pyvista-support`_ repository
+where the  PyVista community can collectively address your questions.
+You are also welcome to join us on join `@OpenGeoVis`_ on our
+`Slack workspace`_ under the ``#omfvista`` channel or send one of the
+developers an email. The project support team can be reached at
+`info@opengeovis.org`_.
 
+.. _pyvista/pyvista-support: https://github.com/pyvista/pyvista-support
 .. _@OpenGeoVis: https://github.com/OpenGeoVis
 .. _Slack workspace: http://slack.opengeovis.org
 .. _info@opengeovis.org: mailto:info@opengeovis.org
@@ -57,15 +66,17 @@ Example Use
 .. image:: https://mybinder.org/badge_logo.svg
    :target: https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb
 
-Be sure to check out the `Example Notebook`_ that demos ``omfvista``!
+Be sure to check out the `Example Notebook`_ that demos ``omfvista`` or our
+`Example Gallery`_ in the documentation!
 Here's an example using the sample data hosted in the `OMF repository`_.
 
 .. _Example Notebook: https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb
+.. _Example Gallery: https://opengeovis.github.io/omfvista/examples/index.html
 .. _OMF repository: https://github.com/gmggroup/omf/tree/master/assets
 
 .. code-block:: python
 
-    import pyvista
+    import pyvista as pv
     import omfvista
 
     project = omfvista.load_project('test_file.omf')
@@ -76,7 +87,7 @@ Here's an example using the sample data hosted in the `OMF repository`_.
 
 
 Once the data is loaded as a ``pyvista.MultiBlock`` dataset from ``omfvista``, then
-that object can be directly used for interactive 3D visualization from ``pyvista``:
+that object can be directly used for interactive 3D visualization from PyVista_:
 
 .. code-block:: python
 
@@ -93,11 +104,11 @@ figure directly in a Jupyter notebook. First, grab the elements from the project
     topo = project['Topography']
     dacite = project['Dacite']
 
-Then apply a filtering tool from ``pyvista`` to the volumetric data:
+Then apply a filtering tool from PyVista_ to the volumetric data:
 
 .. code-block:: python
 
-    thresher = pyvista.Threshold(vol)
+    thresher = pv.Threshold(vol)
 
 .. figure:: https://github.com/OpenGeoVis/omfvista/raw/master/assets/threshold.gif
    :alt: IPython Thresholding Tool
