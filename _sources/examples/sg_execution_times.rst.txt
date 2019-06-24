@@ -5,7 +5,7 @@
 
 Computation times
 =================
-**00:32.781** total execution time for **examples** files:
+**00:31.929** total execution time for **examples** files:
 
-- **00:18.018**: :ref:`sphx_glr_examples_load-surface.py` (``load-surface.py``)
-- **00:14.763**: :ref:`sphx_glr_examples_load-project.py` (``load-project.py``)
+- **00:17.607**: :ref:`sphx_glr_examples_load-surface.py` (``load-surface.py``)
+- **00:14.322**: :ref:`sphx_glr_examples_load-project.py` (``load-project.py``)
