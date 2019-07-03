@@ -30,6 +30,11 @@ processing datasets in the OMF specification.
 
 Documentation is hosted at https://opengeovis.github.io/omfvista/
 
+Check out the `Example Notebook`_ on NBViewer! Or
+`launch the Notebook on MyBinder`_ to run the code yourself!
+
+.. _Example Notebook: https://nbviewer.jupyter.org/github/OpenGeoVis/omfvista/blob/master/Example.ipynb
+.. _launch the Notebook on MyBinder: https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb
 
 Installation
 ------------
@@ -70,7 +75,6 @@ Be sure to check out the `Example Notebook`_ that demos ``omfvista`` or our
 `Example Gallery`_ in the documentation!
 Here's an example using the sample data hosted in the `OMF repository`_.
 
-.. _Example Notebook: https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb
 .. _Example Gallery: https://opengeovis.github.io/omfvista/examples/index.html
 .. _OMF repository: https://github.com/gmggroup/omf/tree/master/assets
 
