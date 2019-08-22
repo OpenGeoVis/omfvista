@@ -1,5 +1,7 @@
 """This module provideas a convienance method to run all of the tests for
 ``omfvista``.
+
+NOTE: requires latest version of PyVista
 """
 
 __all__ = [

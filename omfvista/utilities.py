@@ -12,6 +12,11 @@ from vtk.util import numpy_support as nps
 import pyvista
 from PIL import Image
 
+try:
+    from pyvista import is_pyvista_obj as is_pyvista_dataset
+except ImportError:
+    from pyvista import is_pyvista_dataset
+
 
 def check_orientation(axis_u, axis_v, axis_w):
     """This will check if the given ``axis_*`` vectors are the typical
@@ -50,7 +55,7 @@ def add_data(output, data):
 
 def add_textures(output, textures, elname):
     """Add textures to a pyvista data object"""
-    if not pyvista.is_pyvista_obj(output):
+    if not is_pyvista_dataset(output):
         output = pyvista.wrap(output)
 
     for i, tex in enumerate(textures):

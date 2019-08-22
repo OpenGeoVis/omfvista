@@ -209,40 +209,40 @@ class TestElements(unittest.TestCase):
         line = omfvista.wrap(LINESET)
         self.assertTrue(isinstance(line, pyvista.PolyData))
         # Note that omfvista adds a `Line Index` array
-        self.assertEqual(line.n_scalars, len(LINESET.data) + 1)
+        self.assertEqual(line.n_arrays, len(LINESET.data) + 1)
         self.assertEqual(line.n_cells, LINESET.geometry.num_cells)
         self.assertEqual(line.n_points, LINESET.geometry.num_nodes)
 
     def test_wrap_pointset(self):
         pts = omfvista.wrap(POINTSET)
         self.assertTrue(isinstance(pts, pyvista.PolyData))
-        self.assertEqual(pts.n_scalars, len(POINTSET.data))
+        self.assertEqual(pts.n_arrays, len(POINTSET.data))
         self.assertEqual(pts.n_cells, POINTSET.geometry.num_cells)
         self.assertEqual(pts.n_points, POINTSET.geometry.num_nodes)
 
     def test_wrap_surface(self):
         surf = omfvista.wrap(SURFACE)
         self.assertTrue(isinstance(surf, pyvista.UnstructuredGrid))
-        self.assertEqual(surf.n_scalars, len(SURFACE.data))
+        self.assertEqual(surf.n_arrays, len(SURFACE.data))
         self.assertEqual(surf.n_cells, SURFACE.geometry.num_cells)
         self.assertEqual(surf.n_points, SURFACE.geometry.num_nodes)
         grid = omfvista.wrap(GRID)
         self.assertTrue(isinstance(grid, pyvista.StructuredGrid))
-        self.assertEqual(grid.n_scalars, len(GRID.data))
+        self.assertEqual(grid.n_arrays, len(GRID.data))
         self.assertEqual(grid.n_cells, GRID.geometry.num_cells)
         self.assertEqual(grid.n_points, GRID.geometry.num_nodes)
 
     def test_wrap_volume(self):
         vol = omfvista.wrap(VOLUME)
-        self.assertEqual(vol.n_scalars, 1)
+        self.assertEqual(vol.n_arrays, 1)
         self.assertTrue(isinstance(vol, pyvista.RectilinearGrid))
-        self.assertEqual(vol.n_scalars, len(VOLUME.data))
+        self.assertEqual(vol.n_arrays, len(VOLUME.data))
         self.assertEqual(vol.n_cells, VOLUME.geometry.num_cells)
         self.assertEqual(vol.n_points, VOLUME.geometry.num_nodes)
         vol_ir = omfvista.wrap(VOLUME_IR)
-        self.assertEqual(vol_ir.n_scalars, 1)
+        self.assertEqual(vol_ir.n_arrays, 1)
         self.assertTrue(isinstance(vol_ir, pyvista.StructuredGrid))
-        self.assertEqual(vol_ir.n_scalars, len(VOLUME_IR.data))
+        self.assertEqual(vol_ir.n_arrays, len(VOLUME_IR.data))
         self.assertEqual(vol_ir.n_cells, VOLUME_IR.geometry.num_cells)
         self.assertEqual(vol_ir.n_points, VOLUME_IR.geometry.num_nodes)
 
