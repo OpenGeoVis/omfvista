@@ -7,7 +7,7 @@ import sys
 import platform
 import warnings
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 with open("README.rst", "r") as f:
     long_description = f.read()
@@ -15,7 +15,7 @@ with open("README.rst", "r") as f:
 # Manage requirements
 install_requires = [
     'omf>=1.0.0',
-    'vectormath>=0.2.0',
+    'vectormath>=0.2.1',
     'pyvista>=0.20.1',
     'numpy',
     'matplotlib',
