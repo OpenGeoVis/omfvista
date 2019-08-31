@@ -1,7 +1,0 @@
-#!/bin/bash
-# Install panel from master branch to keep up with bug fixes
-git clone https://github.com/pyviz/panel.git
-mv panel .panel
-cd .panel
-python setup.py install
-cd ..
