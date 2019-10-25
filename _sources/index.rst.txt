@@ -1,5 +1,5 @@
-OMF-VTK
-=======
+Open Mining Format: PyVista (VTK) Interface
+===========================================
 
 .. image:: https://img.shields.io/pypi/v/omfvista.svg?logo=python&logoColor=white
    :target: https://pypi.org/project/omfvista/
