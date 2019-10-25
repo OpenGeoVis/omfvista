@@ -36,6 +36,9 @@ Check out the `Example Notebook`_ on NBViewer! Or
 .. _Example Notebook: https://nbviewer.jupyter.org/github/OpenGeoVis/omfvista/blob/master/Example.ipynb
 .. _launch the Notebook on MyBinder: https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb
 
+.. image:: https://github.com/OpenGeoVis/omfvista/raw/master/assets/scene.png
+   :alt: Integrated Scene
+
 Installation
 ------------
 
@@ -95,10 +98,10 @@ that object can be directly used for interactive 3D visualization from PyVista_:
 
 .. code-block:: python
 
-    project.plot(notebook=False)
+    project.plot(multi_colors=True)
 
-Or an interactive scene can be created and manipulated to create a compelling
-figure directly in a Jupyter notebook. First, grab the elements from the project:
+An interactive scene can be created and manipulated to create a compelling
+figure. First, grab the elements from the project:
 
 .. code-block:: python
 
@@ -108,39 +111,24 @@ figure directly in a Jupyter notebook. First, grab the elements from the project
     topo = project['Topography']
     dacite = project['Dacite']
 
-Then apply a filtering tool from PyVista_ to the volumetric data:
+Then create a 3D scene with these spatial data and apply a filtering tool from
+PyVista_ to the volumetric data:
 
 .. code-block:: python
 
-    thresher = pv.Threshold(vol)
-
-.. figure:: https://github.com/OpenGeoVis/omfvista/raw/master/assets/threshold.gif
-   :alt: IPython Thresholding Tool
-
-Then you can put it all in one environment!
-
-.. code-block:: python
-
-    # Grab the active plotting window
-    #  from the thresher tool
-    p = thresher.plotter
+    # Create a plotting window
+    p = pv.Plotter(notebook=False)
     # Add our datasets
     p.add_mesh(topo, cmap='gist_earth', opacity=0.5)
     p.add_mesh(assay, color='blue', line_width=3)
     p.add_mesh(dacite, color='yellow', opacity=0.6)
+    # Add the volumetric dataset with a thresholding tool
+    p.add_mesh_threshold(vol)
     # Add the bounds axis
     p.show_bounds()
+    # Redner the scene in a pop out window
+    p.show()
 
 
 .. figure:: https://github.com/OpenGeoVis/omfvista/raw/master/assets/interactive.gif
    :alt: Interactive Rendering
-
-
-And once you like what the render view displays, you can save a screenshot:
-
-.. code-block:: python
-
-    p.screenshot('wolfpass.png')
-
-.. image:: https://github.com/OpenGeoVis/omfvista/raw/master/wolfpass.png
-   :alt: Wolf Pass Screenshot
