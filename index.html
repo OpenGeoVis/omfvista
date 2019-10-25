@@ -167,6 +167,7 @@ processing datasets in the OMF specification.</p>
 <p>Documentation is hosted at <a class="reference external" href="https://opengeovis.github.io/omfvista/">https://opengeovis.github.io/omfvista/</a></p>
 <p>Check out the <a class="reference external" href="https://nbviewer.jupyter.org/github/OpenGeoVis/omfvista/blob/master/Example.ipynb">Example Notebook</a> on NBViewer! Or
 <a class="reference external" href="https://mybinder.org/v2/gh/OpenGeoVis/omfvista/master?filepath=Example.ipynb">launch the Notebook on MyBinder</a> to run the code yourself!</p>
+<img alt="Integrated Scene" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/scene.png" />
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Installation is simply:</p>
@@ -202,11 +203,11 @@ Here’s an example using the sample data hosted in the <a class="reference exte
 <img alt="Table Representation" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/table-repr.png" />
 <p>Once the data is loaded as a <code class="docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code> dataset from <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>, then
 that object can be directly used for interactive 3D visualization from <a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">multi_colors</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Or an interactive scene can be created and manipulated to create a compelling
-figure directly in a Jupyter notebook. First, grab the elements from the project:</p>
+<p>An interactive scene can be created and manipulated to create a compelling
+figure. First, grab the elements from the project:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab a few elements of interest and plot em up!</span>
 <span class="n">vol</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s1">&#39;Block Model&#39;</span><span class="p">]</span>
 <span class="n">assay</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s1">&#39;wolfpass_WP_assay&#39;</span><span class="p">]</span>
@@ -214,33 +215,25 @@ figure directly in a Jupyter notebook. First, grab the elements from the project
 <span class="n">dacite</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s1">&#39;Dacite&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Then apply a filtering tool from <a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a> to the volumetric data:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">thresher</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Threshold</span><span class="p">(</span><span class="n">vol</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure align-default">
-<img alt="IPython Thresholding Tool" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/threshold.gif" />
-</div>
-<p>Then you can put it all in one environment!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab the active plotting window</span>
-<span class="c1">#  from the thresher tool</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">thresher</span><span class="o">.</span><span class="n">plotter</span>
+<p>Then create a 3D scene with these spatial data and apply a filtering tool from
+<a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a> to the volumetric data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a plotting window</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="c1"># Add our datasets</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gist_earth&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">assay</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">dacite</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="c1"># Add the volumetric dataset with a thresholding tool</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh_threshold</span><span class="p">(</span><span class="n">vol</span><span class="p">)</span>
 <span class="c1"># Add the bounds axis</span>
 <span class="n">p</span><span class="o">.</span><span class="n">show_bounds</span><span class="p">()</span>
+<span class="c1"># Redner the scene in a pop out window</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="figure align-default">
 <img alt="Interactive Rendering" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/interactive.gif" />
 </div>
-<p>And once you like what the render view displays, you can save a screenshot:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="s1">&#39;wolfpass.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<img alt="Wolf Pass Screenshot" src="https://github.com/OpenGeoVis/omfvista/raw/master/wolfpass.png" />
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
