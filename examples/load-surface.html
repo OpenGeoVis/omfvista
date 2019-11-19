@@ -205,6 +205,10 @@
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_load-surface_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-surface_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(893251.2484534496, 5951702.218353449, 211625.25205344972), (681625.9963999998, 5740076.9662999995, 0.0), (0.0, 0.0, 1.0)]
+</pre></div>
+</div>
 <p>Now warp by a scalar to have a more realistic surface
 Note the scaling factor that exagerates the surface</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">warped</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">warp_by_scalar</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
@@ -212,6 +216,10 @@ Note the scaling factor that exagerates the surface</p>
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_load-surface_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-surface_002.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(877968.7779754738, 5937620.777975474, 197263.7918914894), (684176.0, 5743828.0, 3471.013916015625), (0.0, 0.0, 1.0)]
+</pre></div>
+</div>
 <p>Create an OMF element that can be saved out</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tris</span> <span class="o">=</span> <span class="n">warped</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">surf</span><span class="o">.</span><span class="n">n_cells</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">base_quaternary_omf</span> <span class="o">=</span> <span class="n">omf</span><span class="o">.</span><span class="n">SurfaceElement</span><span class="p">(</span>
@@ -231,12 +239,20 @@ Note the scaling factor that exagerates the surface</p>
 <span class="n">base_quaternary_omf</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
 <p>Sanity check</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">omfvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">base_quaternary_omf</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_load-surface_003.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-surface_003.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.463 seconds)</p>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(877968.7779754738, 5937620.777975474, 197263.7918914894), (684176.0, 5743828.0, 3471.013916015625), (0.0, 0.0, 1.0)]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.904 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-load-surface-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/7b3e7ad5ae732bc05696cd4c13cefc84/load-surface.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">load-surface.py</span></code></a></p>

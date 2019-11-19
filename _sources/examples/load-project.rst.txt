@@ -25,6 +25,7 @@ Load and visualize an OMF project file
 
 
 
+
 Load the project into an :class:`pyvista.MultiBlock` dataset
 
 
@@ -44,11 +45,12 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
  .. code-block:: none
 
-    MultiBlock (0x7f4fa1be5ee8)
+    MultiBlock (0x7fd3a2c74ee8)
       N Blocks:     9
       X Bounds:     443941.105, 447059.611
       Y Bounds:     491941.536, 495059.859
       Z Bounds:     2330.000, 3555.942
+
 
 
 
@@ -71,6 +73,15 @@ visualization from ``pyvista``:
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    [(450605.70583080064, 498606.04540880054, 8048.318718998364), (445500.3579790001, 493500.697557, 2942.97086719778), (0.0, 0.0, 1.0)]
+
 
 
 Or an interactive scene can be created and manipulated to create a compelling
@@ -86,6 +97,7 @@ project:
     assay = project['wolfpass_WP_assay']
     topo = project['Topography']
     dacite = project['Dacite']
+
 
 
 
@@ -111,6 +123,15 @@ project:
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    [(450590.5515598323, 498590.8911378322, 8059.037822401073), (445500.3579790001, 493500.697557, 2968.84424156883), (0.0, 0.0, 1.0)]
+
 
 
 Then apply a filtering tool from ``pyvista`` to the volumetric data:
@@ -133,13 +154,14 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
  .. code-block:: none
 
-    UnstructuredGrid (0x7f4fa0de8768)
+    UnstructuredGrid (0x7fd3a1e84768)
       N Cells:      92525
       N Points:     107807
       X Bounds:     4.447e+05, 4.457e+05
       Y Bounds:     4.929e+05, 4.942e+05
       Z Bounds:     2.330e+03, 3.110e+03
       N Arrays:     1
+
 
 
 
@@ -172,12 +194,21 @@ Then you can put it all in one environment!
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+
+    [(450605.73033793643, 498606.06594899646, 8048.341830134237), (445500.359375, 493500.69498606, 2942.97086719778), (0.0, 0.0, 1.0)]
+
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  19.102 seconds)
+   **Total running time of the script:** ( 0 minutes  18.411 seconds)
 
 
 .. _sphx_glr_download_examples_load-project.py:

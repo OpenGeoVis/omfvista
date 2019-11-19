@@ -179,7 +179,7 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MultiBlock (0x7f4fa1be5ee8)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MultiBlock (0x7fd3a2c74ee8)
   N Blocks:     9
   X Bounds:     443941.105, 447059.611
   Y Bounds:     491941.536, 495059.859
@@ -193,6 +193,10 @@ visualization from <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_load-project_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(450605.70583080064, 498606.04540880054, 8048.318718998364), (445500.3579790001, 493500.697557, 2942.97086719778), (0.0, 0.0, 1.0)]
+</pre></div>
+</div>
 <p>Or an interactive scene can be created and manipulated to create a compelling
 figure directly in a Jupyter notebook. First, grab the elements from the
 project:</p>
@@ -212,6 +216,10 @@ project:</p>
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_load-project_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_002.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(450590.5515598323, 498590.8911378322, 8059.037822401073), (445500.3579790001, 493500.697557, 2968.84424156883), (0.0, 0.0, 1.0)]
+</pre></div>
+</div>
 <p>Then apply a filtering tool from <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> to the volumetric data:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Threshold the volumetric data</span>
 <span class="n">thresh_vol</span> <span class="o">=</span> <span class="n">vol</span><span class="o">.</span><span class="n">threshold</span><span class="p">([</span><span class="mf">1.09</span><span class="p">,</span> <span class="mf">4.20</span><span class="p">])</span>
@@ -219,7 +227,7 @@ project:</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>UnstructuredGrid (0x7f4fa0de8768)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>UnstructuredGrid (0x7fd3a1e84768)
   N Cells:      92525
   N Points:     107807
   X Bounds:     4.447e+05, 4.457e+05
@@ -247,7 +255,11 @@ project:</p>
 </pre></div>
 </div>
 <img alt="../_images/sphx_glr_load-project_003.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_003.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.102 seconds)</p>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(450605.73033793643, 498606.06594899646, 8048.341830134237), (445500.359375, 493500.69498606, 2942.97086719778), (0.0, 0.0, 1.0)]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.411 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-load-project-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/79a98aea1a093e345578d0f3eab185b5/load-project.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">load-project.py</span></code></a></p>

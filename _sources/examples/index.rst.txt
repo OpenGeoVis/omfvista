@@ -15,9 +15,9 @@ Examples
 
 .. only:: html
 
-    .. figure:: /examples/images/thumb/sphx_glr_load-project_thumb.png
+ .. figure:: /examples/images/thumb/sphx_glr_load-project_thumb.png
 
-        :ref:`sphx_glr_examples_load-project.py`
+     :ref:`sphx_glr_examples_load-project.py`
 
 .. raw:: html
 
@@ -35,9 +35,9 @@ Examples
 
 .. only:: html
 
-    .. figure:: /examples/images/thumb/sphx_glr_load-surface_thumb.png
+ .. figure:: /examples/images/thumb/sphx_glr_load-surface_thumb.png
 
-        :ref:`sphx_glr_examples_load-surface.py`
+     :ref:`sphx_glr_examples_load-surface.py`
 
 .. raw:: html
 
@@ -50,7 +50,7 @@ Examples
    /examples/load-surface
 .. raw:: html
 
-    <div style='clear:both'></div>
+    <div class="sphx-glr-clear"></div>
 
 
 
