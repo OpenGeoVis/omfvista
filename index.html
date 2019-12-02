@@ -193,7 +193,7 @@ developers an email. The project support team can be reached at
 <p>Be sure to check out the <a class="reference external" href="https://nbviewer.jupyter.org/github/OpenGeoVis/omfvista/blob/master/Example.ipynb">Example Notebook</a> that demos <code class="docutils literal notranslate"><span class="pre">omfvista</span></code> or our
 <a class="reference external" href="https://opengeovis.github.io/omfvista/examples/index.html">Example Gallery</a> in the documentation!
 Here’s an example using the sample data hosted in the <a class="reference external" href="https://github.com/gmggroup/omf/tree/master/assets">OMF repository</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="kn">as</span> <span class="nn">pv</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">import</span> <span class="nn">omfvista</span>
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">load_project</span><span class="p">(</span><span class="s1">&#39;test_file.omf&#39;</span><span class="p">)</span>
@@ -203,7 +203,7 @@ Here’s an example using the sample data hosted in the <a class="reference exte
 <img alt="Table Representation" src="https://github.com/OpenGeoVis/omfvista/raw/master/assets/table-repr.png" />
 <p>Once the data is loaded as a <code class="docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code> dataset from <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>, then
 that object can be directly used for interactive 3D visualization from <a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">multi_colors</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">multi_colors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>An interactive scene can be created and manipulated to create a compelling
@@ -218,7 +218,7 @@ figure. First, grab the elements from the project:</p>
 <p>Then create a 3D scene with these spatial data and apply a filtering tool from
 <a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a> to the volumetric data:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a plotting window</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Add our datasets</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gist_earth&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">assay</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
