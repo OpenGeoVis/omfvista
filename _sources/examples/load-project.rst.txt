@@ -45,7 +45,7 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
  .. code-block:: none
 
-    MultiBlock (0x7fcb35c02e28)
+    MultiBlock (0x7facda6befa8)
       N Blocks:     9
       X Bounds:     443941.105, 447059.611
       Y Bounds:     491941.536, 495059.859
@@ -129,6 +129,8 @@ project:
 
  .. code-block:: none
 
+    /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pyvista/core/common.py:632: UserWarning: DEPRECATED: please use `.set_active_scalars` instead.
+      warnings.warn("DEPRECATED: please use `.set_active_scalars` instead.")
 
     [(450590.5515598323, 498590.8911378322, 8059.037822401073), (445500.3579790001, 493500.697557, 2968.84424156883), (0.0, 0.0, 1.0)]
 
@@ -154,7 +156,7 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
  .. code-block:: none
 
-    UnstructuredGrid (0x7fcb26e540a8)
+    UnstructuredGrid (0x7facda3cc468)
       N Cells:      92525
       N Points:     107807
       X Bounds:     4.447e+05, 4.457e+05
@@ -208,7 +210,7 @@ Then you can put it all in one environment!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  15.036 seconds)
+   **Total running time of the script:** ( 0 minutes  19.387 seconds)
 
 
 .. _sphx_glr_download_examples_load-project.py:
