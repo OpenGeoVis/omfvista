@@ -32,6 +32,7 @@
 ./_sources/index.rst.txt
 ./_static/basic.css
 ./_static/broken_example.png
+./_static/clipboard.min.js
 ./_static/copy-button.svg
 ./_static/copybutton.css
 ./_static/copybutton.js
