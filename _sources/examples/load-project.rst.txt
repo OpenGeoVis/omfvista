@@ -45,7 +45,7 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
  .. code-block:: none
 
-    MultiBlock (0x7f20a2695e88)
+    MultiBlock (0x7fab4f23bbe8)
       N Blocks:     9
       X Bounds:     443941.105, 447059.611
       Y Bounds:     491941.536, 495059.859
@@ -156,7 +156,7 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
  .. code-block:: none
 
-    UnstructuredGrid (0x7f20a0499ac8)
+    UnstructuredGrid (0x7fab4d1d9648)
       N Cells:      92525
       N Points:     107807
       X Bounds:     4.447e+05, 4.457e+05
@@ -210,7 +210,7 @@ Then you can put it all in one environment!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  20.144 seconds)
+   **Total running time of the script:** ( 0 minutes  20.457 seconds)
 
 
 .. _sphx_glr_download_examples_load-project.py:

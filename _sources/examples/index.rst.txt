@@ -11,6 +11,26 @@ Examples
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Load an example OMF archive of a geothermal research site.">
+
+.. only:: html
+
+ .. figure:: /examples/images/thumb/sphx_glr_forge-project_thumb.png
+
+     :ref:`sphx_glr_examples_forge-project.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/forge-project
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Load and visualize an OMF project file ">
 
 .. only:: html

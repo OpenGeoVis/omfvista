@@ -1,0 +1,86 @@
+"""
+FORGE Project
+-------------
+
+Load an example OMF archive of a geothermal research site.
+
+
+Data from `FORGE geothermal research Site <https://utahforge.com/>`_
+
+"""
+import pyvista as pv
+import omfvista
+
+# Download the data and load!
+project = omfvista.download_forge_example()
+project
+
+
+###############################################################################
+# Now we can go ahead and create an integrated visualization of all of the
+# data available to in the ``project`` :class:`pyvista.MultiBlock` container.
+# All we have to do is index the ``project`` container by the name of the
+# dataset that we want to acess. We can then pass those meshes to the
+# :class:`pyvista.Plotter`'s ``add_mesh`` method with keyword arguments for how
+# we want it displayed (e.g. color, opacity, etc.).
+
+p = pv.Plotter()
+p.add_mesh(project["Site Boundary"], line_width=5,
+           color="yellow", render_lines_as_tubes=True)
+p.add_mesh(project["Terrain"],
+           texture="geo_aer", opacity=0.7, lighting=False)
+p.add_mesh(project["Opal Mound Fault"],
+           color="brown", opacity=0.7)
+p.add_mesh(project["Negro Mag Fault"],
+           color="lightblue", opacity=0.7)
+p.add_mesh(project["Observed Temperature"],
+           cmap="coolwarm", clim=[10,270], point_size=10,
+           render_points_as_spheres=True)
+
+p.enable_anti_aliasing()
+p.enable_depth_peeling()
+p.camera_position = [(315661.9406719345, 4234675.528454831, 15167.291249498076),
+                     (337498.00521202036, 4260818.504034578, -1261.5688408692681),
+                     (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
+p.show()
+
+
+###############################################################################
+
+p = pv.Plotter()
+p.add_mesh(project["Site Boundary"], line_width=5,
+           color="yellow", render_lines_as_tubes=True)
+p.add_mesh(project["Terrain"],
+           texture="geo_aer", opacity=0.7, lighting=False)
+p.add_mesh(project["Opal Mound Fault"],
+           color="brown", opacity=0.7)
+p.add_mesh(project["Negro Mag Fault"],
+           color="lightblue", opacity=0.7)
+p.add_mesh(project["Observed Gravity"],
+           render_points_as_spheres=True)
+
+p.enable_anti_aliasing()
+p.enable_depth_peeling()
+p.camera_position = [(315661.9406719345, 4234675.528454831, 15167.291249498076),
+                     (337498.00521202036, 4260818.504034578, -1261.5688408692681),
+                     (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
+p.show()
+###############################################################################
+
+p = pv.Plotter()
+p.add_mesh(project["Site Boundary"], line_width=5,
+           color="yellow", render_lines_as_tubes=True)
+p.add_mesh(project["Terrain"],
+           color=True, opacity=0.7, lighting=False)
+p.add_mesh(project["Opal Mound Fault"],
+           color="brown", opacity=0.7)
+p.add_mesh(project["Negro Mag Fault"],
+           color="lightblue", opacity=0.7)
+p.add_mesh(project["Top of Basement"])
+
+p.enable_anti_aliasing()
+p.enable_depth_peeling()
+p.camera_position = [(315661.9406719345, 4234675.528454831, 15167.291249498076),
+                     (337498.00521202036, 4260818.504034578, -1261.5688408692681),
+                     (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
+p.show()
