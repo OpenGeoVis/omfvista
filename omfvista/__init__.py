@@ -26,3 +26,12 @@ def ignore_warnings():
     warnings.simplefilter(action='ignore', category=Image.DecompressionBombWarning)
 
 ignore_warnings()
+
+
+def download_forge_example():
+    """Download and load the FORGE geothermal prroject data."""
+    from pyvista import examples
+    print("Downloading FORGE data... Please be patient.")
+    filename, _ = examples.downloads._download_file('FORGE.omf')
+    print("FORGE Data Downloaded!")
+    return load_project(filename)
