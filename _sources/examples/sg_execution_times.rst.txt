@@ -5,12 +5,12 @@
 
 Computation times
 =================
-**01:52.666** total execution time for **examples** files:
+**01:56.125** total execution time for **examples** files:
 
 +------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_forge-project.py` (``forge-project.py``) | 01:16.060 | 0.0 MB |
+| :ref:`sphx_glr_examples_forge-project.py` (``forge-project.py``) | 01:13.459 | 0.0 MB |
 +------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_load-project.py` (``load-project.py``)   | 00:20.457 | 0.0 MB |
+| :ref:`sphx_glr_examples_load-project.py` (``load-project.py``)   | 00:26.617 | 0.0 MB |
 +------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_load-surface.py` (``load-surface.py``)   | 00:16.149 | 0.0 MB |
+| :ref:`sphx_glr_examples_load-surface.py` (``load-surface.py``)   | 00:16.050 | 0.0 MB |
 +------------------------------------------------------------------+-----------+--------+

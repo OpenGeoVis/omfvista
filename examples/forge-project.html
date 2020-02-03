@@ -208,10 +208,10 @@ FORGE Data Downloaded!
 </td></tr> </table>
 <br />
 <br /><p>Now we can go ahead and create an integrated visualization of all of the
-data available to in the <code class="docutils literal notranslate"><span class="pre">project</span></code> <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.23.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> container.
+data available to in the <code class="docutils literal notranslate"><span class="pre">project</span></code> <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.23.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> container.
 All we have to do is index the <code class="docutils literal notranslate"><span class="pre">project</span></code> container by the name of the
 dataset that we want to acess. We can then pass those meshes to the
-<a class="reference external" href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="(in PyVista v0.23.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a>’s <code class="docutils literal notranslate"><span class="pre">add_mesh</span></code> method with keyword arguments for how
+<a class="reference external" href="https://docs.pyvista.org/plotting/plotting.html#pyvista.Plotter" title="(in PyVista v0.23.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a>’s <code class="docutils literal notranslate"><span class="pre">add_mesh</span></code> method with keyword arguments for how
 we want it displayed (e.g. color, opacity, etc.).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">project</span><span class="p">[</span><span class="s2">&quot;Site Boundary&quot;</span><span class="p">],</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
@@ -236,7 +236,9 @@ we want it displayed (e.g. color, opacity, etc.).</p>
 </div>
 <img alt="../_images/sphx_glr_forge-project_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_forge-project_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(315661.9406719345, 4234675.528454831, 15167.291249498076), (337498.00521202036, 4260818.504034578, -1261.5688408692681), (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(315661.9406719345, 4234675.528454831, 15167.291249498076),
+ (337498.00521202036, 4260818.504034578, -1261.5688408692681),
+ (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -261,7 +263,9 @@ we want it displayed (e.g. color, opacity, etc.).</p>
 </div>
 <img alt="../_images/sphx_glr_forge-project_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_forge-project_002.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(315661.9406719345, 4234675.528454831, 15167.291249498076), (337498.00521202036, 4260818.504034578, -1261.5688408692681), (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(315661.9406719345, 4234675.528454831, 15167.291249498076),
+ (337498.00521202036, 4260818.504034578, -1261.5688408692681),
+ (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -285,10 +289,12 @@ we want it displayed (e.g. color, opacity, etc.).</p>
 </div>
 <img alt="../_images/sphx_glr_forge-project_003.png" class="sphx-glr-single-img" src="../_images/sphx_glr_forge-project_003.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(315661.9406719345, 4234675.528454831, 15167.291249498076), (337498.00521202036, 4260818.504034578, -1261.5688408692681), (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(315661.9406719345, 4234675.528454831, 15167.291249498076),
+ (337498.00521202036, 4260818.504034578, -1261.5688408692681),
+ (0.2708862567924439, 0.3397398234107863, 0.9006650255615491)]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  16.060 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  13.459 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-forge-project-py">
 <div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/12bbbfbf2ea9acaff47436a68cf6674a/forge-project.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">forge-project.py</span></code></a></p>
