@@ -222,7 +222,7 @@ class TestElements(unittest.TestCase):
 
     def test_wrap_surface(self):
         surf = omfvista.wrap(SURFACE)
-        self.assertTrue(isinstance(surf, pyvista.UnstructuredGrid))
+        self.assertTrue(isinstance(surf, pyvista.PolyData))
         self.assertEqual(surf.n_arrays, len(SURFACE.data))
         self.assertEqual(surf.n_cells, SURFACE.geometry.num_cells)
         self.assertEqual(surf.n_points, SURFACE.geometry.num_nodes)

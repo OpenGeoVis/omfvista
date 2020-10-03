@@ -8,13 +8,10 @@ __all__ = [
 
 __displayname__ = 'Volume'
 
-import vtk
-from vtk.util import numpy_support as nps
+import numpy as np
 import pyvista
 
 from omfvista.utilities import check_orientation, check_orthogonal
-
-import numpy as np
 
 
 def get_volume_shape(vol):
@@ -22,7 +19,7 @@ def get_volume_shape(vol):
     return ( len(vol.tensor_u), len(vol.tensor_v), len(vol.tensor_w))
 
 
-def volume_grid_geom_to_vtk(volgridgeom):
+def volume_grid_geom_to_vtk(volgridgeom, origin=(0.0, 0.0, 0.0)):
     """Convert the 3D gridded volume to a :class:`pyvista.StructuredGrid`
     (or a :class:`pyvista.RectilinearGrid` when apprropriate) object contatining
     the 2D surface.
@@ -45,17 +42,9 @@ def volume_grid_geom_to_vtk(volgridgeom):
 
     # If axis orientations are standard then use a vtkRectilinearGrid
     if check_orientation(volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w):
-        output = vtk.vtkRectilinearGrid()
-        output.SetDimensions(len(x), len(y), len(z)) # note this subtracts 1
-        output.SetXCoordinates(nps.numpy_to_vtk(num_array=x))
-        output.SetYCoordinates(nps.numpy_to_vtk(num_array=y))
-        output.SetZCoordinates(nps.numpy_to_vtk(num_array=z))
-        return pyvista.wrap(output)
+        return pyvista.RectilinearGrid(x + origin[0], y + origin[1], z + origin[2])
 
     # Otherwise use a vtkStructuredGrid
-    output = vtk.vtkStructuredGrid()
-    output.SetDimensions(len(x), len(y), len(z)) # note this subtracts 1
-
     # Build out all nodes in the mesh
     xx, yy, zz = np.meshgrid(x, y, z, indexing='ij')
     points = np.c_[xx.ravel('F'), yy.ravel('F'), zz.ravel('F')]
@@ -64,17 +53,14 @@ def volume_grid_geom_to_vtk(volgridgeom):
     rotation_mtx = np.array([volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w])
     points = points.dot(rotation_mtx)
 
-    # Convert points to vtk object
-    pts = vtk.vtkPoints()
-    pts.SetNumberOfPoints(len(points))
-    pts.SetData(nps.numpy_to_vtk(points))
-    # Now build the output
-    output.SetPoints(pts)
-
-    return pyvista.wrap(output)
+    output = pyvista.StructuredGrid()
+    output.points = points
+    output.dimensions = len(x), len(y), len(z)
+    output.points += np.array(origin)
+    return output
 
 
-def volume_to_vtk(volelement):
+def volume_to_vtk(volelement, origin=(0.0, 0.0, 0.0)):
     """Convert the volume element to a VTK data object.
 
     Args:
@@ -82,20 +68,14 @@ def volume_to_vtk(volelement):
             convert
 
     """
-    output = volume_grid_geom_to_vtk(volelement.geometry)
+    output = volume_grid_geom_to_vtk(volelement.geometry, origin=origin)
     shp = get_volume_shape(volelement.geometry)
     # Add data to output
     for data in volelement.data:
         arr = data.array.array
         arr = np.reshape(arr, shp).flatten(order='F')
-        c = nps.numpy_to_vtk(num_array=arr, deep=True)
-        c.SetName(data.name)
-        loc = data.location
-        if loc == 'vertices':
-            output.GetPointData().AddArray(c)
-        else:
-            output.GetCellData().AddArray(c)
-    return pyvista.wrap(output)
+        output[data.name] = arr
+    return output
 
 
 # Now set up the display names for the docs
