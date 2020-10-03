@@ -6,8 +6,9 @@ os:
 dist: xenial
 
 python:
-  - 2.7
   - 3.6
+  - 3.7
+  - 3.8
 
 sudo: false
 
@@ -39,13 +40,10 @@ install:
   - pip install codecov
   - pip install pytest-cov
   - pip install -e .
-  - |
-    if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
-      pip install PyQt5 pytest-qt matplotlib;
-      pip install nbval ipython ipywidgets; # For testing the notebooks
-      pip install imageio-ffmpeg
-      pip install -r docs/requirements.txt
-    fi
+  - pip install PyQt5 pytest-qt matplotlib;
+  - pip install nbval ipython ipywidgets; # For testing the notebooks
+  - pip install imageio-ffmpeg
+  - pip install -r docs/requirements.txt
   - which python
   - python -c "import vtk; print(vtk.VTK_VERSION)"
 
@@ -53,13 +51,10 @@ script:
   - coverage run tests/__main__.py
   - python tests/__main__.py
   # Now make sure notebooks are running
-  - |
-    if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
-      pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb;
-    fi
+  - pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb;
   - codecov --token=1dc88395-9612-4ef9-9574-62c035d25908
   - |
-    if [[ $TRAVIS_PYTHON_VERSION != 2.7 ]]; then
+    if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then
       cd ./docs;
       make html;
       set -e;
