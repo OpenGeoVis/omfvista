@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,36 +11,39 @@
   
 
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/clipboard.min.js"></script>
-        <script type="text/javascript" src="../_static/copybutton.js"></script>
-        <script type="text/javascript">var copybuttonSkipText = '>>> ';</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Load Surface from XYZ File" href="load-surface.html" />
-    <link rel="prev" title="FORGE Project" href="forge-project.html" /> 
+    <link rel="prev" title="Examples" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -55,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> omfvista
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> omfvista
           
 
           
@@ -82,6 +84,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -95,7 +98,6 @@
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="forge-project.html">FORGE Project</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Load Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="load-surface.html">Load Surface from XYZ File</a></li>
 </ul>
@@ -109,6 +111,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -147,7 +150,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html">Examples</a> &raquo;</li>
         
@@ -165,7 +168,7 @@
             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-examples-load-project-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-load-project-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="load-project">
 <span id="sphx-glr-examples-load-project-py"></span><h1>Load Project<a class="headerlink" href="#load-project" title="Permalink to this headline">¶</a></h1>
@@ -175,26 +178,26 @@
 <span class="kn">import</span> <span class="nn">omfvista</span>
 </pre></div>
 </div>
-<p>Load the project into an <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.23.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset</p>
+<p>Load the project into an <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.26.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">load_project</span><span class="p">(</span><span class="s1">&#39;../assets/test_file.omf&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MultiBlock (0x7f57ee75f348)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MultiBlock (0x7f6905320d08)
   N Blocks:     9
   X Bounds:     443941.105, 447059.611
   Y Bounds:     491941.536, 495059.859
   Z Bounds:     2330.000, 3555.942
 </pre></div>
 </div>
-<p>Once the data is loaded as a <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.23.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset from
+<p>Once the data is loaded as a <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.26.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset from
 <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>, then that object can be directly used for interactive 3D
 visualization from <code class="docutils literal notranslate"><span class="pre">pyvista</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../_images/sphx_glr_load-project_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_001.png" />
+<img alt="load project" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(450605.70583080064, 498606.04540880054, 8048.318718998364),
  (445500.3579790001, 493500.697557, 2942.97086719778),
@@ -219,9 +222,9 @@ project:</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../_images/sphx_glr_load-project_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_002.png" />
+<img alt="load project" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_002.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pyvista/core/common.py:639: UserWarning: DEPRECATED: please use `.set_active_scalars` instead.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/travis/virtualenv/python3.7.1/lib/python3.7/site-packages/pyvista/core/common.py:513: UserWarning: DEPRECATED: please use `.set_active_scalars` instead.
   warnings.warn(&quot;DEPRECATED: please use `.set_active_scalars` instead.&quot;)
 
 [(450590.5515598323, 498590.8911378322, 8059.037822401073),
@@ -236,7 +239,7 @@ project:</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>UnstructuredGrid (0x7f57ecf02f48)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>UnstructuredGrid (0x7f6904e5dac8)
   N Cells:      92525
   N Points:     107807
   X Bounds:     4.447e+05, 4.457e+05
@@ -263,19 +266,19 @@ project:</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../_images/sphx_glr_load-project_003.png" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_003.png" />
+<img alt="load project" class="sphx-glr-single-img" src="../_images/sphx_glr_load-project_003.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[(450605.73033793643, 498606.06594899646, 8048.341830134237),
  (445500.359375, 493500.69498606, 2942.97086719778),
  (0.0, 0.0, 1.0)]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  26.617 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.313 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-load-project-py">
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/79a98aea1a093e345578d0f3eab185b5/load-project.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">load-project.py</span></code></a></p>
 </div>
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/ed4f007f47ec2bf2f0941d82d211c728/load-project.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">load-project.ipynb</span></code></a></p>
 </div>
 </div>
@@ -293,7 +296,7 @@ project:</p>
         <a href="load-surface.html" class="btn btn-neutral float-right" title="Load Surface from XYZ File" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="forge-project.html" class="btn btn-neutral float-left" title="FORGE Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -302,11 +305,19 @@ project:</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, Bane Sullivan
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
  
 
@@ -327,7 +338,6 @@ project:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

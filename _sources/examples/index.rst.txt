@@ -11,31 +11,12 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Load an example OMF archive of a geothermal research site.">
-
-.. only:: html
-
- .. figure:: /examples/images/thumb/sphx_glr_forge-project_thumb.png
-
-     :ref:`sphx_glr_examples_forge-project.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /examples/forge-project
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Load and visualize an OMF project file ">
+    <div class="sphx-glr-thumbcontainer" tooltip="Load and visualize an OMF project file">
 
 .. only:: html
 
  .. figure:: /examples/images/thumb/sphx_glr_load-project_thumb.png
+     :alt: Load Project
 
      :ref:`sphx_glr_examples_load-project.py`
 
@@ -51,11 +32,12 @@ Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Load a surface from a file of XYZ coordinates ">
+    <div class="sphx-glr-thumbcontainer" tooltip="Load a surface from a file of XYZ coordinates">
 
 .. only:: html
 
  .. figure:: /examples/images/thumb/sphx_glr_load-surface_thumb.png
+     :alt: Load Surface from XYZ File
 
      :ref:`sphx_glr_examples_load-surface.py`
 

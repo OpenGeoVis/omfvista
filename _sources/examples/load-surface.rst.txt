@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_examples_load-surface.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_examples_load-surface.py:
+        Click :ref:`here <sphx_glr_download_examples_load-surface.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_examples_load-surface.py:
 
 
 Load Surface from XYZ File
@@ -88,6 +90,7 @@ Make a surface using the delaunay filter
 
 
 .. image:: /examples/images/sphx_glr_load-surface_001.png
+    :alt: load surface
     :class: sphx-glr-single-img
 
 
@@ -117,6 +120,7 @@ Note the scaling factor that exagerates the surface
 
 
 .. image:: /examples/images/sphx_glr_load-surface_002.png
+    :alt: load surface
     :class: sphx-glr-single-img
 
 
@@ -127,8 +131,8 @@ Note the scaling factor that exagerates the surface
  .. code-block:: none
 
 
-    [(877968.7779754738, 5937620.777975474, 197263.7918914894),
-     (684176.0, 5743828.0, 3471.013916015625),
+    [(1.0, 1.0, 1.0),
+     (0.0, 0.0, 0.0),
      (0.0, 0.0, 1.0)]
 
 
@@ -180,6 +184,7 @@ Sanity check
 
 
 .. image:: /examples/images/sphx_glr_load-surface_003.png
+    :alt: load surface
     :class: sphx-glr-single-img
 
 
@@ -199,7 +204,7 @@ Sanity check
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  16.050 seconds)
+   **Total running time of the script:** ( 0 minutes  10.996 seconds)
 
 
 .. _sphx_glr_download_examples_load-surface.py:
@@ -212,13 +217,13 @@ Sanity check
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: load-surface.py <load-surface.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: load-surface.ipynb <load-surface.ipynb>`
 

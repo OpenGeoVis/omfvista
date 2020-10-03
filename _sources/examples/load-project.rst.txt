@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_examples_load-project.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_examples_load-project.py:
+        Click :ref:`here <sphx_glr_download_examples_load-project.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_examples_load-project.py:
 
 
 Load Project
@@ -45,7 +47,7 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
  .. code-block:: none
 
-    MultiBlock (0x7f57ee75f348)
+    MultiBlock (0x7f6905320d08)
       N Blocks:     9
       X Bounds:     443941.105, 447059.611
       Y Bounds:     491941.536, 495059.859
@@ -70,6 +72,7 @@ visualization from ``pyvista``:
 
 
 .. image:: /examples/images/sphx_glr_load-project_001.png
+    :alt: load project
     :class: sphx-glr-single-img
 
 
@@ -122,6 +125,7 @@ project:
 
 
 .. image:: /examples/images/sphx_glr_load-project_002.png
+    :alt: load project
     :class: sphx-glr-single-img
 
 
@@ -131,7 +135,7 @@ project:
 
  .. code-block:: none
 
-    /home/travis/virtualenv/python3.6.7/lib/python3.6/site-packages/pyvista/core/common.py:639: UserWarning: DEPRECATED: please use `.set_active_scalars` instead.
+    /home/travis/virtualenv/python3.7.1/lib/python3.7/site-packages/pyvista/core/common.py:513: UserWarning: DEPRECATED: please use `.set_active_scalars` instead.
       warnings.warn("DEPRECATED: please use `.set_active_scalars` instead.")
 
     [(450590.5515598323, 498590.8911378322, 8059.037822401073),
@@ -160,7 +164,7 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
  .. code-block:: none
 
-    UnstructuredGrid (0x7f57ecf02f48)
+    UnstructuredGrid (0x7f6904e5dac8)
       N Cells:      92525
       N Points:     107807
       X Bounds:     4.447e+05, 4.457e+05
@@ -197,6 +201,7 @@ Then you can put it all in one environment!
 
 
 .. image:: /examples/images/sphx_glr_load-project_003.png
+    :alt: load project
     :class: sphx-glr-single-img
 
 
@@ -216,7 +221,7 @@ Then you can put it all in one environment!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  26.617 seconds)
+   **Total running time of the script:** ( 0 minutes  15.313 seconds)
 
 
 .. _sphx_glr_download_examples_load-project.py:
@@ -229,13 +234,13 @@ Then you can put it all in one environment!
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: load-project.py <load-project.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: load-project.ipynb <load-project.ipynb>`
 
