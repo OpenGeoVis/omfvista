@@ -170,15 +170,13 @@
 
 <span class="n">__displayname__</span> <span class="o">=</span> <span class="s1">&#39;Line Set&#39;</span>
 
-<span class="kn">import</span> <span class="nn">vtk</span>
-<span class="kn">from</span> <span class="nn">vtk.util</span> <span class="kn">import</span> <span class="n">numpy_support</span> <span class="k">as</span> <span class="n">nps</span>
-<span class="kn">import</span> <span class="nn">pyvista</span>
-
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pyvista</span>
 
 <span class="kn">from</span> <span class="nn">omfvista.utilities</span> <span class="kn">import</span> <span class="n">add_data</span>
 
-<div class="viewcode-block" id="line_set_to_vtk"><a class="viewcode-back" href="../../content/omfvista/lineset.html#omfvista.lineset.line_set_to_vtk">[docs]</a><span class="k">def</span> <span class="nf">line_set_to_vtk</span><span class="p">(</span><span class="n">lse</span><span class="p">):</span>
+
+<div class="viewcode-block" id="line_set_to_vtk"><a class="viewcode-back" href="../../content/omfvista/lineset.html#omfvista.lineset.line_set_to_vtk">[docs]</a><span class="k">def</span> <span class="nf">line_set_to_vtk</span><span class="p">(</span><span class="n">lse</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;Convert the line set to a :class:`pyvista.PolyData` data object.</span>
 
 <span class="sd">    Args:</span>
@@ -187,46 +185,23 @@
 <span class="sd">    Return:</span>
 <span class="sd">        :class:`pyvista.PolyData`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lse</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">),</span> <span class="n">ids</span><span class="p">]</span>
 
-    <span class="n">output</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkPolyData</span><span class="p">()</span>
-    <span class="n">cells</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkCellArray</span><span class="p">()</span>
-    <span class="n">pts</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkPoints</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">()</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lse</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span>
 
-    <span class="c1"># Make a data array for grouping the line segments</span>
-    <span class="n">indexArr</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkIntArray</span><span class="p">()</span>
-    <span class="n">indexArr</span><span class="o">.</span><span class="n">SetNumberOfValues</span><span class="p">(</span><span class="n">lse</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">num_cells</span><span class="p">)</span>
-    <span class="n">indexArr</span><span class="o">.</span><span class="n">SetName</span><span class="p">(</span><span class="s1">&#39;Line Index&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Generate VTK Points from the vertices</span>
-    <span class="n">pts</span><span class="o">.</span><span class="n">SetNumberOfPoints</span><span class="p">(</span><span class="n">lse</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">)</span>
-    <span class="n">pts</span><span class="o">.</span><span class="n">SetData</span><span class="p">(</span><span class="n">nps</span><span class="o">.</span><span class="n">numpy_to_vtk</span><span class="p">(</span><span class="n">lse</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">vertices</span><span class="p">))</span>
-
-    <span class="n">last</span> <span class="o">=</span> <span class="n">lse</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">segi</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lse</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">segments</span><span class="p">)):</span>
-        <span class="c1"># Create a VTK Line cell for each segment</span>
-        <span class="n">seg</span> <span class="o">=</span> <span class="n">lse</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">aLine</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkLine</span><span class="p">()</span>
-        <span class="n">aLine</span><span class="o">.</span><span class="n">GetPointIds</span><span class="p">()</span><span class="o">.</span><span class="n">SetId</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">seg</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">aLine</span><span class="o">.</span><span class="n">GetPointIds</span><span class="p">()</span><span class="o">.</span><span class="n">SetId</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">seg</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">cells</span><span class="o">.</span><span class="n">InsertNextCell</span><span class="p">(</span><span class="n">aLine</span><span class="p">)</span>
-        <span class="c1"># Group segments by connectivity:</span>
-        <span class="k">if</span> <span class="n">seg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">last</span><span class="p">:</span>
-            <span class="n">segi</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">last</span> <span class="o">=</span> <span class="n">seg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">indexArr</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">segi</span><span class="p">)</span>
-
-    <span class="c1"># Generate the output</span>
-    <span class="n">output</span><span class="o">.</span><span class="n">SetPoints</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
-    <span class="n">output</span><span class="o">.</span><span class="n">SetLines</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span>
-    <span class="n">output</span><span class="o">.</span><span class="n">GetCellData</span><span class="p">()</span><span class="o">.</span><span class="n">AddArray</span><span class="p">(</span><span class="n">indexArr</span><span class="p">)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">connectivity</span><span class="p">()</span><span class="o">.</span><span class="n">cell_arrays</span><span class="p">[</span><span class="s1">&#39;RegionId&#39;</span><span class="p">]</span>
+    <span class="n">output</span><span class="p">[</span><span class="s1">&#39;Line Index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">indices</span>
 
     <span class="c1"># Now add data to lines:</span>
     <span class="n">add_data</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">lse</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
     <span class="c1"># TODO: if subtype is borehole make a tube</span>
 
-    <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+    <span class="n">output</span><span class="o">.</span><span class="n">points</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">origin</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span></div>
 
 
 <span class="n">line_set_to_vtk</span><span class="o">.</span><span class="n">__displayname__</span> <span class="o">=</span> <span class="s1">&#39;Line Set to VTK&#39;</span>
