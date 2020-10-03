@@ -4,7 +4,7 @@ About OMF-VTK
 * Author: Bane Sullivan
 * License: BSD-3-Clause
 * Copyright: 2019, Bane Sullivan
-* Version: 0.2.2
+* Version: 0.2.3
 
 ``omfvista``: 3D visualization for the Open Mining Format (omf)
 
