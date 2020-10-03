@@ -50,12 +50,14 @@ __all__ = [
 
 __displayname__ = 'Wrapper'
 
+import numpy as np
 import omf
-import omfvista
 import pyvista
 
+import omfvista
 
-def wrap(data):
+
+def wrap(data, origin=(0.0, 0.0, 0.0)):
     """Wraps the OMF data object/project as a VTK data object. This is the
     primary function that an end user will harness.
 
@@ -100,7 +102,10 @@ def wrap(data):
     # get the class name
     key = data.__class__.__name__
     try:
-        return wrappers[key](data)
+        if key != 'Project':
+            return wrappers[key](data, origin=origin)
+        else:
+            return wrappers[key](data)
     except KeyError:
         raise RuntimeError('Data of type ({}) is not supported currently.'.format(key))
 
@@ -111,8 +116,9 @@ def project_to_vtk(project):
     """
     # Iterate over the elements and add converted VTK objects a MultiBlock
     data = pyvista.MultiBlock()
+    origin = np.array(project.origin)
     for i, e in enumerate(project.elements):
-        d = omfvista.wrap(e)
+        d = omfvista.wrap(e, origin=origin)
         data[i, e.name] = d
     return data
 

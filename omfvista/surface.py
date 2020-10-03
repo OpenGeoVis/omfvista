@@ -9,51 +9,31 @@ __all__ = [
 
 __displayname__ = 'Surface'
 
-import vtk
-from vtk.util import numpy_support as nps
-import pyvista
-import omf
-
-
 import numpy as np
+import omf
+import pyvista
 
 from omfvista.utilities import check_orientation, check_orthogonal
 from omfvista.utilities import add_data, add_textures
 
-def surface_geom_to_vtk(surfgeom):
-    """Convert the triangulated surface to a :class:`pyvista.UnstructuredGrid`
+
+def surface_geom_to_vtk(surfgeom, origin=(0.0, 0.0, 0.0)):
+    """Convert the triangulated surface to a :class:`pyvista.PolyData`
     object
 
     Args:
         surfgeom (:class:`omf.surface.SurfaceGeometry`): the surface geomotry to
             convert
     """
-
-    output = vtk.vtkUnstructuredGrid()
-    pts = vtk.vtkPoints()
-    cells = vtk.vtkCellArray()
-
-    # Generate the points
-    pts.SetNumberOfPoints(surfgeom.num_nodes)
-    pts.SetData(nps.numpy_to_vtk(surfgeom.vertices))
-
-    # Generate the triangle cells
-    cellConn = surfgeom.triangles.array
-    cellsMat = np.concatenate(
-        (np.ones((cellConn.shape[0], 1), dtype=np.int64)*cellConn.shape[1], cellConn),
-        axis=1).ravel()
-    cells = vtk.vtkCellArray()
-    cells.SetNumberOfCells(cellConn.shape[0])
-    cells.SetCells(cellConn.shape[0],
-            nps.numpy_to_vtk(cellsMat, deep=True, array_type=vtk.VTK_ID_TYPE))
-
-    # Add to output
-    output.SetPoints(pts)
-    output.SetCells(vtk.VTK_TRIANGLE, cells)
-    return pyvista.wrap(output)
+    pts = np.array(surfgeom.vertices)
+    tris = np.array(surfgeom.triangles.array)
+    faces = np.c_[np.full(len(tris), 3), tris]
+    output = pyvista.PolyData(pts, faces)
+    output.points += np.array(origin)
+    return output
 
 
-def surface_grid_geom_to_vtk(surfgridgeom):
+def surface_grid_geom_to_vtk(surfgridgeom, origin=(0.0, 0.0, 0.0)):
     """Convert the 2D grid to a :class:`pyvista.StructuredGrid` object.
 
     Args:
@@ -62,8 +42,6 @@ def surface_grid_geom_to_vtk(surfgridgeom):
 
     """
     surfgridgeom._validate_mesh()
-
-    output = vtk.vtkStructuredGrid()
 
     axis_u = np.array(surfgridgeom.axis_u)
     axis_v = np.array(surfgridgeom.axis_v)
@@ -81,8 +59,6 @@ def surface_grid_geom_to_vtk(surfgridgeom):
 
     z = np.array([oz])
 
-    output.SetDimensions(len(x), len(y), len(z))
-
     # Build out all nodes in the mesh
     xx, yy, zz = np.meshgrid(x, y, z, indexing='ij')
     xx, yy, zz, = xx.ravel('F'), yy.ravel('F'), zz.ravel('F')
@@ -92,16 +68,16 @@ def surface_grid_geom_to_vtk(surfgridgeom):
     # Rotate the points based on the axis orientations
     points = points.dot(rotation_mtx)
 
-    # Convert points to vtk object
-    pts = vtk.vtkPoints()
-    pts.SetNumberOfPoints(len(points))
-    pts.SetData(nps.numpy_to_vtk(points))
     # Now build the output
-    output.SetPoints(pts)
+    output = pyvista.StructuredGrid()
+    output.points = points
+    output.dimensions = len(x), len(y), len(z)
 
-    return pyvista.wrap(output)
+    output.points += np.array(origin)
+    return output
 
-def surface_to_vtk(surfel):
+
+def surface_to_vtk(surfel, origin=(0.0, 0.0, 0.0)):
     """Convert the surface to a its appropriate VTK data object type.
 
     Args:
@@ -116,7 +92,7 @@ def surface_to_vtk(surfel):
     elif isinstance(geom, omf.surface.SurfaceGridGeometry):
         builder = surface_grid_geom_to_vtk
 
-    output = builder(geom)
+    output = builder(geom, origin=origin)
 
     # Now add point data:
     add_data(output, surfel.data)

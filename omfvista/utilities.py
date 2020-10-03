@@ -7,8 +7,6 @@ __all__ = [
 
 
 import numpy as np
-import vtk
-from vtk.util import numpy_support as nps
 import pyvista
 from PIL import Image
 
@@ -42,14 +40,7 @@ def check_orthogonal(axis_u, axis_v, axis_w):
 def add_data(output, data):
     """Adds data arrays to an output VTK data object"""
     for d in data:
-        arr = d.array.array
-        c = nps.numpy_to_vtk(num_array=arr)
-        c.SetName(d.name)
-        loc = d.location
-        if loc == 'vertices':
-            output.GetPointData().AddArray(c)
-        else:
-            output.GetCellData().AddArray(c)
+        output[d.name] = np.array(d.array.array)
     return output
 
 
@@ -60,14 +51,8 @@ def add_textures(output, textures, elname):
 
     for i, tex in enumerate(textures):
         # Now map the coordinates for the texture
-        m = vtk.vtkTextureMapToPlane()
-        m.SetInputDataObject(output)
-        m.SetOrigin(tex.origin)
-        m.SetPoint1(tex.origin + tex.axis_u)
-        m.SetPoint2(tex.origin + tex.axis_v)
-        m.Update()
+        tmp = output.texture_map_to_plane(origin=tex.origin, point_u=tex.origin + tex.axis_u, point_v=tex.origin + tex.axis_v)
         # Grab the texture coordinates
-        tmp = m.GetOutputDataObject(0)
         tcoord = tmp.GetPointData().GetTCoords()
         name = tex.name
         if name is None or name == '':
