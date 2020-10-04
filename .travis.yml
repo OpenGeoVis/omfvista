@@ -43,7 +43,10 @@ install:
   - pip install PyQt5 pytest-qt matplotlib;
   - pip install nbval ipython ipywidgets; # For testing the notebooks
   - pip install imageio-ffmpeg
-  - pip install -r docs/requirements.txt
+  - |
+    if [[ $TRAVIS_PYTHON_VERSION == 3.7 ]]; then
+        pip install -r docs/requirements.txt;
+    fi
   - which python
   - python -c "import vtk; print(vtk.VTK_VERSION)"
 
