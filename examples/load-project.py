@@ -35,7 +35,7 @@ dacite = project['Dacite']
 
 ###############################################################################
 
-assay.set_active_scalar('DENSITY')
+assay.set_active_scalars('DENSITY')
 
 p = pv.Plotter()
 p.add_mesh(assay.tube(radius=3))
