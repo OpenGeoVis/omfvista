@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
@@ -34,6 +36,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -216,27 +219,27 @@ project files.</p>
 <div class="section" id="load-project-file">
 <h2>Load Project File<a class="headerlink" href="#load-project-file" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="omfvista.wrapper.load_project">
-<code class="sig-prename descclassname"><span class="pre">omfvista.wrapper.</span></code><code class="sig-name descname"><span class="pre">load_project</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/wrapper.html#load_project"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.wrapper.load_project" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads an OMF project file into a <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.29.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset</p>
+<dt class="sig sig-object py" id="omfvista.wrapper.load_project">
+<span class="sig-prename descclassname"><span class="pre">omfvista.wrapper.</span></span><span class="sig-name descname"><span class="pre">load_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/wrapper.html#load_project"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.wrapper.load_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads an OMF project file into a <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.30.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset</p>
 </dd></dl>
 
 </div>
 <div class="section" id="project-to-vtk">
 <h2>Project to VTK<a class="headerlink" href="#project-to-vtk" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="omfvista.wrapper.project_to_vtk">
-<code class="sig-prename descclassname"><span class="pre">omfvista.wrapper.</span></code><code class="sig-name descname"><span class="pre">project_to_vtk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/wrapper.html#project_to_vtk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.wrapper.project_to_vtk" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="omfvista.wrapper.project_to_vtk">
+<span class="sig-prename descclassname"><span class="pre">omfvista.wrapper.</span></span><span class="sig-name descname"><span class="pre">project_to_vtk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/wrapper.html#project_to_vtk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.wrapper.project_to_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts an OMF project (<a class="reference external" href="https://omf.readthedocs.io/en/latest/content/projects.html#omf.base.Project" title="(in omf v1.0.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">omf.base.Project</span></code></a>) to a
-<a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.29.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> data boject</p>
+<a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.30.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> data boject</p>
 </dd></dl>
 
 </div>
 <div class="section" id="the-wrapper">
 <h2>The Wrapper<a class="headerlink" href="#the-wrapper" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="omfvista.wrapper.wrap">
-<code class="sig-prename descclassname"><span class="pre">omfvista.wrapper.</span></code><code class="sig-name descname"><span class="pre">wrap</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/wrapper.html#wrap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.wrapper.wrap" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="omfvista.wrapper.wrap">
+<span class="sig-prename descclassname"><span class="pre">omfvista.wrapper.</span></span><span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/wrapper.html#wrap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.wrapper.wrap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wraps the OMF data object/project as a VTK data object. This is the
 primary function that an end user will harness.</p>
 <dl class="field-list simple">
