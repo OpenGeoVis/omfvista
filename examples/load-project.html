@@ -187,20 +187,20 @@ to download the full example code</p>
 <span class="kn">import</span> <span class="nn">omfvista</span>
 </pre></div>
 </div>
-<p>Load the project into an <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.30.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset</p>
+<p>Load the project into an <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.31.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">load_project</span><span class="p">(</span><span class="s1">&#39;../assets/test_file.omf&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MultiBlock (0x7fdad7a8c8e8)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MultiBlock (0x7ff8790efdc8)
   N Blocks:     9
   X Bounds:     443941.105, 447059.611
   Y Bounds:     491941.536, 495059.859
   Z Bounds:     2330.000, 3555.942
 </pre></div>
 </div>
-<p>Once the data is loaded as a <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.30.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset from
+<p>Once the data is loaded as a <a class="reference external" href="https://docs.pyvista.org/core/composite.html#pyvista.MultiBlock" title="(in PyVista v0.31.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset from
 <code class="docutils literal notranslate"><span class="pre">omfvista</span></code>, then that object can be directly used for interactive 3D
 visualization from <code class="docutils literal notranslate"><span class="pre">pyvista</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -245,13 +245,13 @@ project:</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>UnstructuredGrid (0x7fdad76249a8)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>UnstructuredGrid (0x7ff878c46e88)
   N Cells:      92525
   N Points:     107807
   X Bounds:     4.447e+05, 4.457e+05
   Y Bounds:     4.929e+05, 4.942e+05
   Z Bounds:     2.330e+03, 3.110e+03
-  N Arrays:     2
+  N Arrays:     1
 </pre></div>
 </div>
 <p>Then you can put it all in one environment!</p>
@@ -279,7 +279,7 @@ project:</p>
  (0.0, 0.0, 1.0)]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.575 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.658 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-load-project-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/79a98aea1a093e345578d0f3eab185b5/load-project.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">load-project.py</span></code></a></p>
