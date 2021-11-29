@@ -29,7 +29,7 @@ def line_set_to_vtk(lse, origin=(0.0, 0.0, 0.0)):
     output.points = np.array(lse.geometry.vertices)
     output.lines = lines
 
-    indices = output.connectivity().cell_arrays['RegionId']
+    indices = output.connectivity().cell_data['RegionId']
     output['Line Index'] = indices
 
     # Now add data to lines:
