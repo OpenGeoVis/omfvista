@@ -60,7 +60,7 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
  .. code-block:: none
 
-    MultiBlock (0x7ff8790efdc8)
+    MultiBlock (0x7f98ace90880)
       N Blocks:     9
       X Bounds:     443941.105, 447059.611
       Y Bounds:     491941.536, 495059.859
@@ -87,21 +87,12 @@ visualization from ``pyvista``:
 
 
 
-.. image:: /examples/images/sphx_glr_load-project_001.png
-    :alt: load project
-    :class: sphx-glr-single-img
+.. image-sg:: /examples/images/sphx_glr_load-project_001.png
+   :alt: load project
+   :srcset: /examples/images/sphx_glr_load-project_001.png
+   :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-
-    [(450605.70583080064, 498606.04540880054, 8048.318718998364),
-     (445500.3579790001, 493500.697557, 2942.97086719778),
-     (0.0, 0.0, 1.0)]
 
 
 
@@ -144,21 +135,12 @@ project:
 
 
 
-.. image:: /examples/images/sphx_glr_load-project_002.png
-    :alt: load project
-    :class: sphx-glr-single-img
+.. image-sg:: /examples/images/sphx_glr_load-project_002.png
+   :alt: load project
+   :srcset: /examples/images/sphx_glr_load-project_002.png
+   :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-
-    [(450590.5515598323, 498590.8911378322, 8059.037822401073),
-     (445500.3579790001, 493500.697557, 2968.84424156883),
-     (0.0, 0.0, 1.0)]
 
 
 
@@ -185,7 +167,7 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
  .. code-block:: none
 
-    UnstructuredGrid (0x7ff878c46e88)
+    UnstructuredGrid (0x7f98ace905e0)
       N Cells:      92525
       N Points:     107807
       X Bounds:     4.447e+05, 4.457e+05
@@ -224,28 +206,19 @@ Then you can put it all in one environment!
 
 
 
-.. image:: /examples/images/sphx_glr_load-project_003.png
-    :alt: load project
-    :class: sphx-glr-single-img
+.. image-sg:: /examples/images/sphx_glr_load-project_003.png
+   :alt: load project
+   :srcset: /examples/images/sphx_glr_load-project_003.png
+   :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-
-    [(450605.73033793643, 498606.06594899646, 8048.341830134237),
-     (445500.359375, 493500.69498606, 2942.97086719778),
-     (0.0, 0.0, 1.0)]
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.658 seconds)
+   **Total running time of the script:** ( 0 minutes  12.190 seconds)
 
 
 .. _sphx_glr_download_examples_load-project.py:

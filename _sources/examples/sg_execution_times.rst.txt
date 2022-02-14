@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:17.426** total execution time for **examples** files:
+**00:20.775** total execution time for **examples** files:
 
 +----------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_load-surface.py` (``load-surface.py``) | 00:10.769 | 0.0 MB |
+| :ref:`sphx_glr_examples_load-project.py` (``load-project.py``) | 00:12.190 | 0.0 MB |
 +----------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_load-project.py` (``load-project.py``) | 00:06.658 | 0.0 MB |
+| :ref:`sphx_glr_examples_load-surface.py` (``load-surface.py``) | 00:08.584 | 0.0 MB |
 +----------------------------------------------------------------+-----------+--------+
