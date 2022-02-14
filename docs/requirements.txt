@@ -4,9 +4,8 @@ sphinx-rtd-theme>=0.4.0
 sphinxcontrib-napoleon>=0.6.1
 sphinxcontrib-websupport>=1.1.0
 gendocs>=0.4.0
-vtk>=8.1.0,<9.0.0
 doctr
 sphinx-copybutton
 sphinx-gallery
-git+git://github.com/rtfd/sphinx-notfound-page@master
+sphinx-notfound-page
 pandas

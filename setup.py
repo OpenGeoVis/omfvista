@@ -7,27 +7,10 @@ import sys
 import platform
 import warnings
 
-__version__ = '0.2.3'
+__version__ = '0.2.4'
 
 with open("README.rst", "r") as f:
     long_description = f.read()
-
-# Manage requirements
-install_requires = [
-    'omf>=1.0.0',
-    'vectormath>=0.2.2',
-    'pyvista>=0.20.1',
-    'numpy',
-    'matplotlib',
-]
-
-# add vtk if not windows and (not Python 3.x or not x64)
-if os.name == 'nt' and (int(sys.version[0]) < 3 or '64' not in platform.architecture()[0]):
-    warnings.warn('\nYou will need to install VTK manually.' +
-                  '  Try using Anaconda.  See:\n'
-                  + 'https://anaconda.org/anaconda/vtk')
-else:
-    install_requires.append('vtk>=8.1.0')
 
 setuptools.setup(
     name="omfvista",
@@ -39,7 +22,13 @@ setuptools.setup(
     long_description_content_type="text/x-rst",
     url="https://github.com/OpenGeoVis/omfvista",
     packages=setuptools.find_packages(),
-    install_requires=install_requires,
+    install_requires=[
+        'omf>=1.0.0',
+        'vectormath>=0.2.2',
+        'pyvista>=0.20.1',
+        'numpy',
+        'matplotlib',
+    ],
     classifiers=(
         "Programming Language :: Python",
         "License :: OSI Approved :: BSD License",

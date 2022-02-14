@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    tags:
+      - "*"
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        python-version: ['3.7', '3.8']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup headless display
+        uses: pyvista/setup-headless-display-action@v1
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Intall dependencies
+        run: pip install -r requirements.txt
+      - name: Coverage tests
+        run: coverage run tests/__main__.py
+      - name: Test
+        run: python tests/__main__.py
+      - name: Test notebook
+        run: pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb
