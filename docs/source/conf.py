@@ -12,6 +12,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+import datetime
 import os
 import sys
 path = os.path.abspath('../..')
@@ -61,7 +62,8 @@ Generator().DocumentPackages([omfvista],
 # -- Project information -----------------------------------------------------
 
 project = 'omfvista'
-copyright = '2019, Bane Sullivan'
+year = datetime.date.today().year
+copyright = "2019-{:d}, Bane Sullivan".format(year)
 author = 'Bane Sullivan'
 
 # The short X.Y version

@@ -12,7 +12,7 @@ from omfvista.utilities import *
 # Package meta data
 __author__ = 'Bane Sullivan'
 __license__ = 'BSD-3-Clause'
-__copyright__ = '2019, Bane Sullivan'
+__copyright__ = '2019-2022, Bane Sullivan'
 __version__ = '0.2.3'
 __displayname__ = 'OMF-VTK'
 __name__ = 'omfvista'
