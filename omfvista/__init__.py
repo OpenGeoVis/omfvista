@@ -13,7 +13,7 @@ from omfvista.utilities import *
 __author__ = 'Bane Sullivan'
 __license__ = 'BSD-3-Clause'
 __copyright__ = '2019-2022, Bane Sullivan'
-__version__ = '0.2.3'
+__version__ = '0.2.4'
 __displayname__ = 'OMF-VTK'
 __name__ = 'omfvista'
 
