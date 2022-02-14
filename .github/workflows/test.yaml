@@ -28,8 +28,15 @@ jobs:
       - name: Intall dependencies
         run: pip install -r requirements.txt
       - name: Coverage tests
-        run: coverage run tests/__main__.py
+        run: |
+          coverage run tests/__main__.py
+          coverage xml
       - name: Test
         run: python tests/__main__.py
       - name: Test notebook
         run: pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage.xml
+          verbose: true
