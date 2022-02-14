@@ -5,14 +5,6 @@ Open Mining Format: PyVista (VTK) Interface
    :target: https://pypi.org/project/omfvista/
    :alt: PyPI
 
-.. image:: https://img.shields.io/travis/OpenGeoVis/omfvista/master.svg?label=build&logo=travis
-   :target: https://travis-ci.org/OpenGeoVis/omfvista
-   :alt: Build Status Linux
-
-.. image:: https://ci.appveyor.com/api/projects/status/49tewkw60mykh1nb?svg=true
-   :target: https://ci.appveyor.com/project/banesullivan/omfvista
-   :alt: Build Status Windows
-
 .. image:: https://codecov.io/gh/OpenGeoVis/omfvista/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/OpenGeoVis/omfvista
 
