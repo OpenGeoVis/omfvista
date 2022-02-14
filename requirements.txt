@@ -1,7 +1,6 @@
 -e .
 pytest
 pytest-cov
-codecov
 nbval
 ipython
 imageio-ffmpeg
