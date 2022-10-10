@@ -119,7 +119,7 @@ def project_to_vtk(project):
     origin = np.array(project.origin)
     for i, e in enumerate(project.elements):
         d = omfvista.wrap(e, origin=origin)
-        data[i, e.name] = d
+        data[e.name] = d
     return data
 
 
