@@ -56,11 +56,9 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
-    MultiBlock (0x7f57a3d7bd60)
+    MultiBlock (0x7f51790b0b80)
       N Blocks:     9
       X Bounds:     443941.105, 447059.611
       Y Bounds:     491941.536, 495059.859
@@ -163,11 +161,9 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
 .. rst-class:: sphx-glr-script-out
 
- Out:
-
  .. code-block:: none
 
-    UnstructuredGrid (0x7f57a3d57100)
+    UnstructuredGrid (0x7f51793ced60)
       N Cells:      92525
       N Points:     107807
       X Bounds:     4.447e+05, 4.457e+05
@@ -218,28 +214,23 @@ Then you can put it all in one environment!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  17.076 seconds)
+   **Total running time of the script:** ( 0 minutes  17.593 seconds)
 
 
 .. _sphx_glr_download_examples_load-project.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: load-project.py <load-project.py>`
 
-     :download:`Download Python source code: load-project.py <load-project.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: load-project.ipynb <load-project.ipynb>`
+      :download:`Download Jupyter notebook: load-project.ipynb <load-project.ipynb>`
 
 
 .. only:: html

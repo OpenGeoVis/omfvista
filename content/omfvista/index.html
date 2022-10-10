@@ -19,7 +19,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -90,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="about-omf-vtk">
-<h1>About OMF-VTK<a class="headerlink" href="#about-omf-vtk" title="Permalink to this headline"></a></h1>
+<h1>About OMF-VTK<a class="headerlink" href="#about-omf-vtk" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>Author: Bane Sullivan</p></li>
 <li><p>License: BSD-3-Clause</p></li>
@@ -102,37 +104,82 @@
 <p class="caption" role="heading"><span class="caption-text">OMF-VTK:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lineset.html">Line Set</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lineset.html#line-set-to-vtk">Line Set to VTK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lineset.html#line-set-to-vtk">Line Set to VTK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lineset.html#omfvista.lineset.line_set_to_vtk"><code class="docutils literal notranslate"><span class="pre">line_set_to_vtk()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pointset.html">Point Set</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pointset.html#point-set-to-vtk">Point Set to VTK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointset.html#point-set-to-vtk">Point Set to VTK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pointset.html#omfvista.pointset.point_set_to_vtk"><code class="docutils literal notranslate"><span class="pre">point_set_to_vtk()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="surface.html">Surface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="surface.html#surface-geometry-to-vtk">Surface Geometry to VTK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surface.html#surface-grid-geometry-to-vtk">Surface Grid Geometry to VTK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surface.html#surface-to-vtk">Surface to VTK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surface.html#surface-geometry-to-vtk">Surface Geometry to VTK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="surface.html#omfvista.surface.surface_geom_to_vtk"><code class="docutils literal notranslate"><span class="pre">surface_geom_to_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="surface.html#surface-grid-geometry-to-vtk">Surface Grid Geometry to VTK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="surface.html#omfvista.surface.surface_grid_geom_to_vtk"><code class="docutils literal notranslate"><span class="pre">surface_grid_geom_to_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="surface.html#surface-to-vtk">Surface to VTK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="surface.html#omfvista.surface.surface_to_vtk"><code class="docutils literal notranslate"><span class="pre">surface_to_vtk()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="utilities.html">utilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html#add-data">add_data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html#add-textures">add_textures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html#check-orientation">check_orientation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html#check-orthogonal">check_orthogonal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#add-data">add_data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utilities.html#omfvista.utilities.add_data"><code class="docutils literal notranslate"><span class="pre">add_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#add-textures">add_textures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utilities.html#omfvista.utilities.add_textures"><code class="docutils literal notranslate"><span class="pre">add_textures()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#check-orientation">check_orientation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utilities.html#omfvista.utilities.check_orientation"><code class="docutils literal notranslate"><span class="pre">check_orientation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#check-orthogonal">check_orthogonal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utilities.html#omfvista.utilities.check_orthogonal"><code class="docutils literal notranslate"><span class="pre">check_orthogonal()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="volume.html">Volume</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="volume.html#volume-shape">Volume Shape</a></li>
-<li class="toctree-l2"><a class="reference internal" href="volume.html#volume-grid-geometry-to-vtk">Volume Grid Geometry to VTK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="volume.html#volume-to-vtk">Volume to VTK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="volume.html#volume-shape">Volume Shape</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="volume.html#omfvista.volume.get_volume_shape"><code class="docutils literal notranslate"><span class="pre">get_volume_shape()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="volume.html#volume-grid-geometry-to-vtk">Volume Grid Geometry to VTK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="volume.html#omfvista.volume.volume_grid_geom_to_vtk"><code class="docutils literal notranslate"><span class="pre">volume_grid_geom_to_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="volume.html#volume-to-vtk">Volume to VTK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="volume.html#omfvista.volume.volume_to_vtk"><code class="docutils literal notranslate"><span class="pre">volume_to_vtk()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="wrapper.html">Wrapper</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="wrapper.html#example-use">Example Use</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wrapper.html#load-project-file">Load Project File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wrapper.html#project-to-vtk">Project to VTK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wrapper.html#the-wrapper">The Wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrapper.html#load-project-file">Load Project File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wrapper.html#omfvista.wrapper.load_project"><code class="docutils literal notranslate"><span class="pre">load_project()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wrapper.html#project-to-vtk">Project to VTK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wrapper.html#omfvista.wrapper.project_to_vtk"><code class="docutils literal notranslate"><span class="pre">project_to_vtk()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wrapper.html#the-wrapper">The Wrapper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wrapper.html#omfvista.wrapper.wrap"><code class="docutils literal notranslate"><span class="pre">wrap()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

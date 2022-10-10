@@ -1,12 +1,13 @@
 :orphan:
 
-
-
-.. _sphx_glr_examples:
-
 Examples
 ========
 
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
 
 
 .. raw:: html
@@ -15,10 +16,33 @@ Examples
 
 .. only:: html
 
- .. figure:: /examples/images/thumb/sphx_glr_load-project_thumb.png
-     :alt: Load Project
+  .. image:: /examples/images/thumb/sphx_glr_load-project_thumb.png
+    :alt: Load Project
 
-     :ref:`sphx_glr_examples_load-project.py`
+  :ref:`sphx_glr_examples_load-project.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Load Project</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Load a surface from a file of XYZ coordinates">
+
+.. only:: html
+
+  .. image:: /examples/images/thumb/sphx_glr_load-surface_thumb.png
+    :alt: Load Surface from XYZ File
+
+  :ref:`sphx_glr_examples_load-surface.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Load Surface from XYZ File</div>
+    </div>
+
 
 .. raw:: html
 
@@ -29,30 +53,7 @@ Examples
    :hidden:
 
    /examples/load-project
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Load a surface from a file of XYZ coordinates">
-
-.. only:: html
-
- .. figure:: /examples/images/thumb/sphx_glr_load-surface_thumb.png
-     :alt: Load Surface from XYZ File
-
-     :ref:`sphx_glr_examples_load-surface.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
    /examples/load-surface
-.. raw:: html
-
-    <div class="sphx-glr-clear"></div>
 
 
 

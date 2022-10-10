@@ -19,7 +19,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -58,7 +60,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">About OMF-VTK</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Line Set</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#line-set-to-vtk">Line Set to VTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#line-set-to-vtk">Line Set to VTK</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#omfvista.lineset.line_set_to_vtk"><code class="docutils literal notranslate"><span class="pre">line_set_to_vtk()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pointset.html">Point Set</a></li>
@@ -94,20 +99,20 @@
            <div itemprop="articleBody">
              
   <section id="module-omfvista.lineset">
-<span id="line-set"></span><h1>Line Set<a class="headerlink" href="#module-omfvista.lineset" title="Permalink to this headline"></a></h1>
+<span id="line-set"></span><h1>Line Set<a class="headerlink" href="#module-omfvista.lineset" title="Permalink to this heading"></a></h1>
 <p>Methods to convert line set objects to VTK data objects</p>
 <section id="line-set-to-vtk">
-<h2>Line Set to VTK<a class="headerlink" href="#line-set-to-vtk" title="Permalink to this headline"></a></h2>
+<h2>Line Set to VTK<a class="headerlink" href="#line-set-to-vtk" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="omfvista.lineset.line_set_to_vtk">
 <span class="sig-prename descclassname"><span class="pre">omfvista.lineset.</span></span><span class="sig-name descname"><span class="pre">line_set_to_vtk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/lineset.html#line_set_to_vtk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.lineset.line_set_to_vtk" title="Permalink to this definition"></a></dt>
-<dd><p>Convert the line set to a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="(in PyVista v0.33.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> data object.</p>
+<dd><p>Convert the line set to a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="(in PyVista v0.36.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> data object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>lse</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">omf.lineset.LineSetElement</span></code>) – The line set to convert</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="(in PyVista v0.33.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="(in PyVista v0.36.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
