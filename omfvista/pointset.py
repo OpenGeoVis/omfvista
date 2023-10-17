@@ -2,15 +2,15 @@
 
 
 __all__ = [
-    'point_set_to_vtk',
+    "point_set_to_vtk",
 ]
 
-__displayname__ = 'Point Set'
+__displayname__ = "Point Set"
 
 import numpy as np
 import pyvista
 
-from omfvista.utilities import add_data, add_textures
+from omfvista.utilities import add_data, add_texture_coordinates
 
 
 def point_set_to_vtk(pse, origin=(0.0, 0.0, 0.0)):
@@ -28,10 +28,10 @@ def point_set_to_vtk(pse, origin=(0.0, 0.0, 0.0)):
     # Now add point data:
     add_data(output, pse.data)
 
-    add_textures(output, pse.textures, pse.name)
+    add_texture_coordinates(output, pse.textures, pse.name)
 
     output.points += np.array(origin)
     return output
 
 
-point_set_to_vtk.__displayname__ = 'Point Set to VTK'
+point_set_to_vtk.__displayname__ = "Point Set to VTK"

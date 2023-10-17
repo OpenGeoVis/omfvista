@@ -2,10 +2,10 @@
 
 
 __all__ = [
-    'line_set_to_vtk',
+    "line_set_to_vtk",
 ]
 
-__displayname__ = 'Line Set'
+__displayname__ = "Line Set"
 
 import numpy as np
 import pyvista
@@ -29,8 +29,8 @@ def line_set_to_vtk(lse, origin=(0.0, 0.0, 0.0)):
     output.points = np.array(lse.geometry.vertices)
     output.lines = lines
 
-    indices = output.connectivity().cell_data['RegionId']
-    output['Line Index'] = indices
+    indices = output.connectivity().cell_data["RegionId"]
+    output["Line Index"] = indices
 
     # Now add data to lines:
     add_data(output, lse.data)
@@ -41,4 +41,4 @@ def line_set_to_vtk(lse, origin=(0.0, 0.0, 0.0)):
     return output
 
 
-line_set_to_vtk.__displayname__ = 'Line Set to VTK'
+line_set_to_vtk.__displayname__ = "Line Set to VTK"

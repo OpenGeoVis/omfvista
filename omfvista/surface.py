@@ -2,19 +2,18 @@
 
 
 __all__ = [
-    'surface_geom_to_vtk',
-    'surface_grid_geom_to_vtk',
-    'surface_to_vtk',
+    "surface_geom_to_vtk",
+    "surface_grid_geom_to_vtk",
+    "surface_to_vtk",
 ]
 
-__displayname__ = 'Surface'
+__displayname__ = "Surface"
 
 import numpy as np
 import omf
 import pyvista
 
-from omfvista.utilities import check_orientation, check_orthogonal
-from omfvista.utilities import add_data, add_textures
+from omfvista.utilities import add_data, add_texture_coordinates, check_orthogonal
 
 
 def surface_geom_to_vtk(surfgeom, origin=(0.0, 0.0, 0.0)):
@@ -47,7 +46,7 @@ def surface_grid_geom_to_vtk(surfgridgeom, origin=(0.0, 0.0, 0.0)):
     axis_v = np.array(surfgridgeom.axis_v)
     axis_w = np.cross(axis_u, axis_v)
     if not check_orthogonal(axis_u, axis_v, axis_w):
-        raise ValueError('axis_u, axis_v, and axis_w must be orthogonal')
+        raise ValueError("axis_u, axis_v, and axis_w must be orthogonal")
     rotation_mtx = np.array([axis_u, axis_v, axis_w])
     ox, oy, oz = surfgridgeom.origin
 
@@ -60,8 +59,16 @@ def surface_grid_geom_to_vtk(surfgridgeom, origin=(0.0, 0.0, 0.0)):
     z = np.array([oz])
 
     # Build out all nodes in the mesh
-    xx, yy, zz = np.meshgrid(x, y, z, indexing='ij')
-    xx, yy, zz, = xx.ravel('F'), yy.ravel('F'), zz.ravel('F')
+    xx, yy, zz = np.meshgrid(x, y, z, indexing="ij")
+    (
+        xx,
+        yy,
+        zz,
+    ) = (
+        xx.ravel("F"),
+        yy.ravel("F"),
+        zz.ravel("F"),
+    )
     zz += surfgridgeom.offset_w
     points = np.c_[xx, yy, zz]
 
@@ -97,11 +104,11 @@ def surface_to_vtk(surfel, origin=(0.0, 0.0, 0.0)):
     # Now add point data:
     add_data(output, surfel.data)
 
-    add_textures(output, surfel.textures, surfel.name)
+    add_texture_coordinates(output, surfel.textures, surfel.name)
 
     return output
 
 
-surface_to_vtk.__displayname__ = 'Surface to VTK'
-surface_grid_geom_to_vtk.__displayname__ = 'Surface Grid Geometry to VTK'
-surface_geom_to_vtk.__displayname__ = 'Surface Geometry to VTK'
+surface_to_vtk.__displayname__ = "Surface to VTK"
+surface_grid_geom_to_vtk.__displayname__ = "Surface Grid Geometry to VTK"
+surface_geom_to_vtk.__displayname__ = "Surface Geometry to VTK"
