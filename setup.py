@@ -8,7 +8,7 @@ import warnings
 
 import setuptools
 
-__version__ = '0.2.5'
+__version__ = "0.2.5"
 
 with open("README.rst", "r") as f:
     long_description = f.read()
@@ -24,16 +24,16 @@ setuptools.setup(
     url="https://github.com/OpenGeoVis/omfvista",
     packages=setuptools.find_packages(),
     install_requires=[
-        'omf>=1.0.0',
-        'vectormath>=0.2.2',
-        'pyvista>=0.20.1',
-        'numpy',
-        'matplotlib',
+        "omf>=1.0.0",
+        "vectormath>=0.2.2",
+        "pyvista>=0.20.1",
+        "numpy",
+        "matplotlib",
     ],
     classifiers=(
         "Programming Language :: Python",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
-        'Natural Language :: English',
+        "Natural Language :: English",
     ),
 )

@@ -43,12 +43,12 @@ Or better yet, just use the project loader:
 
 
 __all__ = [
-    'wrap',
-    'project_to_vtk',
-    'load_project',
+    "wrap",
+    "project_to_vtk",
+    "load_project",
 ]
 
-__displayname__ = 'Wrapper'
+__displayname__ = "Wrapper"
 
 import numpy as np
 import omf
@@ -57,8 +57,11 @@ import pyvista
 import omfvista
 from omfvista.lineset import line_set_to_vtk
 from omfvista.pointset import point_set_to_vtk
-from omfvista.surface import (surface_geom_to_vtk, surface_grid_geom_to_vtk,
-                              surface_to_vtk)
+from omfvista.surface import (
+    surface_geom_to_vtk,
+    surface_grid_geom_to_vtk,
+    surface_to_vtk,
+)
 from omfvista.utilities import get_textures, texture_to_vtk
 from omfvista.volume import volume_grid_geom_to_vtk, volume_to_vtk
 
@@ -95,13 +98,13 @@ def wrap(data, origin=(0.0, 0.0, 0.0)):
     # get the class name
     key = data.__class__.__name__
     try:
-        if key != 'Project':
+        if key != "Project":
             return WRAPPERS[key](data, origin=origin)
         else:
             # Project is a special case
             return WRAPPERS[key](data)
     except KeyError:
-        raise RuntimeError('Data of type ({}) is not supported currently.'.format(key))
+        raise RuntimeError("Data of type ({}) is not supported currently.".format(key))
 
 
 def project_to_vtk(project, load_textures=False):
@@ -115,7 +118,7 @@ def project_to_vtk(project, load_textures=False):
     for e in project.elements:
         d = omfvista.wrap(e, origin=origin)
         data[e.name] = d
-        if hasattr(e, 'textures') and e.textures:
+        if hasattr(e, "textures") and e.textures:
             textures[e.name] = get_textures(e)
     if load_textures:
         return data, textures
@@ -130,21 +133,21 @@ def load_project(filename, load_textures=False):
 
 
 WRAPPERS = {
-    'LineSetElement': line_set_to_vtk,
-    'PointSetElement': point_set_to_vtk,
+    "LineSetElement": line_set_to_vtk,
+    "PointSetElement": point_set_to_vtk,
     # Surfaces
-    'SurfaceGeometry': surface_geom_to_vtk,
-    'SurfaceGridGeometry': surface_grid_geom_to_vtk,
-    'SurfaceElement': surface_to_vtk,
-    'ImageTexture': texture_to_vtk,
+    "SurfaceGeometry": surface_geom_to_vtk,
+    "SurfaceGridGeometry": surface_grid_geom_to_vtk,
+    "SurfaceElement": surface_to_vtk,
+    "ImageTexture": texture_to_vtk,
     # Volumes
-    'VolumeGridGeometry': volume_grid_geom_to_vtk,
-    'VolumeElement': volume_to_vtk,
-    'Project': project_to_vtk,
+    "VolumeGridGeometry": volume_grid_geom_to_vtk,
+    "VolumeElement": volume_to_vtk,
+    "Project": project_to_vtk,
 }
 
 
 # Now set up the display names for the docs
-load_project.__displayname__ = 'Load Project File'
-project_to_vtk.__displayname__ = 'Project to VTK'
-wrap.__displayname__ = 'The Wrapper'
+load_project.__displayname__ = "Load Project File"
+project_to_vtk.__displayname__ = "Project to VTK"
+wrap.__displayname__ = "The Wrapper"

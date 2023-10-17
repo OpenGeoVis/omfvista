@@ -1,12 +1,12 @@
 """Methods for converting volumetric data objects"""
 
 __all__ = [
-    'get_volume_shape',
-    'volume_grid_geom_to_vtk',
-    'volume_to_vtk',
+    "get_volume_shape",
+    "volume_grid_geom_to_vtk",
+    "volume_to_vtk",
 ]
 
-__displayname__ = 'Volume'
+__displayname__ = "Volume"
 
 import numpy as np
 import pyvista
@@ -16,7 +16,7 @@ from omfvista.utilities import check_orientation, check_orthogonal
 
 def get_volume_shape(vol):
     """Returns the shape of a gridded volume"""
-    return ( len(vol.tensor_u), len(vol.tensor_v), len(vol.tensor_w))
+    return (len(vol.tensor_u), len(vol.tensor_v), len(vol.tensor_w))
 
 
 def volume_grid_geom_to_vtk(volgridgeom, origin=(0.0, 0.0, 0.0)):
@@ -46,11 +46,13 @@ def volume_grid_geom_to_vtk(volgridgeom, origin=(0.0, 0.0, 0.0)):
 
     # Otherwise use a vtkStructuredGrid
     # Build out all nodes in the mesh
-    xx, yy, zz = np.meshgrid(x, y, z, indexing='ij')
-    points = np.c_[xx.ravel('F'), yy.ravel('F'), zz.ravel('F')]
+    xx, yy, zz = np.meshgrid(x, y, z, indexing="ij")
+    points = np.c_[xx.ravel("F"), yy.ravel("F"), zz.ravel("F")]
 
     # Rotate the points based on the axis orientations
-    rotation_mtx = np.array([volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w])
+    rotation_mtx = np.array(
+        [volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w]
+    )
     points = points.dot(rotation_mtx)
 
     output = pyvista.StructuredGrid()
@@ -73,12 +75,12 @@ def volume_to_vtk(volelement, origin=(0.0, 0.0, 0.0)):
     # Add data to output
     for data in volelement.data:
         arr = data.array.array
-        arr = np.reshape(arr, shp).flatten(order='F')
+        arr = np.reshape(arr, shp).flatten(order="F")
         output[data.name] = arr
     return output
 
 
 # Now set up the display names for the docs
-volume_to_vtk.__displayname__ = 'Volume to VTK'
-volume_grid_geom_to_vtk.__displayname__ = 'Volume Grid Geometry to VTK'
-get_volume_shape.__displayname__ = 'Volume Shape'
+volume_to_vtk.__displayname__ = "Volume to VTK"
+volume_grid_geom_to_vtk.__displayname__ = "Volume Grid Geometry to VTK"
+get_volume_shape.__displayname__ = "Volume Shape"

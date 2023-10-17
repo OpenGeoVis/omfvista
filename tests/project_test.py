@@ -9,16 +9,18 @@ import pyvista
 
 import omfvista
 
-DATA_FILE = os.path.join(os.path.dirname(__file__), '../assets/test_file.omf')
+DATA_FILE = os.path.join(os.path.dirname(__file__), "../assets/test_file.omf")
+
 
 class TestProjectIO(unittest.TestCase):
     """
     Test the wrapper for a project file which will iterate over all data types.
     This will then save out a ``pyvista.MultiBlockDataSet`` and reload it
     """
+
     def setUp(self):
         self.test_dir = tempfile.mkdtemp()
-        self.project_filename = os.path.join(self.test_dir, 'project.vtm')
+        self.project_filename = os.path.join(self.test_dir, "project.vtm")
 
     def tearDown(self):
         # Remove the test data directory after the test
@@ -41,8 +43,7 @@ class TestProjectIO(unittest.TestCase):
     #     self.assertEqual(data.n_blocks, 9)
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     import unittest
+
     unittest.main()

@@ -2,10 +2,10 @@
 
 
 __all__ = [
-    'point_set_to_vtk',
+    "point_set_to_vtk",
 ]
 
-__displayname__ = 'Point Set'
+__displayname__ = "Point Set"
 
 import numpy as np
 import pyvista
@@ -34,4 +34,4 @@ def point_set_to_vtk(pse, origin=(0.0, 0.0, 0.0)):
     return output
 
 
-point_set_to_vtk.__displayname__ = 'Point Set to VTK'
+point_set_to_vtk.__displayname__ = "Point Set to VTK"

@@ -9,106 +9,91 @@ import pyvista
 
 import omfvista
 
-PROJECT = omf.Project(name='Test project',
-                        description='Just some assorted elements')
-POINTSET = omf.PointSetElement(name='Random Points',
-                          description='Just random points',
-                          geometry=omf.PointSetGeometry(
-                                  vertices=np.random.rand(100, 3)
-                                  ),
-                          data=[
-                              omf.ScalarData(
-                                      name='rand data',
-                                      array=np.random.rand(100),
-                                      location='vertices'
-                                      ),
-
-                              omf.ScalarData(
-                                      name='More rand data',
-                                      array=np.random.rand(100),
-                                      location='vertices'
-                                      )
-                              ],
-#                           textures=[
-#                                   omf.ImageTexture(
-#                                           name='test image',
-#                                           image='test_image.png',
-#                                           origin=[0, 0, 0],
-#                                           axis_u=[1, 0, 0],
-#                                           axis_v=[0, 1, 0]
-#                                           ),
-#                                   omf.ImageTexture(
-#                                           name='test image',
-#                                           image='test_image.png',
-#                                           origin=[0, 0, 0],
-#                                           axis_u=[1, 0, 0],
-#                                           axis_v=[0, 0, 1]
-#                                           )
-#                                   ],
-                          color='green'
-                          )
+PROJECT = omf.Project(name="Test project", description="Just some assorted elements")
+POINTSET = omf.PointSetElement(
+    name="Random Points",
+    description="Just random points",
+    geometry=omf.PointSetGeometry(vertices=np.random.rand(100, 3)),
+    data=[
+        omf.ScalarData(
+            name="rand data", array=np.random.rand(100), location="vertices"
+        ),
+        omf.ScalarData(
+            name="More rand data", array=np.random.rand(100), location="vertices"
+        ),
+    ],
+    #                           textures=[
+    #                                   omf.ImageTexture(
+    #                                           name='test image',
+    #                                           image='test_image.png',
+    #                                           origin=[0, 0, 0],
+    #                                           axis_u=[1, 0, 0],
+    #                                           axis_v=[0, 1, 0]
+    #                                           ),
+    #                                   omf.ImageTexture(
+    #                                           name='test image',
+    #                                           image='test_image.png',
+    #                                           origin=[0, 0, 0],
+    #                                           axis_u=[1, 0, 0],
+    #                                           axis_v=[0, 0, 1]
+    #                                           )
+    #                                   ],
+    color="green",
+)
 LINESET = omf.LineSetElement(
-    name='Random Line',
+    name="Random Line",
     geometry=omf.LineSetGeometry(
         vertices=np.random.rand(100, 3),
-        segments=np.floor(np.random.rand(50, 2)*100).astype(int)
+        segments=np.floor(np.random.rand(50, 2) * 100).astype(int),
     ),
     data=[
         omf.ScalarData(
-            name='rand vert data',
-            array=np.random.rand(100),
-            location='vertices'
+            name="rand vert data", array=np.random.rand(100), location="vertices"
         ),
         omf.ScalarData(
-            name='rand segment data',
-            array=np.random.rand(50),
-            location='segments'
-        )
+            name="rand segment data", array=np.random.rand(50), location="segments"
+        ),
     ],
-    color='#0000FF'
+    color="#0000FF",
 )
 
 SURFACE = omf.SurfaceElement(
-    name='trisurf',
+    name="trisurf",
     geometry=omf.SurfaceGeometry(
         vertices=np.random.rand(100, 3),
-        triangles=np.floor(np.random.rand(50, 3)*100).astype(int)
+        triangles=np.floor(np.random.rand(50, 3) * 100).astype(int),
     ),
     data=[
         omf.ScalarData(
-            name='rand vert data',
-            array=np.random.rand(100),
-            location='vertices'
+            name="rand vert data", array=np.random.rand(100), location="vertices"
         ),
         omf.ScalarData(
-            name='rand face data',
-            array=np.random.rand(50),
-            location='faces'
-        )
+            name="rand face data", array=np.random.rand(50), location="faces"
+        ),
     ],
-    color=[100, 200, 200]
+    color=[100, 200, 200],
 )
 GRID = omf.SurfaceElement(
-    name='gridsurf',
+    name="gridsurf",
     geometry=omf.SurfaceGridGeometry(
         tensor_u=np.ones(10).astype(float),
         tensor_v=np.ones(15).astype(float),
-        origin=[50., 50., 50.],
-        axis_u=[1., 0, 0],
-        axis_v=[0, 0, 1.],
-        offset_w=np.random.rand(11, 16).flatten()
+        origin=[50.0, 50.0, 50.0],
+        axis_u=[1.0, 0, 0],
+        axis_v=[0, 0, 1.0],
+        offset_w=np.random.rand(11, 16).flatten(),
     ),
     data=[
         omf.ScalarData(
-            name='rand vert data',
+            name="rand vert data",
             array=np.random.rand(11, 16).flatten(),
-            location='vertices'
+            location="vertices",
         ),
         omf.ScalarData(
-            name='rand face data',
-            array=np.random.rand(10, 15).flatten(order='f'),
-            location='faces'
-        )
+            name="rand face data",
+            array=np.random.rand(10, 15).flatten(order="f"),
+            location="faces",
+        ),
     ],
     # textures=[
     #     omf.ImageTexture(
@@ -122,49 +107,45 @@ GRID = omf.SurfaceElement(
 )
 
 VOLUME = omf.VolumeElement(
-    name='vol',
+    name="vol",
     geometry=omf.VolumeGridGeometry(
         tensor_u=np.ones(10).astype(float),
         tensor_v=np.ones(15).astype(float),
         tensor_w=np.ones(20).astype(float),
-        origin=[10., 10., -10]
+        origin=[10.0, 10.0, -10],
     ),
     data=[
         omf.ScalarData(
-            name='Random Data',
-            location='cells',
-            array=np.random.rand(10, 15, 20).flatten()
+            name="Random Data",
+            location="cells",
+            array=np.random.rand(10, 15, 20).flatten(),
         )
-    ]
+    ],
 )
 
 VOLUME_IR = omf.VolumeElement(
-    name='vol_ir',
+    name="vol_ir",
     geometry=omf.VolumeGridGeometry(
-        axis_u=[1,1,0],
-        axis_v=[0,0,1],
-        axis_w=[ 1, -1,  0],
+        axis_u=[1, 1, 0],
+        axis_v=[0, 0, 1],
+        axis_w=[1, -1, 0],
         tensor_u=np.ones(10).astype(float),
         tensor_v=np.ones(15).astype(float),
         tensor_w=np.ones(20).astype(float),
-        origin=[10., 10., -10]
+        origin=[10.0, 10.0, -10],
     ),
     data=[
         omf.ScalarData(
-            name='Random Data',
-            location='cells',
-            array=np.random.rand(10, 15, 20).flatten()
+            name="Random Data",
+            location="cells",
+            array=np.random.rand(10, 15, 20).flatten(),
         )
-    ]
+    ],
 )
 
 PROJECT.elements = [POINTSET, LINESET, SURFACE, GRID, VOLUME, VOLUME_IR]
 if not PROJECT.validate():
-    raise AssertionError('Testing data is not valid.')
-
-
-
-
+    raise AssertionError("Testing data is not valid.")
 
 
 class TestElements(unittest.TestCase):
@@ -175,8 +156,8 @@ class TestElements(unittest.TestCase):
     def setUp(self):
         # Create a temporary directory
         self.test_dir = tempfile.mkdtemp()
-        self.project_filename = os.path.join(self.test_dir, 'project.omf')
-        self.vtm_filename = os.path.join(self.test_dir, 'project.vtm')
+        self.project_filename = os.path.join(self.test_dir, "project.omf")
+        self.vtm_filename = os.path.join(self.test_dir, "project.vtm")
 
     def tearDown(self):
         # Remove the test data directory after the test
@@ -184,12 +165,12 @@ class TestElements(unittest.TestCase):
 
     def _check_multi_block(self, proj):
         self.assertEqual(proj.n_blocks, len(PROJECT.elements))
-        self.assertEqual(proj.get_block_name(0), 'Random Points')
-        self.assertEqual(proj.get_block_name(1), 'Random Line')
-        self.assertEqual(proj.get_block_name(2), 'trisurf')
-        self.assertEqual(proj.get_block_name(3), 'gridsurf')
-        self.assertEqual(proj.get_block_name(4), 'vol')
-        self.assertEqual(proj.get_block_name(5), 'vol_ir')
+        self.assertEqual(proj.get_block_name(0), "Random Points")
+        self.assertEqual(proj.get_block_name(1), "Random Line")
+        self.assertEqual(proj.get_block_name(2), "trisurf")
+        self.assertEqual(proj.get_block_name(3), "gridsurf")
+        self.assertEqual(proj.get_block_name(4), "vol")
+        self.assertEqual(proj.get_block_name(5), "vol_ir")
 
     def test_file_io(self):
         # Write out the project using omf
@@ -248,8 +229,7 @@ class TestElements(unittest.TestCase):
         self.assertEqual(vol_ir.n_points, VOLUME_IR.geometry.num_nodes)
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     import unittest
+
     unittest.main()
