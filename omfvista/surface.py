@@ -13,8 +13,8 @@ import numpy as np
 import omf
 import pyvista
 
-from omfvista.utilities import check_orientation, check_orthogonal
-from omfvista.utilities import add_data, add_textures
+from omfvista.utilities import (add_data, add_texture_coordinates,
+                                check_orientation, check_orthogonal)
 
 
 def surface_geom_to_vtk(surfgeom, origin=(0.0, 0.0, 0.0)):
@@ -97,7 +97,7 @@ def surface_to_vtk(surfel, origin=(0.0, 0.0, 0.0)):
     # Now add point data:
     add_data(output, surfel.data)
 
-    add_textures(output, surfel.textures, surfel.name)
+    add_texture_coordinates(output, surfel.textures, surfel.name)
 
     return output
 

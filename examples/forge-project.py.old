@@ -12,7 +12,7 @@ import pyvista as pv
 import omfvista
 
 # Download the data and load!
-project = omfvista.download_forge_example()
+project, textures = omfvista.download_forge_example()
 project
 
 

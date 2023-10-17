@@ -55,6 +55,12 @@ import omf
 import pyvista
 
 import omfvista
+from omfvista.lineset import line_set_to_vtk
+from omfvista.pointset import point_set_to_vtk
+from omfvista.surface import (surface_geom_to_vtk, surface_grid_geom_to_vtk,
+                              surface_to_vtk)
+from omfvista.utilities import get_textures, texture_to_vtk
+from omfvista.volume import volume_grid_geom_to_vtk, volume_to_vtk
 
 
 def wrap(data, origin=(0.0, 0.0, 0.0)):
@@ -86,48 +92,56 @@ def wrap(data, origin=(0.0, 0.0, 0.0)):
             multi.append(wrap(item))
             multi.set_block_name(i, item.name)
         return multi
-    # Define wrappers
-    wrappers = {
-        'LineSetElement': omfvista.line_set_to_vtk,
-        'PointSetElement': omfvista.point_set_to_vtk,
-        # Surfaces
-        'SurfaceGeometry': omfvista.surface_geom_to_vtk,
-        'SurfaceGridGeometry': omfvista.surface_grid_geom_to_vtk,
-        'SurfaceElement': omfvista.surface_to_vtk,
-        # Volumes
-        'VolumeGridGeometry': omfvista.volume_grid_geom_to_vtk,
-        'VolumeElement': omfvista.volume_to_vtk,
-        'Project': omfvista.project_to_vtk,
-    }
     # get the class name
     key = data.__class__.__name__
     try:
         if key != 'Project':
-            return wrappers[key](data, origin=origin)
+            return WRAPPERS[key](data, origin=origin)
         else:
-            return wrappers[key](data)
+            # Project is a special case
+            return WRAPPERS[key](data)
     except KeyError:
         raise RuntimeError('Data of type ({}) is not supported currently.'.format(key))
 
 
-def project_to_vtk(project):
+def project_to_vtk(project, load_textures=False):
     """Converts an OMF project (:class:`omf.base.Project`) to a
     :class:`pyvista.MultiBlock` data boject
     """
     # Iterate over the elements and add converted VTK objects a MultiBlock
     data = pyvista.MultiBlock()
+    textures = {}
     origin = np.array(project.origin)
-    for i, e in enumerate(project.elements):
+    for e in project.elements:
         d = omfvista.wrap(e, origin=origin)
         data[e.name] = d
+        if hasattr(e, 'textures') and e.textures:
+            textures[e.name] = get_textures(e)
+    if load_textures:
+        return data, textures
     return data
 
 
-def load_project(filename):
+def load_project(filename, load_textures=False):
     """Loads an OMF project file into a :class:`pyvista.MultiBlock` dataset"""
     reader = omf.OMFReader(filename)
     project = reader.get_project()
-    return project_to_vtk(project)
+    return project_to_vtk(project, load_textures=load_textures)
+
+
+WRAPPERS = {
+    'LineSetElement': line_set_to_vtk,
+    'PointSetElement': point_set_to_vtk,
+    # Surfaces
+    'SurfaceGeometry': surface_geom_to_vtk,
+    'SurfaceGridGeometry': surface_grid_geom_to_vtk,
+    'SurfaceElement': surface_to_vtk,
+    'ImageTexture': texture_to_vtk,
+    # Volumes
+    'VolumeGridGeometry': volume_grid_geom_to_vtk,
+    'VolumeElement': volume_to_vtk,
+    'Project': project_to_vtk,
+}
 
 
 # Now set up the display names for the docs

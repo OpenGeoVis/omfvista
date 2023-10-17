@@ -2,7 +2,7 @@ __all__ = [
     'check_orientation',
     'check_orthogonal',
     'add_data',
-    'add_textures',
+    'add_texture_coordinates',
 ]
 
 
@@ -44,11 +44,10 @@ def add_data(output, data):
     return output
 
 
-def add_textures(output, textures, elname):
-    """Add textures to a pyvista data object"""
+def add_texture_coordinates(output, textures, elname):
+    """Add texture coordinates to a pyvista data object."""
     if not is_pyvista_dataset(output):
         output = pyvista.wrap(output)
-
     for i, tex in enumerate(textures):
         # Now map the coordinates for the texture
         tmp = output.texture_map_to_plane(origin=tex.origin, point_u=tex.origin + tex.axis_u, point_v=tex.origin + tex.axis_v)
@@ -62,13 +61,19 @@ def add_textures(output, textures, elname):
         # NOTE: Let pyvista handle setting the TCoords because of how VTK cleans
         #       up old TCoords
         output.GetPointData().AddArray(tcoord)
-        # Add the vtkTexture to the output
-        img = np.array(Image.open(tex.image))
-        tex.image.seek(0) # Reset the image bytes in case it is accessed again
-        if img.shape[2] > 3:
-            img = img[:, :, 0:3]
-        vtexture = pyvista.numpy_to_texture(img)
-        output.textures[name] = vtexture
-        output._activate_texture(name)
-
     return output
+
+
+def texture_to_vtk(texture):
+    """Convert an OMF texture to a VTK texture."""
+    img = np.array(Image.open(texture.image))
+    texture.image.seek(0)  # Reset the image bytes in case it is accessed again
+    if img.shape[2] > 3:
+        img = img[:, :, 0:3]
+    vtexture = pyvista.numpy_to_texture(img)
+    return vtexture
+
+
+def get_textures(element):
+    """Get a dictionary of textures for a given element."""
+    return [texture_to_vtk(tex) for tex in element.textures]
