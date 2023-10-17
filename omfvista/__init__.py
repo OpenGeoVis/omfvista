@@ -18,7 +18,7 @@ from omfvista.wrapper import load_project, project_to_vtk, wrap
 __author__ = "Bane Sullivan"
 __license__ = "BSD-3-Clause"
 __copyright__ = "2019-2022, Bane Sullivan"
-__version__ = "0.2.5"
+__version__ = "0.3.0"
 __displayname__ = "OMF-VTK"
 __name__ = "omfvista"
 
