@@ -11,7 +11,7 @@ __displayname__ = "Volume"
 import numpy as np
 import pyvista
 
-from omfvista.utilities import check_orientation, check_orthogonal
+from omfvista.utilities import check_orientation
 
 
 def get_volume_shape(vol):

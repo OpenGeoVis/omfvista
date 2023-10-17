@@ -1,11 +1,5 @@
 """``omfvista``: 3D visualization for the Open Mining Format (omf)
 """
-
-import os
-import platform
-import sys
-import warnings
-
 import setuptools
 
 __version__ = "0.2.5"
