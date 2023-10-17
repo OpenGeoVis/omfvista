@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_examples_load-project.py>`
+        :ref:`Go to the end <sphx_glr_download_examples_load-project.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -23,12 +23,13 @@ Load Project
 
 Load and visualize an OMF project file
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-11
+.. GENERATED FROM PYTHON SOURCE LINES 7-12
 
 .. code-block:: default
 
     # sphinx_gallery_thumbnail_number = 3
     import pyvista as pv
+
     import omfvista
 
 
@@ -38,16 +39,16 @@ Load and visualize an OMF project file
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 12-13
+.. GENERATED FROM PYTHON SOURCE LINES 13-14
 
 Load the project into an :class:`pyvista.MultiBlock` dataset
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-17
+.. GENERATED FROM PYTHON SOURCE LINES 14-18
 
 .. code-block:: default
 
 
-    project = omfvista.load_project('../assets/test_file.omf')
+    project = omfvista.load_project("../assets/test_file.omf")
     print(project)
 
 
@@ -58,23 +59,22 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
  .. code-block:: none
 
-    MultiBlock (0x7f6f8eab5b80)
-      N Blocks:     9
-      X Bounds:     443941.105, 447059.611
-      Y Bounds:     491941.536, 495059.859
-      Z Bounds:     2330.000, 3555.942
+    MultiBlock (0x7f7f138ee580)
+      N Blocks    9
+      X Bounds    443941.105, 447059.611
+      Y Bounds    491941.536, 495059.859
+      Z Bounds    2330.000, 3555.942
 
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 18-21
+.. GENERATED FROM PYTHON SOURCE LINES 19-22
 
 Once the data is loaded as a :class:`pyvista.MultiBlock` dataset from
 ``omfvista``, then that object can be directly used for interactive 3D
 visualization from ``pyvista``:
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-25
+.. GENERATED FROM PYTHON SOURCE LINES 22-26
 
 .. code-block:: default
 
@@ -94,22 +94,22 @@ visualization from ``pyvista``:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-29
+.. GENERATED FROM PYTHON SOURCE LINES 27-30
 
 Or an interactive scene can be created and manipulated to create a compelling
 figure directly in a Jupyter notebook. First, grab the elements from the
 project:
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-36
+.. GENERATED FROM PYTHON SOURCE LINES 30-37
 
 .. code-block:: default
 
 
     # Grab a few elements of interest and plot em up!
-    vol = project['Block Model']
-    assay = project['wolfpass_WP_assay']
-    topo = project['Topography']
-    dacite = project['Dacite']
+    vol = project["Block Model"]
+    assay = project["wolfpass_WP_assay"]
+    topo = project["Topography"]
+    dacite = project["Dacite"]
 
 
 
@@ -118,12 +118,12 @@ project:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-45
+.. GENERATED FROM PYTHON SOURCE LINES 38-46
 
 .. code-block:: default
 
 
-    assay.set_active_scalars('DENSITY')
+    assay.set_active_scalars("DENSITY")
 
     p = pv.Plotter()
     p.add_mesh(assay.tube(radius=3))
@@ -142,11 +142,11 @@ project:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-47
+.. GENERATED FROM PYTHON SOURCE LINES 47-48
 
 Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-52
+.. GENERATED FROM PYTHON SOURCE LINES 48-53
 
 .. code-block:: default
 
@@ -163,23 +163,22 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
  .. code-block:: none
 
-    UnstructuredGrid (0x7f6f8edd1d60)
-      N Cells:      92525
-      N Points:     107807
-      X Bounds:     4.447e+05, 4.457e+05
-      Y Bounds:     4.929e+05, 4.942e+05
-      Z Bounds:     2.330e+03, 3.110e+03
-      N Arrays:     1
+    UnstructuredGrid (0x7f7f13920ac0)
+      N Cells:    92525
+      N Points:   107807
+      X Bounds:   4.447e+05, 4.457e+05
+      Y Bounds:   4.929e+05, 4.942e+05
+      Z Bounds:   2.330e+03, 3.110e+03
+      N Arrays:   1
 
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 53-54
+.. GENERATED FROM PYTHON SOURCE LINES 54-55
 
 Then you can put it all in one environment!
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-70
+.. GENERATED FROM PYTHON SOURCE LINES 55-75
 
 .. code-block:: default
 
@@ -192,11 +191,15 @@ Then you can put it all in one environment!
 
     # Add our datasets
     p.add_mesh(topo, opacity=0.5)
-    p.add_mesh(dacite, color='orange', opacity=0.6,)
-    p.add_mesh(thresh_vol, cmap='coolwarm', clim=vol.get_data_range())
+    p.add_mesh(
+        dacite,
+        color="orange",
+        opacity=0.6,
+    )
+    p.add_mesh(thresh_vol, cmap="coolwarm", clim=vol.get_data_range())
 
     # Add the assay logs: use a tube filter that varius the radius by an attribute
-    p.add_mesh(assay.tube(radius=3), cmap='viridis')
+    p.add_mesh(assay.tube(radius=3), cmap="viridis")
 
     p.show()
 
@@ -214,7 +217,7 @@ Then you can put it all in one environment!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  17.106 seconds)
+   **Total running time of the script:** (0 minutes 13.608 seconds)
 
 
 .. _sphx_glr_download_examples_load-project.py:
@@ -222,6 +225,8 @@ Then you can put it all in one environment!
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python

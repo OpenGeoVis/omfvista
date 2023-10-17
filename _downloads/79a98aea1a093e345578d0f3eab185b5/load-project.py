@@ -6,12 +6,13 @@ Load and visualize an OMF project file
 """
 # sphinx_gallery_thumbnail_number = 3
 import pyvista as pv
+
 import omfvista
 
 ###############################################################################
 # Load the project into an :class:`pyvista.MultiBlock` dataset
 
-project = omfvista.load_project('../assets/test_file.omf')
+project = omfvista.load_project("../assets/test_file.omf")
 print(project)
 
 ###############################################################################
@@ -28,14 +29,14 @@ project.plot()
 # project:
 
 # Grab a few elements of interest and plot em up!
-vol = project['Block Model']
-assay = project['wolfpass_WP_assay']
-topo = project['Topography']
-dacite = project['Dacite']
+vol = project["Block Model"]
+assay = project["wolfpass_WP_assay"]
+topo = project["Topography"]
+dacite = project["Dacite"]
 
 ###############################################################################
 
-assay.set_active_scalars('DENSITY')
+assay.set_active_scalars("DENSITY")
 
 p = pv.Plotter()
 p.add_mesh(assay.tube(radius=3))
@@ -60,10 +61,14 @@ p.add_bounding_box()
 
 # Add our datasets
 p.add_mesh(topo, opacity=0.5)
-p.add_mesh(dacite, color='orange', opacity=0.6,)
-p.add_mesh(thresh_vol, cmap='coolwarm', clim=vol.get_data_range())
+p.add_mesh(
+    dacite,
+    color="orange",
+    opacity=0.6,
+)
+p.add_mesh(thresh_vol, cmap="coolwarm", clim=vol.get_data_range())
 
 # Add the assay logs: use a tube filter that varius the radius by an attribute
-p.add_mesh(assay.tube(radius=3), cmap='viridis')
+p.add_mesh(assay.tube(radius=3), cmap="viridis")
 
 p.show()

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Load Surface from XYZ File &mdash; omfvista 0.2.5 documentation</title>
@@ -16,14 +16,13 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=cb850272"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -36,14 +35,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> omfvista
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            omfvista
           </a>
               <div class="version">
                 0.2.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -78,9 +81,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Examples</a> &raquo;</li>
-      <li>Load Surface from XYZ File</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Examples</a></li>
+      <li class="breadcrumb-item active">Load Surface from XYZ File</li>
 
   </ul>
   <hr/>
@@ -90,21 +93,23 @@
              
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-examples-load-surface-py"><span class="std std-ref">here</span></a>
+<p><a class="reference internal" href="#sphx-glr-download-examples-load-surface-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="load-surface-from-xyz-file">
-<span id="sphx-glr-examples-load-surface-py"></span><h1>Load Surface from XYZ File<a class="headerlink" href="#load-surface-from-xyz-file" title="Permalink to this heading"></a></h1>
+<span id="sphx-glr-examples-load-surface-py"></span><h1>Load Surface from XYZ File<a class="headerlink" href="#load-surface-from-xyz-file" title="Link to this heading"></a></h1>
 <p>Load a surface from a file of XYZ coordinates</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_number = 2</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">omf</span>
-<span class="kn">import</span> <span class="nn">omfvista</span>
+
+<span class="c1"># sphinx_gallery_thumbnail_number = 2</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">omfvista</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_quaternary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../assets/mod_base_quaternary_300_nan.txt&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_quaternary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../assets/mod_base_quaternary_300_nan.txt&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">base_quaternary_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -117,13 +122,13 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Create a <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> dataset out of the coordinates</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="c1"># simply pass the numpy points to the PolyData constructor</span>
-<span class="n">cloud</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">])</span>
+<span class="n">cloud</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span>
 <span class="c1"># Add data values onto the mesh nodes</span>
-<span class="n">cloud</span><span class="p">[</span><span class="s1">&#39;my data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">cloud</span><span class="p">[</span><span class="s2">&quot;my data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 <p>Make a surface using the delaunay filter</p>
@@ -140,19 +145,15 @@ Note the scaling factor that exagerates the surface</p>
 <img src="../_images/sphx_glr_load-surface_002.png" srcset="../_images/sphx_glr_load-surface_002.png" alt="load surface" class = "sphx-glr-single-img"/><p>Create an OMF element that can be saved out</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tris</span> <span class="o">=</span> <span class="n">warped</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">surf</span><span class="o">.</span><span class="n">n_cells</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">base_quaternary_omf</span> <span class="o">=</span> <span class="n">omf</span><span class="o">.</span><span class="n">SurfaceElement</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;My Surface&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;My Surface&quot;</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s1">&#39;This is a decription of &quot;My Surface&quot;&#39;</span><span class="p">,</span>
-    <span class="n">geometry</span><span class="o">=</span><span class="n">omf</span><span class="o">.</span><span class="n">SurfaceGeometry</span><span class="p">(</span><span class="n">vertices</span><span class="o">=</span><span class="n">warped</span><span class="o">.</span><span class="n">points</span><span class="p">,</span>
-                                 <span class="n">triangles</span><span class="o">=</span><span class="n">tris</span><span class="p">),</span>
+    <span class="n">geometry</span><span class="o">=</span><span class="n">omf</span><span class="o">.</span><span class="n">SurfaceGeometry</span><span class="p">(</span><span class="n">vertices</span><span class="o">=</span><span class="n">warped</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="n">tris</span><span class="p">),</span>
     <span class="n">data</span><span class="o">=</span><span class="p">[</span>
         <span class="n">omf</span><span class="o">.</span><span class="n">ScalarData</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;My awesome data&#39;</span><span class="p">,</span>
-            <span class="n">array</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">surf</span><span class="p">[</span><span class="s1">&#39;my data&#39;</span><span class="p">]),</span>
-            <span class="n">location</span><span class="o">=</span><span class="s1">&#39;vertices&#39;</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;My awesome data&quot;</span><span class="p">,</span> <span class="n">array</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">surf</span><span class="p">[</span><span class="s2">&quot;my data&quot;</span><span class="p">]),</span> <span class="n">location</span><span class="o">=</span><span class="s2">&quot;vertices&quot;</span>
         <span class="p">),</span>
     <span class="p">],</span>
-
-    <span class="p">)</span>
+<span class="p">)</span>
 <span class="n">base_quaternary_omf</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -163,7 +164,7 @@ Note the scaling factor that exagerates the surface</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">omfvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">base_quaternary_omf</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_load-surface_003.png" srcset="../_images/sphx_glr_load-surface_003.png" alt="load surface" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  10.745 seconds)</p>
+<img src="../_images/sphx_glr_load-surface_003.png" srcset="../_images/sphx_glr_load-surface_003.png" alt="load surface" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 10.831 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-load-surface-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/7b3e7ad5ae732bc05696cd4c13cefc84/load-surface.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">load-surface.py</span></code></a></p>
@@ -186,7 +187,7 @@ Note the scaling factor that exagerates the surface</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2022, Bane Sullivan.</p>
+    <p>&#169; Copyright 2019-2023, Bane Sullivan.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

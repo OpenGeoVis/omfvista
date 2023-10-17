@@ -17,7 +17,7 @@ Examples
 .. only:: html
 
   .. image:: /examples/images/thumb/sphx_glr_load-project_thumb.png
-    :alt: Load Project
+    :alt:
 
   :ref:`sphx_glr_examples_load-project.py`
 
@@ -34,7 +34,7 @@ Examples
 .. only:: html
 
   .. image:: /examples/images/thumb/sphx_glr_load-surface_thumb.png
-    :alt: Load Surface from XYZ File
+    :alt:
 
   :ref:`sphx_glr_examples_load-surface.py`
 

@@ -15,10 +15,10 @@ add_data
 
 
 
-add_textures
-------------
+add_texture_coordinates
+-----------------------
 
-.. autofunction:: omfvista.utilities.add_textures
+.. autofunction:: omfvista.utilities.add_texture_coordinates
 
 
 

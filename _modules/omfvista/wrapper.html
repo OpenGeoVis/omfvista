@@ -15,14 +15,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=cb850272"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -33,14 +32,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> omfvista
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            omfvista
           </a>
               <div class="version">
                 0.2.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -71,9 +74,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-      <li>omfvista.wrapper</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">omfvista.wrapper</li>
 
   </ul>
   <hr/>
@@ -127,22 +130,29 @@
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;wrap&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;project_to_vtk&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;load_project&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;wrap&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;project_to_vtk&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;load_project&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 
-<span class="n">__displayname__</span> <span class="o">=</span> <span class="s1">&#39;Wrapper&#39;</span>
+<span class="n">__displayname__</span> <span class="o">=</span> <span class="s2">&quot;Wrapper&quot;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">omf</span>
 <span class="kn">import</span> <span class="nn">pyvista</span>
 
 <span class="kn">import</span> <span class="nn">omfvista</span>
+<span class="kn">from</span> <span class="nn">omfvista.lineset</span> <span class="kn">import</span> <span class="n">line_set_to_vtk</span>
+<span class="kn">from</span> <span class="nn">omfvista.pointset</span> <span class="kn">import</span> <span class="n">point_set_to_vtk</span>
+<span class="kn">from</span> <span class="nn">omfvista.surface</span> <span class="kn">import</span> <span class="n">surface_geom_to_vtk</span><span class="p">,</span> <span class="n">surface_grid_geom_to_vtk</span><span class="p">,</span> <span class="n">surface_to_vtk</span>
+<span class="kn">from</span> <span class="nn">omfvista.utilities</span> <span class="kn">import</span> <span class="n">get_textures</span><span class="p">,</span> <span class="n">texture_to_vtk</span>
+<span class="kn">from</span> <span class="nn">omfvista.volume</span> <span class="kn">import</span> <span class="n">volume_grid_geom_to_vtk</span><span class="p">,</span> <span class="n">volume_to_vtk</span>
 
 
-<div class="viewcode-block" id="wrap"><a class="viewcode-back" href="../../content/omfvista/wrapper.html#omfvista.wrapper.wrap">[docs]</a><span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)):</span>
-    <span class="sd">&quot;&quot;&quot;Wraps the OMF data object/project as a VTK data object. This is the</span>
+<div class="viewcode-block" id="wrap">
+<a class="viewcode-back" href="../../content/omfvista/wrapper.html#omfvista.wrapper.wrap">[docs]</a>
+<span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wraps the OMF data object/project as a VTK data object. This is the</span>
 <span class="sd">    primary function that an end user will harness.</span>
 
 <span class="sd">    Args:</span>
@@ -170,54 +180,69 @@
             <span class="n">multi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wrap</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
             <span class="n">multi</span><span class="o">.</span><span class="n">set_block_name</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">multi</span>
-    <span class="c1"># Define wrappers</span>
-    <span class="n">wrappers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;LineSetElement&#39;</span><span class="p">:</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">line_set_to_vtk</span><span class="p">,</span>
-        <span class="s1">&#39;PointSetElement&#39;</span><span class="p">:</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">point_set_to_vtk</span><span class="p">,</span>
-        <span class="c1"># Surfaces</span>
-        <span class="s1">&#39;SurfaceGeometry&#39;</span><span class="p">:</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">surface_geom_to_vtk</span><span class="p">,</span>
-        <span class="s1">&#39;SurfaceGridGeometry&#39;</span><span class="p">:</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">surface_grid_geom_to_vtk</span><span class="p">,</span>
-        <span class="s1">&#39;SurfaceElement&#39;</span><span class="p">:</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">surface_to_vtk</span><span class="p">,</span>
-        <span class="c1"># Volumes</span>
-        <span class="s1">&#39;VolumeGridGeometry&#39;</span><span class="p">:</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">volume_grid_geom_to_vtk</span><span class="p">,</span>
-        <span class="s1">&#39;VolumeElement&#39;</span><span class="p">:</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">volume_to_vtk</span><span class="p">,</span>
-        <span class="s1">&#39;Project&#39;</span><span class="p">:</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">project_to_vtk</span><span class="p">,</span>
-    <span class="p">}</span>
     <span class="c1"># get the class name</span>
     <span class="n">key</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;Project&#39;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">wrappers</span><span class="p">[</span><span class="n">key</span><span class="p">](</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Project&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">WRAPPERS</span><span class="p">[</span><span class="n">key</span><span class="p">](</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">wrappers</span><span class="p">[</span><span class="n">key</span><span class="p">](</span><span class="n">data</span><span class="p">)</span>
+            <span class="c1"># Project is a special case</span>
+            <span class="k">return</span> <span class="n">WRAPPERS</span><span class="p">[</span><span class="n">key</span><span class="p">](</span><span class="n">data</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Data of type (</span><span class="si">{}</span><span class="s1">) is not supported currently.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span></div>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Data of type (</span><span class="si">{}</span><span class="s2">) is not supported currently.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="project_to_vtk"><a class="viewcode-back" href="../../content/omfvista/wrapper.html#omfvista.wrapper.project_to_vtk">[docs]</a><span class="k">def</span> <span class="nf">project_to_vtk</span><span class="p">(</span><span class="n">project</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Converts an OMF project (:class:`omf.base.Project`) to a</span>
+
+<div class="viewcode-block" id="project_to_vtk">
+<a class="viewcode-back" href="../../content/omfvista/wrapper.html#omfvista.wrapper.project_to_vtk">[docs]</a>
+<span class="k">def</span> <span class="nf">project_to_vtk</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">load_textures</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts an OMF project (:class:`omf.base.Project`) to a</span>
 <span class="sd">    :class:`pyvista.MultiBlock` data boject</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Iterate over the elements and add converted VTK objects a MultiBlock</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">MultiBlock</span><span class="p">()</span>
+    <span class="n">textures</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">elements</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">elements</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
         <span class="n">data</span><span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s2">&quot;textures&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">e</span><span class="o">.</span><span class="n">textures</span><span class="p">:</span>
+            <span class="n">textures</span><span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_textures</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">load_textures</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">textures</span>
     <span class="k">return</span> <span class="n">data</span></div>
 
 
-<div class="viewcode-block" id="load_project"><a class="viewcode-back" href="../../content/omfvista/wrapper.html#omfvista.wrapper.load_project">[docs]</a><span class="k">def</span> <span class="nf">load_project</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Loads an OMF project file into a :class:`pyvista.MultiBlock` dataset&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="load_project">
+<a class="viewcode-back" href="../../content/omfvista/wrapper.html#omfvista.wrapper.load_project">[docs]</a>
+<span class="k">def</span> <span class="nf">load_project</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">load_textures</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads an OMF project file into a :class:`pyvista.MultiBlock` dataset&quot;&quot;&quot;</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">omf</span><span class="o">.</span><span class="n">OMFReader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="n">project</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_project</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">project_to_vtk</span><span class="p">(</span><span class="n">project</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">project_to_vtk</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">load_textures</span><span class="o">=</span><span class="n">load_textures</span><span class="p">)</span></div>
+
+
+
+<span class="n">WRAPPERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;LineSetElement&quot;</span><span class="p">:</span> <span class="n">line_set_to_vtk</span><span class="p">,</span>
+    <span class="s2">&quot;PointSetElement&quot;</span><span class="p">:</span> <span class="n">point_set_to_vtk</span><span class="p">,</span>
+    <span class="c1"># Surfaces</span>
+    <span class="s2">&quot;SurfaceGeometry&quot;</span><span class="p">:</span> <span class="n">surface_geom_to_vtk</span><span class="p">,</span>
+    <span class="s2">&quot;SurfaceGridGeometry&quot;</span><span class="p">:</span> <span class="n">surface_grid_geom_to_vtk</span><span class="p">,</span>
+    <span class="s2">&quot;SurfaceElement&quot;</span><span class="p">:</span> <span class="n">surface_to_vtk</span><span class="p">,</span>
+    <span class="s2">&quot;ImageTexture&quot;</span><span class="p">:</span> <span class="n">texture_to_vtk</span><span class="p">,</span>
+    <span class="c1"># Volumes</span>
+    <span class="s2">&quot;VolumeGridGeometry&quot;</span><span class="p">:</span> <span class="n">volume_grid_geom_to_vtk</span><span class="p">,</span>
+    <span class="s2">&quot;VolumeElement&quot;</span><span class="p">:</span> <span class="n">volume_to_vtk</span><span class="p">,</span>
+    <span class="s2">&quot;Project&quot;</span><span class="p">:</span> <span class="n">project_to_vtk</span><span class="p">,</span>
+<span class="p">}</span>
 
 
 <span class="c1"># Now set up the display names for the docs</span>
-<span class="n">load_project</span><span class="o">.</span><span class="n">__displayname__</span> <span class="o">=</span> <span class="s1">&#39;Load Project File&#39;</span>
-<span class="n">project_to_vtk</span><span class="o">.</span><span class="n">__displayname__</span> <span class="o">=</span> <span class="s1">&#39;Project to VTK&#39;</span>
-<span class="n">wrap</span><span class="o">.</span><span class="n">__displayname__</span> <span class="o">=</span> <span class="s1">&#39;The Wrapper&#39;</span>
+<span class="n">load_project</span><span class="o">.</span><span class="n">__displayname__</span> <span class="o">=</span> <span class="s2">&quot;Load Project File&quot;</span>
+<span class="n">project_to_vtk</span><span class="o">.</span><span class="n">__displayname__</span> <span class="o">=</span> <span class="s2">&quot;Project to VTK&quot;</span>
+<span class="n">wrap</span><span class="o">.</span><span class="n">__displayname__</span> <span class="o">=</span> <span class="s2">&quot;The Wrapper&quot;</span>
 </pre></div>
 
            </div>
@@ -227,7 +252,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2022, Bane Sullivan.</p>
+    <p>&#169; Copyright 2019-2023, Bane Sullivan.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

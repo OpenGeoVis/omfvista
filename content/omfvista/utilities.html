@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>utilities &mdash; omfvista 0.2.5 documentation</title>
@@ -16,14 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=cb850272"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -36,14 +35,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> omfvista
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            omfvista
           </a>
               <div class="version">
                 0.2.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -67,8 +70,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#omfvista.utilities.add_data"><code class="docutils literal notranslate"><span class="pre">add_data()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#add-textures">add_textures</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#omfvista.utilities.add_textures"><code class="docutils literal notranslate"><span class="pre">add_textures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-texture-coordinates">add_texture_coordinates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#omfvista.utilities.add_texture_coordinates"><code class="docutils literal notranslate"><span class="pre">add_texture_coordinates()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#check-orientation">check_orientation</a><ul>
@@ -100,9 +103,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">About OMF-VTK</a> &raquo;</li>
-      <li>utilities</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">About OMF-VTK</a></li>
+      <li class="breadcrumb-item active">utilities</li>
 
   </ul>
   <hr/>
@@ -111,40 +114,40 @@
            <div itemprop="articleBody">
              
   <section id="module-omfvista.utilities">
-<span id="utilities"></span><h1>utilities<a class="headerlink" href="#module-omfvista.utilities" title="Permalink to this heading"></a></h1>
+<span id="utilities"></span><h1>utilities<a class="headerlink" href="#module-omfvista.utilities" title="Link to this heading"></a></h1>
 <section id="add-data">
-<h2>add_data<a class="headerlink" href="#add-data" title="Permalink to this heading"></a></h2>
+<h2>add_data<a class="headerlink" href="#add-data" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="omfvista.utilities.add_data">
-<span class="sig-prename descclassname"><span class="pre">omfvista.utilities.</span></span><span class="sig-name descname"><span class="pre">add_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/utilities.html#add_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.utilities.add_data" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">omfvista.utilities.</span></span><span class="sig-name descname"><span class="pre">add_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/utilities.html#add_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.utilities.add_data" title="Link to this definition"></a></dt>
 <dd><p>Adds data arrays to an output VTK data object</p>
 </dd></dl>
 
 </section>
-<section id="add-textures">
-<h2>add_textures<a class="headerlink" href="#add-textures" title="Permalink to this heading"></a></h2>
+<section id="add-texture-coordinates">
+<h2>add_texture_coordinates<a class="headerlink" href="#add-texture-coordinates" title="Link to this heading"></a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="omfvista.utilities.add_textures">
-<span class="sig-prename descclassname"><span class="pre">omfvista.utilities.</span></span><span class="sig-name descname"><span class="pre">add_textures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/utilities.html#add_textures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.utilities.add_textures" title="Permalink to this definition"></a></dt>
-<dd><p>Add textures to a pyvista data object</p>
+<dt class="sig sig-object py" id="omfvista.utilities.add_texture_coordinates">
+<span class="sig-prename descclassname"><span class="pre">omfvista.utilities.</span></span><span class="sig-name descname"><span class="pre">add_texture_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/utilities.html#add_texture_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.utilities.add_texture_coordinates" title="Link to this definition"></a></dt>
+<dd><p>Add texture coordinates to a pyvista data object.</p>
 </dd></dl>
 
 </section>
 <section id="check-orientation">
-<h2>check_orientation<a class="headerlink" href="#check-orientation" title="Permalink to this heading"></a></h2>
+<h2>check_orientation<a class="headerlink" href="#check-orientation" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="omfvista.utilities.check_orientation">
-<span class="sig-prename descclassname"><span class="pre">omfvista.utilities.</span></span><span class="sig-name descname"><span class="pre">check_orientation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/utilities.html#check_orientation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.utilities.check_orientation" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">omfvista.utilities.</span></span><span class="sig-name descname"><span class="pre">check_orientation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/utilities.html#check_orientation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.utilities.check_orientation" title="Link to this definition"></a></dt>
 <dd><p>This will check if the given <code class="docutils literal notranslate"><span class="pre">axis_*</span></code> vectors are the typical
 cartesian refernece frame (i.e. rectilinear).</p>
 </dd></dl>
 
 </section>
 <section id="check-orthogonal">
-<h2>check_orthogonal<a class="headerlink" href="#check-orthogonal" title="Permalink to this heading"></a></h2>
+<h2>check_orthogonal<a class="headerlink" href="#check-orthogonal" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="omfvista.utilities.check_orthogonal">
-<span class="sig-prename descclassname"><span class="pre">omfvista.utilities.</span></span><span class="sig-name descname"><span class="pre">check_orthogonal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/utilities.html#check_orthogonal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.utilities.check_orthogonal" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">omfvista.utilities.</span></span><span class="sig-name descname"><span class="pre">check_orthogonal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/utilities.html#check_orthogonal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.utilities.check_orthogonal" title="Link to this definition"></a></dt>
 <dd><p>Makes sure that the three input vectors are orthogonal</p>
 </dd></dl>
 
@@ -162,7 +165,7 @@ cartesian refernece frame (i.e. rectilinear).</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2022, Bane Sullivan.</p>
+    <p>&#169; Copyright 2019-2023, Bane Sullivan.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
