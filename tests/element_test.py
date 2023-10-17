@@ -15,12 +15,8 @@ POINTSET = omf.PointSetElement(
     description="Just random points",
     geometry=omf.PointSetGeometry(vertices=np.random.rand(100, 3)),
     data=[
-        omf.ScalarData(
-            name="rand data", array=np.random.rand(100), location="vertices"
-        ),
-        omf.ScalarData(
-            name="More rand data", array=np.random.rand(100), location="vertices"
-        ),
+        omf.ScalarData(name="rand data", array=np.random.rand(100), location="vertices"),
+        omf.ScalarData(name="More rand data", array=np.random.rand(100), location="vertices"),
     ],
     #                           textures=[
     #                                   omf.ImageTexture(
@@ -47,12 +43,8 @@ LINESET = omf.LineSetElement(
         segments=np.floor(np.random.rand(50, 2) * 100).astype(int),
     ),
     data=[
-        omf.ScalarData(
-            name="rand vert data", array=np.random.rand(100), location="vertices"
-        ),
-        omf.ScalarData(
-            name="rand segment data", array=np.random.rand(50), location="segments"
-        ),
+        omf.ScalarData(name="rand vert data", array=np.random.rand(100), location="vertices"),
+        omf.ScalarData(name="rand segment data", array=np.random.rand(50), location="segments"),
     ],
     color="#0000FF",
 )
@@ -64,12 +56,8 @@ SURFACE = omf.SurfaceElement(
         triangles=np.floor(np.random.rand(50, 3) * 100).astype(int),
     ),
     data=[
-        omf.ScalarData(
-            name="rand vert data", array=np.random.rand(100), location="vertices"
-        ),
-        omf.ScalarData(
-            name="rand face data", array=np.random.rand(50), location="faces"
-        ),
+        omf.ScalarData(name="rand vert data", array=np.random.rand(100), location="vertices"),
+        omf.ScalarData(name="rand face data", array=np.random.rand(50), location="faces"),
     ],
     color=[100, 200, 200],
 )

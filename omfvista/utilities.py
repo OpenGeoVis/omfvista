@@ -6,9 +6,9 @@ __all__ = [
 ]
 
 
+from PIL import Image
 import numpy as np
 import pyvista
-from PIL import Image
 
 try:
     from pyvista import is_pyvista_obj as is_pyvista_dataset

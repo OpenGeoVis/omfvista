@@ -3,11 +3,7 @@
 
 from omfvista.lineset import line_set_to_vtk
 from omfvista.pointset import point_set_to_vtk
-from omfvista.surface import (
-    surface_geom_to_vtk,
-    surface_grid_geom_to_vtk,
-    surface_to_vtk,
-)
+from omfvista.surface import surface_geom_to_vtk, surface_grid_geom_to_vtk, surface_to_vtk
 from omfvista.utilities import (
     add_data,
     add_texture_coordinates,

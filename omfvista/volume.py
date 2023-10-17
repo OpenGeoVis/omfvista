@@ -50,9 +50,7 @@ def volume_grid_geom_to_vtk(volgridgeom, origin=(0.0, 0.0, 0.0)):
     points = np.c_[xx.ravel("F"), yy.ravel("F"), zz.ravel("F")]
 
     # Rotate the points based on the axis orientations
-    rotation_mtx = np.array(
-        [volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w]
-    )
+    rotation_mtx = np.array([volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w])
     points = points.dot(rotation_mtx)
 
     output = pyvista.StructuredGrid()
