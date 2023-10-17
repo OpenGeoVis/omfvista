@@ -1,12 +1,13 @@
-import unittest
 import os
 import shutil
 import tempfile
+import unittest
 
 import numpy as np
 import omf
-import omfvista
 import pyvista
+
+import omfvista
 
 PROJECT = omf.Project(name='Test project',
                         description='Just some assorted elements')

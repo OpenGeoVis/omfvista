@@ -6,6 +6,7 @@ Load and visualize an OMF project file
 """
 # sphinx_gallery_thumbnail_number = 3
 import pyvista as pv
+
 import omfvista
 
 ###############################################################################

@@ -4,12 +4,13 @@ Load Surface from XYZ File
 
 Load a surface from a file of XYZ coordinates
 """
+import numpy as np
+import omf
 # sphinx_gallery_thumbnail_number = 2
 import pandas as pd
-import omf
-import omfvista
 import pyvista as pv
-import numpy as np
+
+import omfvista
 
 ###############################################################################
 

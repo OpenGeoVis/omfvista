@@ -15,13 +15,15 @@
 import datetime
 import os
 import sys
+
 path = os.path.abspath('../..')
 sys.path.insert(0, path)
 
 
+import numpy as np
 # -- pyvista configuration ---------------------------------------------------
 import pyvista
-import numpy as np
+
 # Manage errors
 pyvista.set_error_output_file('errors.txt')
 # Ensure that offscreen rendering is used for docs generation
@@ -29,15 +31,15 @@ pyvista.OFF_SCREEN = True # Not necessary - simply an insurance policy
 pyvista.BUILDING_GALLERY = True # necessary when building the sphinx gallery
 # Preferred plotting style for documentation
 pyvista.set_plot_theme('document')
-pyvista.rcParams['window_size'] = np.array([1024, 768]) * 2
+pyvista.global_theme.window_size = np.array([1024, 768]) * 2
 
 # -- Automatic Doc Pages Generation ------------------------------------------
 
 
-import omfvista # for documenting
+import omfvista  # for documenting
+
 sys.path.insert(0, '/Users/bane/Documents/OpenGeoVis/Software/gendocs/')
 from gendocs import Generator
-
 
 append_material = """
 
@@ -90,7 +92,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'sphinxcontrib.napoleon',
+    # 'sphinxcontrib.napoleon',
     'sphinx_copybutton',
     'notfound.extension',
     'sphinx_gallery.gen_gallery',

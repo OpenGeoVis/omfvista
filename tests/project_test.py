@@ -1,13 +1,13 @@
-import unittest
 import os
 import shutil
 import tempfile
+import unittest
 
 import numpy as np
 import omf
-import omfvista
 import pyvista
 
+import omfvista
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), '../assets/test_file.omf')
 
