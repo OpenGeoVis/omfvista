@@ -25,7 +25,7 @@ Load and visualize an OMF project file
 
 .. GENERATED FROM PYTHON SOURCE LINES 7-12
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_number = 3
     import pyvista as pv
@@ -45,7 +45,7 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 14-18
 
-.. code-block:: default
+.. code-block:: Python
 
 
     project = omfvista.load_project("../assets/test_file.omf")
@@ -59,7 +59,7 @@ Load the project into an :class:`pyvista.MultiBlock` dataset
 
  .. code-block:: none
 
-    MultiBlock (0x7f926d9685e0)
+    MultiBlock (0x7f9501e00940)
       N Blocks    9
       X Bounds    443941.105, 447059.611
       Y Bounds    491941.536, 495059.859
@@ -76,7 +76,7 @@ visualization from ``pyvista``:
 
 .. GENERATED FROM PYTHON SOURCE LINES 22-26
 
-.. code-block:: default
+.. code-block:: Python
 
 
     project.plot()
@@ -102,7 +102,7 @@ project:
 
 .. GENERATED FROM PYTHON SOURCE LINES 30-37
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Grab a few elements of interest and plot em up!
@@ -120,7 +120,7 @@ project:
 
 .. GENERATED FROM PYTHON SOURCE LINES 38-46
 
-.. code-block:: default
+.. code-block:: Python
 
 
     assay.set_active_scalars("DENSITY")
@@ -148,7 +148,7 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
 .. GENERATED FROM PYTHON SOURCE LINES 48-53
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Threshold the volumetric data
@@ -163,7 +163,7 @@ Then apply a filtering tool from ``pyvista`` to the volumetric data:
 
  .. code-block:: none
 
-    UnstructuredGrid (0x7f926d99abe0)
+    UnstructuredGrid (0x7f9501e00b20)
       N Cells:    92525
       N Points:   107807
       X Bounds:   4.447e+05, 4.457e+05
@@ -180,7 +180,7 @@ Then you can put it all in one environment!
 
 .. GENERATED FROM PYTHON SOURCE LINES 55-75
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Create a plotting window
@@ -217,7 +217,7 @@ Then you can put it all in one environment!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 13.122 seconds)
+   **Total running time of the script:** (0 minutes 7.928 seconds)
 
 
 .. _sphx_glr_download_examples_load-project.py:
@@ -226,16 +226,13 @@ Then you can put it all in one environment!
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: load-project.ipynb <load-project.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: load-project.py <load-project.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: load-project.ipynb <load-project.ipynb>`
 
 
 .. only:: html

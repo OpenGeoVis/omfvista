@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Load Surface from XYZ File &mdash; omfvista 0.3.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -99,7 +101,7 @@ to download the full example code</p>
 <section class="sphx-glr-example-title" id="load-surface-from-xyz-file">
 <span id="sphx-glr-examples-load-surface-py"></span><h1>Load Surface from XYZ File<a class="headerlink" href="#load-surface-from-xyz-file" title="Link to this heading"></a></h1>
 <p>Load a surface from a file of XYZ coordinates</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">omf</span>
 
 <span class="c1"># sphinx_gallery_thumbnail_number = 2</span>
@@ -109,7 +111,17 @@ to download the full example code</p>
 <span class="kn">import</span> <span class="nn">omfvista</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_quaternary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../assets/mod_base_quaternary_300_nan.txt&quot;</span><span class="p">)</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/omfvista/omfvista/examples/load-surface.py:11: DeprecationWarning:
+Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
+(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system.
+If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+
+  import pandas as pd
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">base_quaternary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../assets/mod_base_quaternary_300_nan.txt&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">base_quaternary_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -122,7 +134,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Create a <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> dataset out of the coordinates</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">base_quaternary_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="c1"># simply pass the numpy points to the PolyData constructor</span>
@@ -132,18 +144,18 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>Make a surface using the delaunay filter</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surf</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">delaunay_2d</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">surf</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">delaunay_2d</span><span class="p">()</span>
 <span class="n">surf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 <img src="../_images/sphx_glr_load-surface_001.png" srcset="../_images/sphx_glr_load-surface_001.png" alt="load surface" class = "sphx-glr-single-img"/><p>Now warp by a scalar to have a more realistic surface
 Note the scaling factor that exagerates the surface</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">warped</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">warp_by_scalar</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">warped</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">warp_by_scalar</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
 <span class="n">warped</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 <img src="../_images/sphx_glr_load-surface_002.png" srcset="../_images/sphx_glr_load-surface_002.png" alt="load surface" class = "sphx-glr-single-img"/><p>Create an OMF element that can be saved out</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tris</span> <span class="o">=</span> <span class="n">warped</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">surf</span><span class="o">.</span><span class="n">n_cells</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tris</span> <span class="o">=</span> <span class="n">warped</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">surf</span><span class="o">.</span><span class="n">n_cells</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">base_quaternary_omf</span> <span class="o">=</span> <span class="n">omf</span><span class="o">.</span><span class="n">SurfaceElement</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;My Surface&quot;</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s1">&#39;This is a decription of &quot;My Surface&quot;&#39;</span><span class="p">,</span>
@@ -161,16 +173,16 @@ Note the scaling factor that exagerates the surface</p>
 </pre></div>
 </div>
 <p>Sanity check</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">omfvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">base_quaternary_omf</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">omfvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">base_quaternary_omf</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_load-surface_003.png" srcset="../_images/sphx_glr_load-surface_003.png" alt="load surface" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 10.587 seconds)</p>
+<img src="../_images/sphx_glr_load-surface_003.png" srcset="../_images/sphx_glr_load-surface_003.png" alt="load surface" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 7.914 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-load-surface-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/7b3e7ad5ae732bc05696cd4c13cefc84/load-surface.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">load-surface.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/a6ec5090db5b5e54f07ba74c7f448bed/load-surface.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">load-surface.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/7b3e7ad5ae732bc05696cd4c13cefc84/load-surface.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">load-surface.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -187,7 +199,7 @@ Note the scaling factor that exagerates the surface</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2023, Bane Sullivan.</p>
+    <p>&#169; Copyright 2019-2024, Bane Sullivan.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

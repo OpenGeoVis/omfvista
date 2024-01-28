@@ -25,7 +25,7 @@ Load a surface from a file of XYZ coordinates
 
 .. GENERATED FROM PYTHON SOURCE LINES 7-16
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
     import omf
@@ -40,12 +40,25 @@ Load a surface from a file of XYZ coordinates
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/runner/work/omfvista/omfvista/examples/load-surface.py:11: DeprecationWarning: 
+    Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
+    (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+    but was not found to be installed on your system.
+    If this would cause problems for you,
+    please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+        
+      import pandas as pd
+
 
 
 
 .. GENERATED FROM PYTHON SOURCE LINES 17-21
 
-.. code-block:: default
+.. code-block:: Python
 
 
     base_quaternary_df = pd.read_csv("../assets/mod_base_quaternary_300_nan.txt")
@@ -75,7 +88,7 @@ Create a ``pyvista`` dataset out of the coordinates
 
 .. GENERATED FROM PYTHON SOURCE LINES 23-31
 
-.. code-block:: default
+.. code-block:: Python
 
     x = base_quaternary_df["x"].values
     y = base_quaternary_df["y"].values
@@ -98,7 +111,7 @@ Make a surface using the delaunay filter
 
 .. GENERATED FROM PYTHON SOURCE LINES 33-36
 
-.. code-block:: default
+.. code-block:: Python
 
     surf = cloud.delaunay_2d()
     surf.plot()
@@ -122,7 +135,7 @@ Note the scaling factor that exagerates the surface
 
 .. GENERATED FROM PYTHON SOURCE LINES 39-42
 
-.. code-block:: default
+.. code-block:: Python
 
     warped = surf.warp_by_scalar(factor=5.0)
     warped.plot()
@@ -145,7 +158,7 @@ Create an OMF element that can be saved out
 
 .. GENERATED FROM PYTHON SOURCE LINES 44-57
 
-.. code-block:: default
+.. code-block:: Python
 
     tris = warped.faces.reshape(surf.n_cells, 4)[:, 1:4]
     base_quaternary_omf = omf.SurfaceElement(
@@ -179,7 +192,7 @@ Sanity check
 
 .. GENERATED FROM PYTHON SOURCE LINES 59-60
 
-.. code-block:: default
+.. code-block:: Python
 
     omfvista.wrap(base_quaternary_omf).plot()
 
@@ -197,7 +210,7 @@ Sanity check
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 10.587 seconds)
+   **Total running time of the script:** (0 minutes 7.914 seconds)
 
 
 .. _sphx_glr_download_examples_load-surface.py:
@@ -206,16 +219,13 @@ Sanity check
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: load-surface.ipynb <load-surface.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: load-surface.py <load-surface.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: load-surface.ipynb <load-surface.ipynb>`
 
 
 .. only:: html
