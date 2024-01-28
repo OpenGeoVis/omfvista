@@ -1,6 +1,9 @@
--e .
 imageio-ffmpeg
 ipython
+matplotlib
 nbval
+numpy
+omf>=1.0.0
 pytest
 pytest-cov
+vectormath>=0.2.2
