@@ -9,11 +9,11 @@ jobs:
   build-doc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v1
+        uses: pyvista/setup-headless-display-action@v4
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.9
       - name: Intall dependencies
@@ -25,7 +25,7 @@ jobs:
         working-directory: docs
         run: make html
       - name: Stash build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: docs-build
           path: docs/_build/html
@@ -36,13 +36,13 @@ jobs:
     needs: build-doc
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
         with:
           name: docs-build
           path: docs/_build/html
       - name: Deploy to GH Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/_build/html

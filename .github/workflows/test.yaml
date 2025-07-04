@@ -18,11 +18,11 @@ jobs:
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v1
+        uses: pyvista/setup-headless-display-action@v4
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - name: Intall dependencies
@@ -35,7 +35,7 @@ jobs:
           coverage xml -o coverage.xml
       - name: Test notebook
         run: pytest -v --nbval-lax --current-env --disable-warnings Example.ipynb
-      - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage.xml
