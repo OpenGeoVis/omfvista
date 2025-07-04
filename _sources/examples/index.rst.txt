@@ -9,6 +9,7 @@ Examples
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
@@ -43,6 +44,8 @@ Examples
       <div class="sphx-glr-thumbnail-title">Load Surface from XYZ File</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 

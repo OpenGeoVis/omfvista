@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_examples_load-surface.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -39,19 +39,6 @@ Load a surface from a file of XYZ coordinates
 
 
 
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/omfvista/omfvista/examples/load-surface.py:11: DeprecationWarning: 
-    Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-    (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-    but was not found to be installed on your system.
-    If this would cause problems for you,
-    please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-      import pandas as pd
 
 
 
@@ -210,7 +197,7 @@ Sanity check
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 7.794 seconds)
+   **Total running time of the script:** (0 minutes 7.037 seconds)
 
 
 .. _sphx_glr_download_examples_load-surface.py:
@@ -226,6 +213,10 @@ Sanity check
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: load-surface.py <load-surface.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: load-surface.zip <load-surface.zip>`
 
 
 .. only:: html

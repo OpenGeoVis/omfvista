@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
@@ -5,26 +7,22 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wrapper &mdash; omfvista 0.3.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=e259d695"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=e259d695"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -42,9 +40,6 @@
           <a href="../../index.html" class="icon icon-home">
             omfvista
           </a>
-              <div class="version">
-                0.3.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -118,14 +113,14 @@ project files.</p>
 <section id="example-use">
 <h2>Example Use<a class="headerlink" href="#example-use" title="Link to this heading"></a></h2>
 <p>Use the wrapper provided in <code class="docutils literal notranslate"><span class="pre">omfvista</span></code> to wrap any <code class="docutils literal notranslate"><span class="pre">omf</span></code> data object:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">omfvista</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">omfvista</span>
 
 <span class="n">omfvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Here’s an example using the sample data hosted in the <a class="reference external" href="https://github.com/gmggroup/omf/tree/master/assets">OMF repository</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">omf</span>
-<span class="kn">import</span> <span class="nn">omfvista</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">omf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">omfvista</span>
 
 <span class="c1"># Read all elements</span>
 <span class="n">reader</span> <span class="o">=</span> <span class="n">omf</span><span class="o">.</span><span class="n">OMFReader</span><span class="p">(</span><span class="s1">&#39;test_file.omf&#39;</span><span class="p">)</span>
@@ -139,7 +134,7 @@ project files.</p>
 </pre></div>
 </div>
 <p>Or better yet, just use the project loader:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">omfvista</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">omfvista</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">omfvista</span><span class="o">.</span><span class="n">load_project</span><span class="p">(</span><span class="s1">&#39;test_file.omf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -149,7 +144,7 @@ project files.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="omfvista.wrapper.load_project">
 <span class="sig-prename descclassname"><span class="pre">omfvista.wrapper.</span></span><span class="sig-name descname"><span class="pre">load_project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_textures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/wrapper.html#load_project"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.wrapper.load_project" title="Link to this definition"></a></dt>
-<dd><p>Loads an OMF project file into a <a class="reference external" href="https://docs.pyvista.org/version/stable/api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="(in PyVista v0.43.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset</p>
+<dd><p>Loads an OMF project file into a <a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="(in PyVista v0.45.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> dataset</p>
 </dd></dl>
 
 </section>
@@ -159,7 +154,7 @@ project files.</p>
 <dt class="sig sig-object py" id="omfvista.wrapper.project_to_vtk">
 <span class="sig-prename descclassname"><span class="pre">omfvista.wrapper.</span></span><span class="sig-name descname"><span class="pre">project_to_vtk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_textures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/omfvista/wrapper.html#project_to_vtk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#omfvista.wrapper.project_to_vtk" title="Link to this definition"></a></dt>
 <dd><p>Converts an OMF project (<code class="xref py py-class docutils literal notranslate"><span class="pre">omf.base.Project</span></code>) to a
-<a class="reference external" href="https://docs.pyvista.org/version/stable/api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="(in PyVista v0.43.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> data boject</p>
+<a class="reference external" href="https://docs.pyvista.org/api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="(in PyVista v0.45.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> data boject</p>
 </dd></dl>
 
 </section>
@@ -173,8 +168,8 @@ primary function that an end user will harness.</p>
 <dl>
 <dt>Args:</dt><dd><p>data: any OMF data object</p>
 </dd>
-<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">omf</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">omfvista</span>
+<dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">omf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">omfvista</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Read all elements</span>
@@ -206,7 +201,7 @@ primary function that an end user will harness.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019-2024, Bane Sullivan.</p>
+    <p>&#169; Copyright 2019-2025, Bane Sullivan.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
