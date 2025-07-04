@@ -30,7 +30,7 @@ def line_set_to_vtk(lse, origin=(0.0, 0.0, 0.0)):
     output.lines = lines
 
     indices = output.connectivity().cell_data["RegionId"]
-    output["Line Index"] = indices
+    output["Line Index"] = np.array(indices)
 
     # Now add data to lines:
     add_data(output, lse.data)
