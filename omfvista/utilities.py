@@ -1,5 +1,6 @@
 __all__ = [
     "check_orientation",
+    "axis_permutation",
     "check_orthogonal",
     "add_data",
     "add_texture_coordinates",
@@ -27,6 +28,31 @@ def check_orientation(axis_u, axis_v, axis_w):
     ):
         return True
     return False
+
+
+def axis_permutation(axis_u, axis_v, axis_w, atol=1e-9):
+    """Detect an axis frame that is a rotation by multiples of 90 degrees.
+
+    Such a frame is a signed permutation matrix, which means the grid is still
+    rectilinear in the global frame and can be represented exactly by a
+    ``vtkRectilinearGrid`` -- no need for a ``vtkStructuredGrid``.
+
+    Returns ``(perm, signs)``, where ``perm[i]`` is the global axis that local
+    axis ``i`` (0=u, 1=v, 2=w) maps onto and ``signs[i]`` is +1/-1, or ``None``
+    if the frame is obliquely rotated.
+    """
+    mtx = np.array([axis_u, axis_v, axis_w], dtype=float)
+    rounded = np.round(mtx)
+    if not np.allclose(mtx, rounded, atol=atol):
+        return None
+    if not (
+        np.array_equal(np.abs(rounded).sum(axis=0), np.ones(3))
+        and np.array_equal(np.abs(rounded).sum(axis=1), np.ones(3))
+    ):
+        return None
+    perm = tuple(int(np.flatnonzero(rounded[i])[0]) for i in range(3))
+    signs = tuple(float(rounded[i, perm[i]]) for i in range(3))
+    return perm, signs
 
 
 def check_orthogonal(axis_u, axis_v, axis_w):
