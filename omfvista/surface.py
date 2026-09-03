@@ -48,37 +48,35 @@ def surface_grid_geom_to_vtk(surfgridgeom, origin=(0.0, 0.0, 0.0)):
     if not check_orthogonal(axis_u, axis_v, axis_w):
         raise ValueError("axis_u, axis_v, and axis_w must be orthogonal")
     rotation_mtx = np.array([axis_u, axis_v, axis_w])
-    ox, oy, oz = surfgridgeom.origin
-
-    # Make coordinates along each axis
-    x = ox + np.cumsum(surfgridgeom.tensor_u)
-    x = np.insert(x, 0, ox)
-    y = oy + np.cumsum(surfgridgeom.tensor_v)
-    y = np.insert(y, 0, oy)
-
-    z = np.array([oz])
+    # Node coordinates in the *local* (u, v, w) frame -- the origin is a
+    # global-frame translation and must only be applied after the rotation.
+    u = np.insert(np.cumsum(surfgridgeom.tensor_u), 0, 0.0)
+    v = np.insert(np.cumsum(surfgridgeom.tensor_v), 0, 0.0)
+    w = np.array([0.0])
 
     # Build out all nodes in the mesh
-    xx, yy, zz = np.meshgrid(x, y, z, indexing="ij")
+    uu, vv, ww = np.meshgrid(u, v, w, indexing="ij")
     (
-        xx,
-        yy,
-        zz,
+        uu,
+        vv,
+        ww,
     ) = (
-        xx.ravel("F"),
-        yy.ravel("F"),
-        zz.ravel("F"),
+        uu.ravel("F"),
+        vv.ravel("F"),
+        ww.ravel("F"),
     )
-    zz += surfgridgeom.offset_w
-    points = np.c_[xx, yy, zz]
+    # offset_w is along the local w axis, so it is applied before rotating
+    ww = ww + surfgridgeom.offset_w
+    points = np.c_[uu, vv, ww]
 
-    # Rotate the points based on the axis orientations
+    # Rotate the points based on the axis orientations, then translate
     points = points.dot(rotation_mtx)
+    points += np.array(surfgridgeom.origin)
 
     # Now build the output
     output = pyvista.StructuredGrid()
     output.points = points
-    output.dimensions = len(x), len(y), len(z)
+    output.dimensions = len(u), len(v), len(w)
 
     output.points += np.array(origin)
     return output
