@@ -32,30 +32,32 @@ def volume_grid_geom_to_vtk(volgridgeom, origin=(0.0, 0.0, 0.0)):
 
     ox, oy, oz = volgridgeom.origin
 
-    # Make coordinates along each axis
-    x = ox + np.cumsum(volgridgeom.tensor_u)
-    x = np.insert(x, 0, ox)
-    y = oy + np.cumsum(volgridgeom.tensor_v)
-    y = np.insert(y, 0, oy)
-    z = oz + np.cumsum(volgridgeom.tensor_w)
-    z = np.insert(z, 0, oz)
+    # Node coordinates in the *local* (u, v, w) frame, i.e. not yet offset by
+    # the geometry origin -- the origin is a global-frame translation and must
+    # only be applied after the axes have been rotated.
+    u = np.insert(np.cumsum(volgridgeom.tensor_u), 0, 0.0)
+    v = np.insert(np.cumsum(volgridgeom.tensor_v), 0, 0.0)
+    w = np.insert(np.cumsum(volgridgeom.tensor_w), 0, 0.0)
 
     # If axis orientations are standard then use a vtkRectilinearGrid
     if check_orientation(volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w):
-        return pyvista.RectilinearGrid(x + origin[0], y + origin[1], z + origin[2])
+        return pyvista.RectilinearGrid(
+            ox + u + origin[0], oy + v + origin[1], oz + w + origin[2]
+        )
 
     # Otherwise use a vtkStructuredGrid
     # Build out all nodes in the mesh
-    xx, yy, zz = np.meshgrid(x, y, z, indexing="ij")
-    points = np.c_[xx.ravel("F"), yy.ravel("F"), zz.ravel("F")]
+    uu, vv, ww = np.meshgrid(u, v, w, indexing="ij")
+    points = np.c_[uu.ravel("F"), vv.ravel("F"), ww.ravel("F")]
 
-    # Rotate the points based on the axis orientations
+    # Rotate the points based on the axis orientations, then translate
     rotation_mtx = np.array([volgridgeom.axis_u, volgridgeom.axis_v, volgridgeom.axis_w])
     points = points.dot(rotation_mtx)
+    points += np.array(volgridgeom.origin)
 
     output = pyvista.StructuredGrid()
     output.points = points
-    output.dimensions = len(x), len(y), len(z)
+    output.dimensions = len(u), len(v), len(w)
     output.points += np.array(origin)
     return output
 
